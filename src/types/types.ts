@@ -48,15 +48,15 @@ export type AnimeObject = {
   };
 };
 
-export type Data = {
+export type Datadd = {
   data: {
-    nextSesion: {
+    nextSeason: {
       media: Array<AnimeObject>;
     };
     popular: {
       media: Array<AnimeObject>;
     };
-    sesion: {
+    season: {
       media: Array<AnimeObject>;
     };
     top: {

@@ -6,7 +6,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { AnimeObject } from "@/types/types";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Navigation, Pagination , Autoplay} from "swiper/modules";
 
 type Props = {
   animesPopular: AnimeObject[];
@@ -17,8 +17,12 @@ export const Slider = ({ animesPopular }: Props) => {
       <Swiper
         spaceBetween={30}
         effect={"fade"}
-        //navigation={true}
-        modules={[EffectFade, Navigation, Pagination]}
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          
+        }}
+        modules={[EffectFade, Navigation, Pagination , Autoplay]}
         className="w-full h-full"
       >
         {animesPopular.map((anime, index) => {
@@ -29,13 +33,13 @@ export const Slider = ({ animesPopular }: Props) => {
                 <div
                   className="w-full h-[570px] absolute top-0 left-0 opacity-90"
                   style={{
-                    background: `linear-gradient(${ 
+                    background: `linear-gradient(${
                       anime.coverImage.color + `90`
                     }, ${anime.coverImage.color}   , #000 )`,
                   }}
                 ></div>
 
-                <div className="w-full relative h-full  rounded-lg overflow-hidden border border-[#ffffff20] shadow-xl">
+                <div className="w-full relative h-full  rounded-lg overflow-hidden border border-[#ffffff20] shadow-xl ">
                   <div
                     className="w-full h-full absolute top-0 left-0  -z-[1s]"
                     style={{

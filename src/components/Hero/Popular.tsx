@@ -1,10 +1,6 @@
 "use client";
 import { AnimeObject } from "@/types/types";
-import Link from "next/link";
-import React, { useRef, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
@@ -14,11 +10,12 @@ type Props = {
   animesPopular: AnimeObject[];
 };
 export const Popular = ({ animesPopular }: Props) => {
+  console.log(animesPopular)
   return (
-    <div className="w-full relative   -mt-20 z-10 px-8">
+    <div className="w-full relative   z-10 px-8">
       <h2 className="text-2xl font-semibold py-3">Popular</h2>
       <div className="w-full h-full  flex flex-wrap justify-between py-3">
-        <Swiper
+        {/* <Swiper
           slidesPerView={1}
           spaceBetween={10}
           pagination={{
@@ -46,8 +43,8 @@ export const Popular = ({ animesPopular }: Props) => {
           modules={[Pagination]}
           className="w-full h-full"
         >
-          {animesPopular.map((anime) => (
-            <SwiperSlide>
+          {animesPopular?.map((anime) => (
+            <SwiperSlide key={anime.id}>
               <Card
                 color={anime.coverImage.color}
                 genres={anime.genres}
@@ -57,7 +54,7 @@ export const Popular = ({ animesPopular }: Props) => {
               />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
       </div>
     </div>
   );

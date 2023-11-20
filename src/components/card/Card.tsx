@@ -9,7 +9,7 @@ type Props = {
 export const Card = ({id , imagen , title , genres , color ,} : Props ) => {
   return (
     <div
-      className="w-[280px] h-[350px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-xl"
+      className="w-[280px] h-[350px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10]"
       key={id}
     >
       <img
@@ -28,7 +28,7 @@ export const Card = ({id , imagen , title , genres , color ,} : Props ) => {
       <div className="w-full min-h-full h-full relative px-3">
         <div className="w-full flex min-h-full  items-end pb-6">
           <div className="w-full">
-            <p className="text-center text-2xl font-bold">
+            <p className="text-center text-2xl font-bold line-clamp-2">
               {title}
             </p>
             <div className="flex gap-x-2 w-full h-full flex-wrap justify-center">
