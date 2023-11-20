@@ -1,107 +1,69 @@
-export interface AnimeObject {
-  mal_id: number;
-  url: string;
-  images: {
-    jpg: {
-      image_url: string;
-      small_image_url: string;
-      large_image_url: string;
-    };
-    webp: {
-      image_url: string;
-      small_image_url: string;
-      large_image_url: string;
-    };
+export type AnimeObject = {
+  id: number;
+  title: {
+    userPreferred: string;
   };
-  trailer: {
-    youtube_id: string;
-    url: string;
-    embed_url: string;
-    images: {
-      image_url: string;
-      small_image_url: string;
-      medium_image_url: string;
-      large_image_url: string;
-      maximum_image_url: string;
-    };
+  coverImage: {
+    extraLarge: string;
+    large: string;
+    color: string;
   };
-  approved: boolean;
-  titles: Array<{ type: string; title: string }>;
-  title: string;
-  title_english: string;
-  title_japanese: string;
-  title_synonyms: string[];
-  type: string;
-  source: string;
-  episodes: number;
-  status: string;
-  airing: boolean;
-  aired: {
-    from: string;
-    to: string;
-    prop: {
-      from: { day: number; month: number; year: number };
-      to: { day: number; month: number; year: number };
-    };
-    string: string;
+  startDate: {
+    year: number;
+    month: number;
+    day: number;
   };
-  duration: string;
-  rating: string;
-  score: number;
-  scored_by: number;
-  rank: number;
-  popularity: number;
-  members: number;
-  favorites: number;
-  synopsis: string;
-  background: any;
+  endDate: {
+    year: number;
+    month: number;
+    day: number;
+  };
+  bannerImage: string;
   season: string;
-  year: number;
-  broadcast: {
-    day: string;
-    time: string;
-    timezone: string;
-    string: string;
+  seasonYear: number;
+  description: string;
+  type: string;
+  format: string;
+  status: string;
+  episodes: number;
+  duration: number;
+  chapters: null;
+  volumes: null;
+  genres: string[];
+  isAdult: boolean;
+  averageScore: number;
+  popularity: number;
+  mediaListEntry: null;
+  nextAiringEpisode: null;
+  studios: {
+    edges: [
+      {
+        isMain: true;
+        node: {
+          id: number;
+          name: string;
+        };
+      }
+    ];
   };
-  producers: Array<{
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }>;
-  licensors: Array<{
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }>;
-  studios: Array<{
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }>;
-  genres: Array<{
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }>;
-  explicit_genres: any[];
-  themes: Array<{
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }>;
-  demographics: Array<{
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }>;
-}
+};
 
-
-
-  
+export type Data = {
+  data: {
+    nextSesion: {
+      media: Array<AnimeObject>;
+    };
+    popular: {
+      media: Array<AnimeObject>;
+    };
+    sesion: {
+      media: Array<AnimeObject>;
+    };
+    top: {
+      media: Array<AnimeObject>;
+    };
+    trending: {
+      media: Array<AnimeObject>;
+    };
+  };
+};

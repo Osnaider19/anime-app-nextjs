@@ -1,12 +1,11 @@
-import { TopAnimes } from "@/components/top/TopAnimes";
+import { Hero } from "@/components/Hero/Hero";
 import { Suspense } from "react";
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between ">
-      <h1>Anime Tv</h1>
+    <main>
       <Suspense fallback={<div>loader</div>}>
-        <TopAnimes />
+        <Hero />
       </Suspense>
     </main>
   );
