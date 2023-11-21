@@ -21,6 +21,7 @@ type Data = {
 };
 export async function getDataHome() {
   const { query, variables } = queryHome;
+  //setTimeout(async () =>  5000);
   try {
     const response = await fetch("https://graphql.anilist.co", {
       method: "POST",

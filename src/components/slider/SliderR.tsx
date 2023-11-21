@@ -15,13 +15,15 @@ type Props = {
 export const SliderR = ({ animes, titleComponents }: Props) => {
   
   return (
-    <div className="w-full relative z-10 px-8">
-      <h2 className="text-2xl font-semibold py-3">{titleComponents}</h2>
+    <div className="w-full relative z-10 px-8 pb-5">
+      <h2 className="text-xl  pt-3">{titleComponents}</h2>
       <div className="w-full h-full  flex flex-wrap justify-between py-3">
         <Swiper
-          slidesPerView={4}
+          slidesPerView={4.7}
           spaceBetween={0}
-          
+          // pagination={{
+          //   clickable: true,
+          // }}
           navigation={true}
           breakpoints={{
             "@0.00": {
@@ -37,7 +39,7 @@ export const SliderR = ({ animes, titleComponents }: Props) => {
               spaceBetween: 40,
             },
             "@1.50": {
-              slidesPerView: 4,
+              slidesPerView: 4.7,
               spaceBetween: 50,
             },
           }}
@@ -46,7 +48,7 @@ export const SliderR = ({ animes, titleComponents }: Props) => {
         >
           {animes?.map((anime) => (
             <SwiperSlide key={anime.id}>
-              <div className="w-full h-full py-3 ">
+              <div className="w-full h-full ">
                 <Card
                   color={anime.coverImage.color}
                   genres={anime.genres}

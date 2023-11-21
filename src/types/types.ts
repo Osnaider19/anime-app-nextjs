@@ -34,7 +34,11 @@ export type AnimeObject = {
   averageScore: number;
   popularity: number;
   mediaListEntry: null;
-  nextAiringEpisode: null;
+  nextAiringEpisode: {
+    airingAt : number;
+    episode : number;
+    timeUntilAiring: number;
+   };
   studios: {
     edges: [
       {

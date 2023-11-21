@@ -18,9 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="relative w-full h-full">
+        <div className="relative top-0 left-0 w-full h-full">
           <Header />
-          <div className="w-full h-full">{children}</div>
+          <div className="w-full h-full relative">{children}</div>
         </div>
       </body>
     </html>
