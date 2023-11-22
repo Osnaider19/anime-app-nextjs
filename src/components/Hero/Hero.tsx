@@ -1,8 +1,7 @@
 import { Slider } from "./Slider";
-import { Suspense } from "react";
 import { SliderR } from "../slider/SliderR";
 import { getDataHome } from "@/services/getDataHome";
-import { Popular } from "./Popular";
+
 
 
 export async function Hero() {

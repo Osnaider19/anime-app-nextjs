@@ -21,9 +21,8 @@ type Data = {
 };
 export async function getDataHome() {
   const { query, variables } = queryHome;
-  //setTimeout(async () =>  5000);
   try {
-    const response = await fetch("https://graphql.anilist.co", {
+    const response = await fetch("https://graphql.anilist.co", { cache : "force-cache",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +32,9 @@ export async function getDataHome() {
         variables,
       }),
     });
-
+    if (!response.ok) {
+      throw new Error("error  al obtener  los datos");
+    }
     const data : Data = await response.json();
     console.log(data);
     return data;
