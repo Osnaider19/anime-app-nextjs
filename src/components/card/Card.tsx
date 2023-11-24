@@ -1,3 +1,4 @@
+import { IconsPoint } from "@/icons/Icons";
 import Link from "next/link";
 type Props = {
   id: number;
@@ -10,12 +11,13 @@ export const Card = ({ id, imagen, title, genres, color }: Props) => {
   return (
     <Link href={`/anime/${id}`}>
       <div
-        className="w-[270px] h-[150px] relative  border-[#ffffff20] overflow-hidden rounded-sm border shadow-2xl shadow-[#ffffff10]"
+        className="w-[270px] h-[150px] relative  border-[#ffffff30] overflow-hidden rounded-md border shadow-2xl shadow-[#ffffff10]"
         key={id}
       >
         <img
           src={imagen}
           alt={`imagen de ${title}`}
+          loading="lazy"
           className="absolute top-0 left-0 w-full h-full object-cover object-center"
         />
         <div
@@ -23,7 +25,15 @@ export const Card = ({ id, imagen, title, genres, color }: Props) => {
           style={{
             background: `linear-gradient(
            transparent , transparent  ,
-            rgba(0,0,0,.7)  , rgba(0,0,0,.7))`,
+            rgba(0,0,0,.5)  , rgba(0,0,0,.9))`,
+          }}
+        ></div>
+        <div
+          className="w-full h-full  absolute top-0 left-0"
+          style={{
+            background: `linear-gradient(
+           transparent , transparent  ,
+            transparent , ${color}50)`,
           }}
         ></div>
         <div className="w-full relative flex flex-col min-h-full  items-end justify-end pb-1  px-2">
@@ -32,17 +42,17 @@ export const Card = ({ id, imagen, title, genres, color }: Props) => {
               {title}
             </p>
           </div>
-          <div className="flex gap-x-2 w-full h-full flex-wrap justify-center">
+          {/* <div className="flex gap-x-2 w-full h-full flex-wrap justify-center">
             {genres.map((genre, index) => {
               if (index >= 3) return;
               return (
-                <div key={index} className="flex justify-center items-center">
+                <div key={index} className="flex justify-center gap-x-[1px] items-center">
                   <p className="text-[12px]">{genre}</p>
-                  <span>{index < genres.length - 1 && ", "}</span>
+                  <span>{index < 2  && <IconsPoint/>}</span>
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </Link>

@@ -1,4 +1,4 @@
-export default function BannerImg({ img }) {
+export default function BannerImg({ img }: { img: string }) {
   return (
     <div className="w-full relative min-h-[400px] h-full">
       <img

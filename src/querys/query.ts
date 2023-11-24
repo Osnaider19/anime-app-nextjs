@@ -180,7 +180,9 @@ export const queryId = {
             status(version: 2)
             bannerImage
             coverImage {
+              extraLarge
               large
+              color
             }
           }
         }
