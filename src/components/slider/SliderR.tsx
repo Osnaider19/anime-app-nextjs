@@ -19,7 +19,7 @@ export const SliderR = ({ animes, titleComponents }: Props) => {
       <h2 className="text-xl  pt-3">{titleComponents}</h2>
       <div className="w-full h-full  flex flex-wrap justify-between py-3">
         <Swiper
-          slidesPerView={4.7}
+          slidesPerView={5.4}
           spaceBetween={0}
           // pagination={{
           //   clickable: true,
@@ -39,7 +39,7 @@ export const SliderR = ({ animes, titleComponents }: Props) => {
               spaceBetween: 40,
             },
             "@1.50": {
-              slidesPerView: 4.7,
+              slidesPerView: 5.4,
               spaceBetween: 50,
             },
           }}

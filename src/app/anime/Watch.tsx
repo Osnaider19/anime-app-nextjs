@@ -1,16 +1,18 @@
 import { StreamingEpisode } from "@/types/types";
 import Link from "next/link";
-export const Wath = ({
+export const Watch = ({
   streamingEpisodes,
+  id,
 }: {
   streamingEpisodes: StreamingEpisode[];
+  id: number;
 }) => {
   return (
     <>
-      {streamingEpisodes && (
-        <section className="w-full h-full">
+      {streamingEpisodes.length > 0 && (
+        <section className="w-full h-full pt-7">
           <h2 className="py-2 font-semibold">
-            <Link href={"#"}>Wath</Link>
+            <Link href={{ query: "watch" }}>Watch</Link>
           </h2>
           <div className="flex justify-start gap-x-3 items-center w-full h-full flex-wrap ">
             {streamingEpisodes.map((episode, index) => {

@@ -203,7 +203,7 @@ export interface Ranking {
   context: string;
 }
 
-export interface Recommendations {
+export type Recommendations = {
   pageInfo: PageInfo;
   nodes:    RecommendationsNode[];
 }
