@@ -1,5 +1,12 @@
+"use client";
+import { Card } from "@/components/card/Card";
 import { Recommendations } from "@/types/types";
-import Link from "next/link";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 export const Recommendation = ({
   recommendations,
@@ -11,25 +18,45 @@ export const Recommendation = ({
       {recommendations && (
         <div className="w-full h-full">
           <h2 className="font-semibold py-2">Recommendations</h2>
-          <div className="flex justify-start items-start gap-x-2 flex-wrap overflow-hidden">
-            {recommendations.nodes.map((recommendation) => (
-              <div
-                className="w-[170px] min-h-full h-full relative rounded-md overflow-hidden border border-[#ffffff20]"
-                key={recommendation.mediaRecommendation.id}
-              >
-                <Link href={`/anime/${recommendation.mediaRecommendation.id}`}>
-                  <img
-                    src={recommendation.mediaRecommendation.coverImage.large}
-                    alt={`imagen the ${recommendation.mediaRecommendation.title.userPreferred}`}
-                    loading="lazy"
-                    className="w-full h-[230px] object-cover"
+          <div className="flex justify-center w-full items-center">
+            <Swiper
+              slidesPerView={6}
+              spaceBetween={0}
+              navigation={true}
+              breakpoints={{
+                "@0.00": {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+                "@0.75": {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                "@1.00": {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                "@1.50": {
+                  slidesPerView: 6,
+                  spaceBetween: 50,
+                },
+              }}
+              modules={[Pagination, Navigation]}
+              className="w-full h-full"
+            >
+              {recommendations.nodes.map((anime) => (
+                <SwiperSlide key={anime.id}>
+                  <Card
+                    key={anime.mediaRecommendation.id}
+                    id={anime.mediaRecommendation.id}
+                    imagen={anime.mediaRecommendation.coverImage.large}
+                    title={anime.mediaRecommendation.title.userPreferred}
+                    genres={anime.mediaRecommendation.genres}
+                    color={anime.mediaRecommendation.coverImage.color}
                   />
-                  <p className="text-sm line-clamp-2 px-1 h-full">
-                    {recommendation.mediaRecommendation.title.userPreferred}
-                  </p>
-                </Link>
-              </div>
-            ))}
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       )}

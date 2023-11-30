@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import { AnimeObject } from "@/types/types";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import { IconsPoint } from "@/icons/Icons";
-import { formatDate } from "@/helpers/formatDate";
 import Link from "next/link";
 
 type Props = {
@@ -27,15 +26,15 @@ export const Slider = ({ animesPopular }: Props) => {
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="w-full h-full"
       >
-        {animesPopular.map((anime, index) => {
+        {animesPopular.map((anime) => {
           if (!anime.bannerImage) return;
           return (
             <SwiperSlide key={anime.id}>
-              <div className="w-full h-[490px] relative pt-[80px] px-8 pb-5 bg-gradient-to-b ">
+              <div className="w-full h-[490px] relative pt-[70px] px-8 pb-5 bg-gradient-to-b ">
                 <div
                   className="w-full h-[570px] absolute top-0 left-0 opacity-90"
                   style={{
-                    background: `linear-gradient(${anime.coverImage.color}, ${anime.coverImage.color}   , #000 )`,
+                    background: `linear-gradient(${anime.coverImage.color}, ${anime.coverImage.color}  , #000 )`,
                   }}
                 ></div>
 
@@ -48,22 +47,21 @@ export const Slider = ({ animesPopular }: Props) => {
                         backgroundPosition: "top",
                       }}
                     ></div>
-                    {/* <img
-                      src={anime.bannerImage}
-                      alt=""
-                      className="absolute left-0 top-0 w-full h-full object-cover"
-                      loading="lazy"
-                    /> */}
                     <div
                       className="w-full h-full absolute top-0 left-0"
                       style={{
-                        background: `linear-gradient(rgba(0,0,0 , .1) , rgba(0,0,0 , .1), ${anime.coverImage.color})`,
+                        background: `linear-gradient(rgba(0,0,0 , .1) , rgba(0,0,0 , .1), ${
+                          anime.coverImage.color
+                            ? anime.coverImage.color
+                            : "rgba(0,0,0 ,.5)"
+                        })`,
                       }}
                     ></div>
                     <div
                       className="w-full h-full absolute top-0 left-0"
                       style={{
-                        background: `linear-gradient(transparent , rgba(0,0,0 , .4)`,
+                        background: `linear-gradient(transparent , 
+                          rgba(0,0,0 , .5)`,
                       }}
                     ></div>
                     <div className="relative w-full h-full px-6 pt-9 pb-2  flex justify-center items-end">

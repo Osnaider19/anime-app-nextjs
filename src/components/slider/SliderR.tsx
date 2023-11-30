@@ -7,19 +7,31 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import { Card } from "../card/Card";
+import Link from "next/link";
+import { IconsArrow } from "@/icons/Icons";
 
 type Props = {
   titleComponents: string;
   animes: AnimeObject[];
+  link?: string;
 };
-export const SliderR = ({ animes, titleComponents }: Props) => {
-  
+export const SliderR = ({ animes, titleComponents, link }: Props) => {
   return (
     <div className="w-full relative z-10 px-8 pb-5">
-      <h2 className="text-xl  pt-3">{titleComponents}</h2>
+      <div className="text-xl  pt-3 flex  items-center ">
+        <Link
+          href={ link ? `/${link}` : "#"}
+          className="flex  gap-x-2  items-center group"
+        >
+          <h2>{titleComponents}</h2>
+          <span className="group-hover:opacity-100 group-hover:-translate-x-0 opacity-0 -translate-x-2 transition-all duration-300 ">
+            <IconsArrow />
+          </span>
+        </Link>
+      </div>
       <div className="w-full h-full  flex flex-wrap justify-between py-3">
         <Swiper
-          slidesPerView={5.4}
+          slidesPerView={6}
           spaceBetween={0}
           // pagination={{
           //   clickable: true,
@@ -39,7 +51,7 @@ export const SliderR = ({ animes, titleComponents }: Props) => {
               spaceBetween: 40,
             },
             "@1.50": {
-              slidesPerView: 5.4,
+              slidesPerView: 6,
               spaceBetween: 50,
             },
           }}

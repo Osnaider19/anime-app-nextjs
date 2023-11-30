@@ -3,9 +3,6 @@ import { SliderR } from "@/components/slider/SliderR";
 import { getDataHome } from "@/services/getDataHome";
 
 export default async function Home() {
-  setTimeout(async () => {
-    
-  }, 5000);
   const data = await getDataHome();
   if (!data) return;
   return (
@@ -13,10 +10,11 @@ export default async function Home() {
       <div className="w-full relative h-full">
         <Slider animesPopular={data?.data.trending.media} />
         {/* <Popular animesPopular={data?.data}/> */}
-        <div className="relative w-full h-full -mt-24">
+        <div className="relative w-full h-full -mt-28">
           <SliderR
             animes={data?.data.popular.media}
             titleComponents="All time popular"
+            link="popular"
           />
         </div>
         <SliderR

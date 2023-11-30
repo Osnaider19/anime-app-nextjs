@@ -35,10 +35,10 @@ export type AnimeObject = {
   popularity: number;
   mediaListEntry: null;
   nextAiringEpisode: {
-    airingAt : number;
-    episode : number;
+    airingAt: number;
+    episode: number;
     timeUntilAiring: number;
-   };
+  };
   studios: {
     edges: [
       {
@@ -72,58 +72,57 @@ export type Datadd = {
   };
 };
 
-
 export interface AnimeId {
   Media: Media;
 }
 
 export interface Media {
-  id:                      number;
-  title:                   Title;
-  coverImage:              CoverImage;
-  bannerImage:             string;
-  startDate:               EndDateClass;
-  endDate:                 EndDateClass;
-  description:             string;
-  season:                  string;
-  seasonYear:              number;
-  type:                    Source;
-  format:                  string;
-  status:                  Status;
-  episodes:                null;
-  duration:                number;
-  chapters:                null;
-  volumes:                 null;
-  genres:                  string[];
-  synonyms:                string[];
-  source:                  Source;
-  isAdult:                 boolean;
-  isLocked:                boolean;
-  meanScore:               number;
-  averageScore:            number;
-  popularity:              number;
-  favourites:              number;
-  isFavouriteBlocked:      boolean;
-  hashtag:                 string;
-  countryOfOrigin:         string;
-  isLicensed:              boolean;
-  isFavourite:             boolean;
+  id: number;
+  title: Title;
+  coverImage: CoverImage;
+  bannerImage: string;
+  startDate: EndDateClass;
+  endDate: EndDateClass;
+  description: string;
+  season: string;
+  seasonYear: number;
+  type: Source;
+  format: string;
+  status: Status;
+  episodes: null;
+  duration: number;
+  chapters: null;
+  volumes: null;
+  genres: string[];
+  synonyms: string[];
+  source: Source;
+  isAdult: boolean;
+  isLocked: boolean;
+  meanScore: number;
+  averageScore: number;
+  popularity: number;
+  favourites: number;
+  isFavouriteBlocked: boolean;
+  hashtag: string;
+  countryOfOrigin: string;
+  isLicensed: boolean;
+  isFavourite: boolean;
   isRecommendationBlocked: boolean;
-  isReviewBlocked:         boolean;
-  nextAiringEpisode:       NextAiringEpisode;
-  relations:               Relations;
-  characterPreview:        CharacterPreview;
-  staffPreview:            StaffPreview;
-  studios:                 Studios;
-  reviewPreview:           ReviewPreview;
-  recommendations:         Recommendations;
-  externalLinks:           ExternalLink[];
-  streamingEpisodes:       StreamingEpisode[];
-  trailer:                 null;
-  rankings:                Ranking[];
-  tags:                    Tag[];
-  mediaListEntry:          null;
-  stats:                   Stats;
+  isReviewBlocked: boolean;
+  nextAiringEpisode: NextAiringEpisode;
+  relations: Relations;
+  characterPreview: CharacterPreview;
+  staffPreview: StaffPreview;
+  studios: Studios;
+  reviewPreview: ReviewPreview;
+  recommendations: Recommendations;
+  externalLinks: ExternalLink[];
+  streamingEpisodes: StreamingEpisode[];
+  trailer: null;
+  rankings: Ranking[];
+  tags: Tag[];
+  mediaListEntry: null;
+  stats: Stats;
 }
 
 export interface CharacterPreview {
@@ -131,22 +130,23 @@ export interface CharacterPreview {
 }
 
 export interface CharacterPreviewEdge {
-  id:          number;
-  role:        string;
-  name:        null;
+  id: number;
+  role: string;
+  name: null;
   voiceActors: VoiceActorClass[];
-  node:        VoiceActorClass;
+  node: VoiceActorClass;
 }
 
 export interface VoiceActorClass {
-  id:        number;
-  name:      Name;
-  image:     Image;
+  id: number;
+  name: Name;
+  image: Image;
   language?: Language;
 }
 
 export interface Image {
   large: string;
+  color : string
 }
 
 export enum Language {
@@ -159,24 +159,24 @@ export interface Name {
 
 export interface CoverImage {
   extraLarge: string;
-  large:      string;
+  large: string;
 }
 
 export interface EndDateClass {
-  year:  number | null;
+  year: number | null;
   month: number | null;
-  day:   number | null;
+  day: number | null;
 }
 
 export interface ExternalLink {
-  id:         number;
-  site:       string;
-  url:        string;
-  type:       Type;
-  language:   Language | null;
-  color:      null | string;
-  icon:       null | string;
-  notes:      null;
+  id: number;
+  site: string;
+  url: string;
+  type: Type;
+  language: Language | null;
+  color: null | string;
+  icon: null | string;
+  notes: null;
   isDisabled: boolean;
 }
 
@@ -187,43 +187,45 @@ export enum Type {
 }
 
 export interface NextAiringEpisode {
-  airingAt:        number;
+  airingAt: number;
   timeUntilAiring: number;
-  episode:         number;
+  episode: number;
 }
 
 export interface Ranking {
-  id:      number;
-  rank:    number;
-  type:    string;
-  format:  string;
-  year:    number | null;
-  season:  null;
+  id: number;
+  rank: number;
+  type: string;
+  format: string;
+  year: number | null;
+  season: null;
   allTime: boolean;
   context: string;
 }
 
 export type Recommendations = {
   pageInfo: PageInfo;
-  nodes:    RecommendationsNode[];
-}
+  nodes: RecommendationsNode[];
+};
 
 export interface RecommendationsNode {
-  id:                  number;
-  rating:              number;
-  userRating:          string;
+  id: number;
+  rating: number;
+  userRating: string;
   mediaRecommendation: MediaRecommendation;
-  user:                User;
+  user: User;
+ 
 }
 
 export interface MediaRecommendation {
-  id:          number;
-  title:       Name;
-  format:      null | string;
-  type:        Source;
-  status:      Status;
+  id: number;
+  title: Name;
+  format: null | string;
+  type: Source;
+  status: Status;
   bannerImage: null | string;
-  coverImage:  Image;
+  coverImage: Image;
+  genres : string[]
 }
 
 export enum Status {
@@ -238,8 +240,8 @@ export enum Source {
 }
 
 export interface User {
-  id:     number;
-  name:   string;
+  id: number;
+  name: string;
   avatar: Image;
 }
 
@@ -252,9 +254,9 @@ export interface Relations {
 }
 
 export interface RelationsEdge {
-  id:           number;
+  id: number;
   relationType: RelationType;
-  node:         MediaRecommendation;
+  node: MediaRecommendation;
 }
 
 export enum RelationType {
@@ -269,15 +271,15 @@ export enum RelationType {
 
 export interface ReviewPreview {
   pageInfo: PageInfo;
-  nodes:    ReviewPreviewNode[];
+  nodes: ReviewPreviewNode[];
 }
 
 export interface ReviewPreviewNode {
-  id:           number;
-  summary:      string;
-  rating:       number;
+  id: number;
+  summary: string;
+  rating: number;
   ratingAmount: number;
-  user:         User;
+  user: User;
 }
 
 export interface StaffPreview {
@@ -285,18 +287,18 @@ export interface StaffPreview {
 }
 
 export interface StaffPreviewEdge {
-  id:   number;
+  id: number;
   role: string;
   node: VoiceActorClass;
 }
 
 export interface Stats {
   statusDistribution: StatusDistribution[];
-  scoreDistribution:  ScoreDistribution[];
+  scoreDistribution: ScoreDistribution[];
 }
 
 export interface ScoreDistribution {
-  score:  number;
+  score: number;
   amount: number;
 }
 
@@ -306,10 +308,10 @@ export interface StatusDistribution {
 }
 
 export interface StreamingEpisode {
-  site:      Site;
-  title:     string;
+  site: Site;
+  title: string;
   thumbnail: string;
-  url:       string;
+  url: string;
 }
 
 export enum Site {
@@ -322,28 +324,42 @@ export interface Studios {
 
 export interface StudiosEdge {
   isMain: boolean;
-  node:   PurpleNode;
+  node: PurpleNode;
 }
 
 export interface PurpleNode {
-  id:   number;
+  id: number;
   name: string;
 }
 
 export interface Tag {
-  id:               number;
-  name:             string;
-  description:      string;
-  rank:             number;
-  isMediaSpoiler:   boolean;
+  id: number;
+  name: string;
+  description: string;
+  rank: number;
+  isMediaSpoiler: boolean;
   isGeneralSpoiler: boolean;
-  userId:           number | null;
+  userId: number | null;
 }
 
 export interface Title {
   userPreferred: string;
-  romaji:        string;
-  english:       string;
-  native:        string;
+  romaji: string;
+  english: string;
+  native: string;
 }
 
+export interface Pagination {
+  data: {
+    Page: {
+      media: AnimeObject[];
+      pageInfo: {
+        currentPage: number;
+        hasNextPage: boolean;
+        lastPage: number;
+        perPage: number;
+        total: number;
+      };
+    };
+  };
+}
