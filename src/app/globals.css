@@ -23,6 +23,7 @@ body {
 html {
   max-width: 1355px;
   margin:  0 auto;
+  background: #000;
 }
 .grid_characters{
  position: relative;

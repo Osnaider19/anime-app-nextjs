@@ -1,0 +1,6 @@
+POST https://graphql.anilist.co
+Content-Type: application/json
+
+{
+ query{genres:GenreCollection tags:MediaTagCollection{name description category isAdult}}
+}

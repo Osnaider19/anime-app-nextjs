@@ -363,3 +363,16 @@ export interface Pagination {
     };
   };
 }
+
+
+
+///
+
+
+
+export interface Tag {
+  name: string;
+  description: string;
+  category: string;
+  isAdult: boolean;
+}
