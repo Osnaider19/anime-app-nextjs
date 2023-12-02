@@ -18,7 +18,7 @@ export async function FilterGenresTags() {
   return (
     <>
       <Genres genres={data?.data.genres}  />
-      
+      {/* <Tags tags={data?.data.tags}/> */}
     </>
   );
 }

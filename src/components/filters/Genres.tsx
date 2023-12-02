@@ -9,16 +9,15 @@ export const Genres = ({ genres }: { genres: string[] }) => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
-  console.log(searchParams.get("genres")?.toString().split(","));
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const params = new URLSearchParams(searchParams);
     const options = e.target.value.split(","); // los genres en arry
-    if (options) {
+    if (!options.includes("")) {
       params.set("genres", options.toString());
     } else {
       params.delete("genres");
     }
-    console.log(params.toString());
+    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
 
