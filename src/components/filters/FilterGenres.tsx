@@ -1,11 +1,12 @@
 "use client";
+import { genres } from "@/const/const";
 import { Select, SelectItem } from "@nextui-org/react";
 import { useSearchParams } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
 
-export const Genres = ({ genres }: { genres: string[] }) => {
+export const FilterGenres = () => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
@@ -22,18 +23,22 @@ export const Genres = ({ genres }: { genres: string[] }) => {
   };
 
   return (
-    <div className="max-w-[250px] w-full min-w-[250px] h-full">
+    <div className="max-w-[200px] w-full min-w-[200px] h-full">
       <Select
-        label="Favorite Animal"
-        placeholder="Select Genres"
+        label="Select Genres"
+        placeholder="Any"
         selectionMode="multiple"
-        className="w-full h-full "
         defaultSelectedKeys={searchParams.get("genres")?.toString().split(",")}
         onChange={handleChange}
+        className="w-full h-full "
         size="sm"
+        radius="lg"
+        color="secondary"
+        fullWidth={true}
+        variant="bordered"
       >
-        {genres.map((genre, index) => (
-          <SelectItem key={genre} value={genre}>
+        {genres?.map((genre, index) => (
+          <SelectItem key={genre} value={genre} color="secondary">
             {genre}
           </SelectItem>
         ))}

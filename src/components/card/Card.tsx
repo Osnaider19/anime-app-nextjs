@@ -1,4 +1,3 @@
-
 import { IconsPoint } from "@/icons/Icons";
 import Link from "next/link";
 type Props = {
@@ -22,7 +21,7 @@ export const Card = ({ id, imagen, title, genres, color }: Props) => {
           className="w-full h-full  absolute top-0 left-0"
           style={{
             background: `linear-gradient(${
-              color + `90`
+              color ? color + `90` : "transparent"
             }, transparent , transparent , transparent  , rgba(0,0,0,.7)  , rgba(0,0,0,.7))`,
           }}
         ></div>

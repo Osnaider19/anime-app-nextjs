@@ -376,3 +376,19 @@ export interface Tag {
   category: string;
   isAdult: boolean;
 }
+
+
+//
+
+export type PageParams = {
+  searchParams: {
+    genres?: string;
+    page?: number;
+    search?: string;
+    year?: string;
+    season?: string;
+    seasonyear?: string;
+    format?: string;
+    sort: string;
+  };
+};

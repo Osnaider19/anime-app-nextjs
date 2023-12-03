@@ -6,19 +6,18 @@ import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
 
-export const Tags = ({ tags }: { tags: Tag[] }) => {
+export const Tags = ({ tags }: { tags : Tag[] }) => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const params = new URLSearchParams(searchParams);
     const options = e.target.value.split(","); // los genres en arry
-    if (options) {
+    if (!options.includes("")) {
       params.set("genres", options.toString());
     } else {
       params.delete("genres");
     }
-    console.log(params.toString());
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -31,9 +30,10 @@ export const Tags = ({ tags }: { tags: Tag[] }) => {
         className="w-full h-full "
         defaultSelectedKeys={searchParams.get("genres")?.toString().split(",")}
         onChange={handleChange}
+        size="sm"
       >
         {tags.map((tag) => (
-          <SelectItem key={tag.id} value={tag.name}>
+          <SelectItem key={tag.id} value={tag.category}>
             {tag.name}
           </SelectItem>
         ))}

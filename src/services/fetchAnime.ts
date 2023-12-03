@@ -3,10 +3,15 @@ type Variables = {
     page: number;
     type: string;
     sort: string;
-    genres?: string[];
+    search?: string;
+    year?: string;
+    season?: string;
+    seasonyear?: string;
+    format?: string;
   };
 };
 export async function fetchAnime(query: string, variables: Variables) {
+  console.log(variables);
   try {
     const response = await fetch("https://graphql.anilist.co", {
       cache: "force-cache",

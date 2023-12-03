@@ -36,7 +36,6 @@ export async function getDataHome() {
       throw new Error("error  al obtener  los datos");
     }
     const data : Data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
