@@ -26,7 +26,7 @@ export const FilterGenres = () => {
   return (
     <div className="max-w-[200px] w-full min-w-[200px] h-full">
       <Select
-        label="Select Genres"
+        label="Genres"
         placeholder="Any"
         selectionMode="multiple"
         selectedKeys={genresParams ? genresParams : []}
@@ -37,7 +37,7 @@ export const FilterGenres = () => {
         radius="lg"
         color="secondary"
         fullWidth={true}
-        variant="bordered"
+        variant="flat"
       >
         {genres?.map((genre, index) => (
           <SelectItem key={genre} value={genre} color="secondary">

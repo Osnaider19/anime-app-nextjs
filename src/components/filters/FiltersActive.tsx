@@ -36,17 +36,19 @@ export function FiltersActive() {
     }
     replace(`${pathname}?${params}`);
   };
+  const variant = "shadow";
+  const color = "secondary";
   return (
     <>
-      {genres || year || formats || search || search ? (
+      {genres || year || formats || search || search || season ? (
         <div className="py-4 w-full items-center flex">
           <div className="flex gap-2 flex-wrap w-full ">
             {genres?.map((genre) => (
               <Chip
                 key={genre}
                 onClose={() => handleCloseGrup(genre, "genres")}
-                variant="bordered"
-                color="secondary"
+                variant={variant}
+                color={color}
               >
                 {genre}
               </Chip>
@@ -55,8 +57,8 @@ export function FiltersActive() {
               <Chip
                 key={format}
                 onClose={() => handleCloseGrup(format, "format")}
-                variant="bordered"
-                color="secondary"
+                variant={variant}
+                color={color}
               >
                 {format}
               </Chip>
@@ -64,8 +66,8 @@ export function FiltersActive() {
             {year && (
               <Chip
                 onClose={() => handelCloseOne("year")}
-                color="secondary"
-                variant="bordered"
+                color={color}
+                variant={variant}
               >
                 {year}
               </Chip>
@@ -73,8 +75,8 @@ export function FiltersActive() {
             {search && (
               <Chip
                 onClose={() => handelCloseOne("search")}
-                color="secondary"
-                variant="bordered"
+                color={color}
+                variant={variant}
               >
                 {search}
               </Chip>
@@ -82,15 +84,15 @@ export function FiltersActive() {
             {season && (
               <Chip
                 onClose={() => handelCloseOne("season")}
-                variant="bordered"
-                color="secondary"
+                variant={variant}
+                color={color}
               >
                 {season}
               </Chip>
             )}
 
             {genres || year || formats || season ? (
-              <Chip onClose={handelCloseAll} color="danger" variant="solid">
+              <Chip onClose={handelCloseAll} color="danger" variant="shadow">
                 Clear All
               </Chip>
             ) : (

@@ -22,7 +22,7 @@ export const FilterSeason = () => {
   return (
     <div className="max-w-[140px] w-full min-w-[140px] h-full">
       <Select
-        label="Select Season"
+        label="Season"
         placeholder="Any"
         onChange={(e) => handleChange(e.target.value)}
         className="w-full h-full "
@@ -30,7 +30,7 @@ export const FilterSeason = () => {
         radius="lg"
         color="secondary"
         fullWidth={true}
-        variant="bordered"
+        variant="flat"
         defaultSelectedKeys={defaultKey ? defaultKey : []}
         selectedKeys={defaultKey ? defaultKey : []}
         selectionMode="single"

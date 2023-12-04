@@ -17,7 +17,7 @@ export const Search = () => {
     }
     params.delete("page");
     router.replace(`${pathname}?${params}`);
-  }, 500);
+  }, 700);
   const search = params.get("search")?.toString();
   return (
     <div className="flex w-[200px]">
@@ -27,8 +27,8 @@ export const Search = () => {
         size="sm"
         onChange={(e) => handelChange(e.target.value)}
         defaultValue={search ? search : ""}
-        value={search ? search : ""}
-        variant="bordered"
+        //value={search ? search : ""}
+        variant="flat"
         radius="full"
         color="secondary"
       />

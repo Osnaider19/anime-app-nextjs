@@ -1,3 +1,4 @@
+"use client"
 import { FilterGenres } from "./FilterGenres";
 import { FilterSort } from "./FilterSort";
 import { FilterYear } from "./FilterYear";

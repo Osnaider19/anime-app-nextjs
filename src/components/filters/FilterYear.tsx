@@ -20,10 +20,11 @@ export const FilterYear = () => {
     replace(`${pathname}?${params.toString()}`);
   };
   const defaultKey = params.get("year")?.toString().split(",");
+  
   return (
     <div className="max-w-[140px] w-full min-w-[140px] h-full">
       <Select
-        label="Select Year"
+        label="Year"
         placeholder="Any"
         onChange={(e) => handleChange(e.target.value)}
         className="w-full h-full "
@@ -31,7 +32,7 @@ export const FilterYear = () => {
         radius="lg"
         color="secondary"
         fullWidth={true}
-        variant="bordered"
+        variant="flat"
         defaultSelectedKeys={defaultKey ? defaultKey : []}
         selectedKeys={defaultKey ? defaultKey : []}
         selectionMode="single"

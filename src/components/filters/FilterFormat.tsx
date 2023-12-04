@@ -25,7 +25,7 @@ export const FilterFormat = () => {
   return (
     <div className="max-w-[150px] w-full min-w-[150px] h-full">
       <Select
-        label="Select Format"
+        label="Format"
         placeholder="Any"
         selectionMode="multiple"
         defaultSelectedKeys={formats ? formats : []}
@@ -36,7 +36,7 @@ export const FilterFormat = () => {
         radius="lg"
         color="secondary"
         fullWidth={true}
-        variant="bordered"
+        variant="flat"
       >
         {format?.map(({ name, value }) => (
           <SelectItem key={value} value={value} color="secondary">

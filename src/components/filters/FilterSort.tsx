@@ -24,7 +24,7 @@ export const FilterSort = () => {
   return (
     <div className="max-w-[170px] w-full min-w-[170px] h-full">
       <Select
-        label="Select Ordering"
+        label="Ordering"
         placeholder="Any"
         onChange={(e) => handleChange(e.target.value)}
         className="w-full h-full"
@@ -32,7 +32,7 @@ export const FilterSort = () => {
         radius="lg"
         color="secondary"
         fullWidth={true}
-        variant="bordered"
+        variant="flat"
         defaultSelectedKeys={[defaultKey ? defaultKey : "POPULARITY_DESC"]}
         selectedKeys={[defaultKey ? defaultKey : "POPULARITY_DESC"]}
         selectionMode="single"
