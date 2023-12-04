@@ -56,39 +56,42 @@ export function Header() {
             itemClasses={{
               base: "gap-4",
             }}
+            color="secondary"
           >
             <DropdownItem
               key="autoscaling"
               description="ACME scales apps to meet user demand, automagically, based on load."
-              //startContent={icons.scale}
+              onClick={() => push("/search/anime/trending")}
             >
-              <LinkN href={"popular"} className="w-full h-full">
-                Trending
-              </LinkN>
+              Trending
             </DropdownItem>
             <DropdownItem
               key="usage_metrics"
               description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+              onClick={() => push("/search/anime/popular")}
             >
-              Usage Metrics
+              All Time Popular
             </DropdownItem>
             <DropdownItem
               key="production_ready"
               description="ACME runs on ACME, join us and others serving requests at web scale."
+              onClick={() => push("/search/anime/next-season")}
             >
-              Production Ready
+              Upcoming Next Season
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
               description="Applications stay on the grid with high availability and high uptime guarantees."
+              onClick={() => push("/search/anime/top-100")}
             >
-              +99% Uptime
+              Top 100 Anime
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
               description="Overcome any challenge with a supporting team ready to respond."
+              onClick={() => push("/search/anime/this-season")}
             >
-              +Supreme Support
+              Popular This Season
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -118,7 +121,7 @@ export function Header() {
                 key={genre}
                 className="py-2"
                 color="secondary"
-                onClick={() => push(`popular?genres=${genre}`)}
+                onClick={() => push(`/search/anime?genres=${genre}`)}
               >
                 {genre}
               </DropdownItem>
@@ -133,7 +136,9 @@ export function Header() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#" color="secondary">Login</Link>
+          <Link href="#" color="secondary">
+            Login
+          </Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="secondary" href="#" variant="solid">
