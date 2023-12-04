@@ -1,11 +1,16 @@
-import "./skeleton-card.css";
+import { Card, Skeleton } from "@nextui-org/react";
+
 export const SkeletonCard = () => {
   return (
-    <div className="w-[200px] h-[250px] relative  border-[#ffffff20] overflow-hidden  border shadow-2xl shadow-[#ffffff10] rounded-md animate-pulse">
-      <div className="w-full relative flex flex-col min-h-full  items-end justify-end pb-1  px-2">
-        <div className="w-full h-5  rounded-md bg-[#ffffff30] mb-2 animate-pulse"></div>
-        <div className="w-full h-3 bg-[#ffffff30] mb-3 rounded-md animate-pulse duration-100"></div>
+    <Card className="w-[200px] h-[270px]  px-4" radius="lg">
+      <div className="  h-full w-full flex justify-end items-center flex-col py-2 gap-2">
+        <Skeleton className="w-4/5 rounded-lg">
+          <div className="h-5 w-4/5 rounded-lg bg-default-200"></div>
+        </Skeleton>
+        <Skeleton className="w-full rounded-lg ">
+          <div className="h-3 w-full rounded-lg bg-default-300"></div>
+        </Skeleton>
       </div>
-    </div>
+    </Card>
   );
 };

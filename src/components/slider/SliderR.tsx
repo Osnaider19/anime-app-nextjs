@@ -18,15 +18,18 @@ type Props = {
 export const SliderR = ({ animes, titleComponents, link }: Props) => {
   return (
     <div className="w-full relative z-10 px-8 pb-5">
-      <div className="text-xl  pt-3 flex  items-center ">
+      <div className="text-xl  pt-3 flex  items-center justify-between ">
         <Link
-          href={ link ? `/${link}` : "#"}
+          href={link ? `/${link}` : "#"}
           className="flex  gap-x-2  items-center group"
         >
-          <h2>{titleComponents}</h2>
-          <span className="group-hover:opacity-100 group-hover:-translate-x-0 opacity-0 -translate-x-2 transition-all duration-300 ">
+          <h2 className="uppercase text-lg">{titleComponents}</h2>
+          <span className="group-hover:opacity-100 group-hover:-translate-x-0 opacity-0 -translate-x-2 transition-all duration-300 pt-[1px] ">
             <IconsArrow />
           </span>
+        </Link>
+        <Link href={link ? `/${link}` : "#"}>
+         <span className="text-sm hover:underline hover:opacity-80 transition-all duration-300">View All</span>
         </Link>
       </div>
       <div className="w-full h-full  flex flex-wrap justify-between py-3">
