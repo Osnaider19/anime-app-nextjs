@@ -112,3 +112,48 @@ export const format = [
     value: "MUSIC",
   },
 ];
+
+export const Browse = {
+  treding: {
+    title: "Trending Now",
+    value: {
+      sort: ["TRENDING_DESC", "POPULARITY_DESC"],
+      type: "ANIME",
+    },
+    slug: "trending",
+  },
+  NextSeason: {
+    title: "Anime Next Season - Airing Winter 2024",
+    value: {
+      season: "WINTER",
+      seasonYear: 2024,
+      type: "ANIME",
+    },
+    slug: "next-season",
+  },
+  ThisSeason: {
+    title: "Fall 2023 Anime",
+    value: {
+      season: "FALL",
+      seasonYear: 2023,
+      type: "ANIME",
+    },
+    slug: "this-season",
+  },
+  popular: {
+    title: "All-Time Popular Anime",
+    value: {
+      sort: "POPULARITY_DESC",
+      type: "ANIME",
+    },
+    slug: "popular",
+  },
+  topAnimes: {
+    title: "Top 100 Anime",
+    value: {
+      sort: "SCORE_DESC",
+      type: "ANIME",
+    },
+    slug: "top-100",
+  },
+};
