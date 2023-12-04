@@ -1,43 +1,44 @@
 "use client";
+import { format } from "@/const/const";
 import { Select, SelectItem } from "@nextui-org/react";
-import { sort, yearsArray } from "@/const/const";
 import { useSearchParams } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { ChangeEvent } from "react";
 
-export const FilterSort = () => {
+export const FilterFormat = () => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
   const params = new URLSearchParams(searchParams);
-  const handleChange = (ordering: string) => {
-    if (ordering) {
-      params.set("sort", ordering);
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const options = e.target.value.split(","); // los genres en arry
+    if (!options.includes("")) {
+      params.set("format", options.toString());
     } else {
-      params.delete("sort");
+      params.delete("format");
     }
     params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
-  const defaultKey = params.get("sort")?.toString();
-
+  const formats = params.get("format")?.toString().split(",");
   return (
-    <div className="max-w-[170px] w-full min-w-[170px] h-full">
+    <div className="max-w-[150px] w-full min-w-[150px] h-full">
       <Select
-        label="Select Ordering"
+        label="Select Format"
         placeholder="Any"
-        onChange={(e) => handleChange(e.target.value)}
-        className="w-full h-full"
+        selectionMode="multiple"
+        defaultSelectedKeys={formats ? formats : []}
+        selectedKeys={formats ? formats : []}
+        onChange={handleChange}
+        className="w-full h-full "
         size="sm"
         radius="lg"
         color="secondary"
         fullWidth={true}
         variant="bordered"
-        defaultSelectedKeys={[defaultKey ? defaultKey : "POPULARITY_DESC"]}
-        selectedKeys={[defaultKey ? defaultKey : "POPULARITY_DESC"]}
-        selectionMode="single"
       >
-        {sort.map(({ name, value }) => (
+        {format?.map(({ name, value }) => (
           <SelectItem key={value} value={value} color="secondary">
             {name}
           </SelectItem>

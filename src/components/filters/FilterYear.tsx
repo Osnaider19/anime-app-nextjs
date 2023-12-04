@@ -19,53 +19,29 @@ export const FilterYear = () => {
     params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
-  const defaultKey = params.get("year")?.toString();
-  if (defaultKey) {
-    return (
-      <div className="max-w-[140px] w-full min-w-[140px] h-full">
-        <Select
-          label="Select Year"
-          placeholder="Any"
-          onChange={(e) => handleChange(e.target.value)}
-          className="w-full h-full "
-          size="sm"
-          radius="lg"
-          color="secondary"
-          fullWidth={true}
-          variant="bordered"
-          defaultSelectedKeys={[defaultKey]}
-          selectionMode="single"
-        >
-          {yearsArray.map(({ year }) => (
-            <SelectItem key={year} value={year} color="secondary">
-              {year.toString()}
-            </SelectItem>
-          ))}
-        </Select>
-      </div>
-    );
-  } else {
-    return (
-      <div className="max-w-[140px] w-full min-w-[140px] h-full">
-        <Select
-          label="Select Year"
-          placeholder="Any"
-          onChange={(e) => handleChange(e.target.value)}
-          className="w-full h-full "
-          size="sm"
-          radius="lg"
-          color="secondary"
-          fullWidth={true}
-          variant="bordered"
-          selectionMode="single"
-        >
-          {yearsArray.map(({ year }) => (
-            <SelectItem key={year} value={year} color="secondary">
-              {year.toString()}
-            </SelectItem>
-          ))}
-        </Select>
-      </div>
-    );
-  }
+  const defaultKey = params.get("year")?.toString().split(",");
+  return (
+    <div className="max-w-[140px] w-full min-w-[140px] h-full">
+      <Select
+        label="Select Year"
+        placeholder="Any"
+        onChange={(e) => handleChange(e.target.value)}
+        className="w-full h-full "
+        size="sm"
+        radius="lg"
+        color="secondary"
+        fullWidth={true}
+        variant="bordered"
+        defaultSelectedKeys={defaultKey ? defaultKey : []}
+        selectedKeys={defaultKey ? defaultKey : []}
+        selectionMode="single"
+      >
+        {yearsArray.map(({ year }) => (
+          <SelectItem key={year} value={year} color="secondary">
+            {year.toString()}
+          </SelectItem>
+        ))}
+      </Select>
+    </div>
+  );
 };

@@ -1,43 +1,41 @@
 "use client";
 import { Select, SelectItem } from "@nextui-org/react";
-import { sort, yearsArray } from "@/const/const";
-import { useSearchParams } from "next/navigation";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-
-export const FilterSort = () => {
+import { Seasons } from "@/const/const";
+export const FilterSeason = () => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
   const params = new URLSearchParams(searchParams);
-  const handleChange = (ordering: string) => {
-    if (ordering) {
-      params.set("sort", ordering);
+  const handleChange = (season: string) => {
+    if (season) {
+      params.set("season", season);
     } else {
-      params.delete("sort");
+      params.delete("season");
     }
     params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
-  const defaultKey = params.get("sort")?.toString();
+  const defaultKey = params.get("season")?.toString().split(",");
 
   return (
-    <div className="max-w-[170px] w-full min-w-[170px] h-full">
+    <div className="max-w-[140px] w-full min-w-[140px] h-full">
       <Select
-        label="Select Ordering"
+        label="Select Season"
         placeholder="Any"
         onChange={(e) => handleChange(e.target.value)}
-        className="w-full h-full"
+        className="w-full h-full "
         size="sm"
         radius="lg"
         color="secondary"
         fullWidth={true}
         variant="bordered"
-        defaultSelectedKeys={[defaultKey ? defaultKey : "POPULARITY_DESC"]}
-        selectedKeys={[defaultKey ? defaultKey : "POPULARITY_DESC"]}
+        defaultSelectedKeys={defaultKey ? defaultKey : []}
+        selectedKeys={defaultKey ? defaultKey : []}
         selectionMode="single"
       >
-        {sort.map(({ name, value }) => (
+        {Seasons.map(({ name, value }) => (
           <SelectItem key={value} value={value} color="secondary">
             {name}
           </SelectItem>

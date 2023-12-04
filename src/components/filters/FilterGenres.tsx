@@ -7,11 +7,12 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent } from "react";
 
 export const FilterGenres = () => {
+  
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
+  const params = new URLSearchParams(searchParams);
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const params = new URLSearchParams(searchParams);
     const options = e.target.value.split(","); // los genres en arry
     if (!options.includes("")) {
       params.set("genres", options.toString());
@@ -21,14 +22,15 @@ export const FilterGenres = () => {
     params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
-
+  const genresParams = params.get("genres")?.toString().split(",");
   return (
     <div className="max-w-[200px] w-full min-w-[200px] h-full">
       <Select
         label="Select Genres"
         placeholder="Any"
         selectionMode="multiple"
-        defaultSelectedKeys={searchParams.get("genres")?.toString().split(",")}
+        selectedKeys={genresParams ? genresParams : []}
+        defaultSelectedKeys={genresParams}
         onChange={handleChange}
         className="w-full h-full "
         size="sm"
