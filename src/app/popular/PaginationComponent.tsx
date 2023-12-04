@@ -35,6 +35,7 @@ export const PaginationComponent = ({ pageInfo }: PageInfo) => {
       total={pageInfo?.lastPage}
       initialPage={initialPage ? initialPage : 1}
       onChange={handelClick}
+      color="secondary"
     />
     </div>
   );

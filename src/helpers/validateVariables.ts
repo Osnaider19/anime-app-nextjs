@@ -21,6 +21,7 @@ export function validateVariables({
 }: SearchParams): any {
   // Se asegura de que 'genres' sea un array si es proporcionado como cadena
   const genresArray = Array.isArray(genres) ? genres : genres?.split(",");
+  const formatArray = Array.isArray(format) ? format : format?.split(",");
 
   let variables: any = {
     page: Number(page) || 1,
@@ -33,7 +34,7 @@ export function validateVariables({
     season,
     seasonyear,
     year: year ? `${year}%` : null,
-    format,
+    format: formatArray,
     genres: genresArray,
     search,
   };

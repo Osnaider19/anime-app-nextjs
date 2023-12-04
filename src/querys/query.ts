@@ -6,7 +6,7 @@ query (
   $nextSeason: MediaSeason,
   $nextYear: Int
 ) {
-  trending: Page(page: 1, perPage: 6) {
+  trending: Page(page: 1, perPage: 10) {
     media(sort: TRENDING_DESC, type: ANIME, isAdult: false) {
       ...media
     }

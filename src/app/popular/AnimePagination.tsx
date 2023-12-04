@@ -5,6 +5,7 @@ import { PaginationComponent } from "./PaginationComponent";
 import { fetchAnime } from "@/services/fetchAnime";
 import { validateVariables } from "@/helpers/validateVariables";
 
+
 export async function Animes({ searchParams }: PageParams) {
   const { query } = queryAnimePopular;
   const data: Pagination = await fetchAnime(
@@ -12,7 +13,7 @@ export async function Animes({ searchParams }: PageParams) {
     validateVariables(searchParams)
   );
 
-  if (data.data.Page.media.length === 0) {
+  if (!data || data.data.Page.media.length === 0) {
     return (
       <div className="w-full h-[50vh] flex justify-center items-center flex-grow">
         <h2 className="text-3xl font-bold">No result chekaout filters</h2>
@@ -22,7 +23,7 @@ export async function Animes({ searchParams }: PageParams) {
   return (
     <>
       <div className="h-full w-full ">
-        <div className="flex  gap-x-4 gap-y-4 items-center flex-wrap  justify-start py-6 ">
+        <div className="grid grid-cols-5 py-6 gap-4 justify-center items-center">
           {data?.data.Page.media.map((anime) => (
             <Card
               key={anime.id}
@@ -31,6 +32,12 @@ export async function Animes({ searchParams }: PageParams) {
               genres={anime.genres}
               imagen={anime.coverImage.large}
               title={anime.title.userPreferred}
+              description={anime.description}
+              episodes={anime.episodes}
+              averageScore={anime.averageScore}
+              yearStart={anime.startDate.year}
+              yearEnd={anime.endDate.year}
+              hover={true}
             />
           ))}
         </div>

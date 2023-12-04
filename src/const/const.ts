@@ -41,7 +41,6 @@ export const sort = [
   },
 ];
 
-
 export const genres = [
   "Action",
   "Adventure",
@@ -61,5 +60,55 @@ export const genres = [
   "Slice of Life",
   "Sports",
   "Supernatural",
-  "Thriller"
-]
+  "Thriller",
+];
+
+export const Seasons = [
+  {
+    name: "Winter",
+    value: "WINTER",
+  },
+  {
+    name: "Spring",
+    value: "SPRING",
+  },
+  {
+    name: "Summer",
+    value: "SUMMER",
+  },
+  {
+    name: "Fall",
+    value: "FALL",
+  },
+];
+
+export const format = [
+  {
+    name: "Tv",
+    value: "TV",
+  },
+  {
+    name: "Movie",
+    value: "MOVIE",
+  },
+  {
+    name: "Tv Short",
+    value: "TV_SHORT",
+  },
+  {
+    name: "Special",
+    value: "SPECIAL",
+  },
+  {
+    name: "OVA",
+    value: "OVA",
+  },
+  {
+    name: "ONA",
+    value: "ONA",
+  },
+  {
+    name: "Music",
+    value: "MUSIC",
+  },
+];

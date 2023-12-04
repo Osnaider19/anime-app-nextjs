@@ -4,10 +4,11 @@ import { Suspense } from "react";
 import { Animes } from "./AnimePagination";
 import { SkeletonCards } from "@/components/skeleton/SkeletonCards";
 
+
 type PageParams = {
   searchParams: {
-    genres?: string;
-    page?: number;
+    genres: string;
+    page: number;
     search?: string;
     year?: string;
     season?: string;
@@ -17,16 +18,13 @@ type PageParams = {
   };
 };
 export default async function PopularPage({ searchParams }: PageParams) {
-  const page = searchParams.page;
-  const genres = searchParams.genres;
-  const search = searchParams.search;
-  const sort = searchParams.sort;
+  const { sort, format, genres, page, search, season, seasonyear, year } =
+    searchParams;
   return (
     <div className="pt-[70px] relative w-full h-full">
       <div className="w-[80%] m-auto h-full">
-        <div className="w-full h-full flex items-center justify-between py-5">
+        <div className="w-full h-full py-5">
           <h1 className="text-3xl font-semibold">Most Popular Anime</h1>
-          <Search />
         </div>
         <div>
           <Suspense fallback={<div>loader</div>}>
@@ -34,11 +32,12 @@ export default async function PopularPage({ searchParams }: PageParams) {
           </Suspense>
         </div>
         <Suspense
-          key={page + genres + search + sort}
+          key={page + genres + search + sort + format + year + season}
           fallback={<SkeletonCards />}
         >
           <Animes searchParams={searchParams} />
         </Suspense>
+        
       </div>
     </div>
   );
