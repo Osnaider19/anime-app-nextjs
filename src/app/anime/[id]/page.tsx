@@ -69,7 +69,7 @@ export default async function AnimeId({ params }: Params) {
           <Recommendation recommendations={anime?.recommendations} />
         </div>
       </section>
-      <AllWatch id={anime.id} watch={anime.streamingEpisodes}/>
+      <AllWatch id={anime?.id} watch={anime?.streamingEpisodes}/>
     </>
   );
 }

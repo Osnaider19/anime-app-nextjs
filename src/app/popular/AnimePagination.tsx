@@ -1,12 +1,23 @@
 import { Card } from "@/components/card/Card";
 import { queryAnimePopular } from "@/querys/query";
-import { PageParams, Pagination } from "@/types/types";
+import { Pagination } from "@/types/types";
 import { PaginationComponent } from "./PaginationComponent";
 import { fetchAnime } from "@/services/fetchAnime";
 import { validateVariables } from "@/helpers/validateVariables";
 
-
-export async function Animes({ searchParams }: PageParams) {
+type Props = {
+  searchParams: {
+    genres?: string;
+    page?: number;
+    search?: string;
+    year?: string;
+    season?: string;
+    seasonyear?: string;
+    format?: string;
+    sort: string;
+  };
+};
+export async function Animes({ searchParams }: Props) {
   const { query } = queryAnimePopular;
   const data: Pagination = await fetchAnime(
     query,
@@ -16,7 +27,7 @@ export async function Animes({ searchParams }: PageParams) {
   if (!data || data.data.Page.media.length === 0) {
     return (
       <div className="w-full h-[50vh] flex justify-center items-center flex-grow">
-        <h2 className="text-3xl font-bold">No result chekaout filters</h2>
+        <h2 className="text-3xl font-bold">If results check the filters</h2>
       </div>
     );
   }
