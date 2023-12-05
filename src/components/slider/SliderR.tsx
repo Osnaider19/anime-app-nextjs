@@ -23,13 +23,15 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
           href={link ? `/${link}` : "#"}
           className="flex  gap-x-2  items-center group"
         >
-          <h2 className="uppercase text-lg">{titleComponents}</h2>
+          <h2 className="uppercase text-sm md:text-lg">{titleComponents}</h2>
           <span className="group-hover:opacity-100 group-hover:-translate-x-0 opacity-0 -translate-x-2 transition-all duration-300 pt-[1px] ">
             <IconsArrow />
           </span>
         </Link>
         <Link href={link ? `/${link}` : "#"}>
-         <span className="text-sm hover:underline hover:opacity-80 transition-all duration-300">View All</span>
+          <span className="text-[12px] md:text-sm hover:underline hover:opacity-80 transition-all duration-300">
+            View All
+          </span>
         </Link>
       </div>
       <div className="w-full h-full  flex flex-wrap justify-between py-3">
@@ -41,21 +43,41 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
           // }}
           navigation={true}
           breakpoints={{
-            "@0.00": {
-              slidesPerView: 1,
+            300: {
+              slidesPerView: 2,
+              spaceBetween: 5,
+            },
+            350: {
+              slidesPerView: 2.3,
+              spaceBetween: 5,
+            },
+            423: {
+              slidesPerView: 2.7,
+              spaceBetween: 5,
+            },
+            500: {
+              slidesPerView: 3,
               spaceBetween: 10,
             },
-            "@0.75": {
-              slidesPerView: 2,
+            550: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3.5,
               spaceBetween: 20,
             },
-            "@1.00": {
-              slidesPerView: 3,
+            1024: {
+              slidesPerView: 4.5,
               spaceBetween: 40,
             },
-            "@1.50": {
+            1150: {
               slidesPerView: 6,
-              spaceBetween: 50,
+              spaceBetween: 40,
             },
           }}
           modules={[Pagination, Navigation]}

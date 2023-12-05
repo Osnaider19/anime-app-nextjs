@@ -1,5 +1,4 @@
 "use client";
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -30,7 +29,7 @@ export const Slider = ({ animesPopular }: Props) => {
           if (!anime.bannerImage) return;
           return (
             <SwiperSlide key={anime.id}>
-              <div className="w-full h-[490px] relative pt-[70px] px-8 pb-5 bg-gradient-to-b ">
+              <div className=" w-full h-[490px] relative pt-[70px] px-8 pb-5 bg-gradient-to-b ">
                 <div
                   className="w-full h-[570px] absolute top-0 left-0 opacity-90"
                   style={{
@@ -39,12 +38,22 @@ export const Slider = ({ animesPopular }: Props) => {
                 ></div>
 
                 <Link href={`/anime/${anime.id}`} className="w-full h-full">
-                  <div className="w-full relative h-full  rounded-lg overflow-hidden border border-[#ffffff30] shadow-2xlxl ">
+                  <div className="w-[350px] sm:w-full relative h-full  rounded-lg overflow-hidden border border-[#ffffff30] shadow-2xl mx-auto">
                     <div
-                      className="w-full h-full absolute top-0 left-0  "
+                      className="hidden md:block w-full h-full absolute top-0 left-0  "
                       style={{
-                        backgroundImage: `url(${anime.bannerImage})`,
+                        backgroundImage: `url(${anime.bannerImage})`, //aqui
                         backgroundPosition: "top",
+                        backgroundRepeat: "no-repeat",
+                      }}
+                    ></div>
+                    <div
+                      className="md:hidden w-full h-full absolute top-0 left-0  "
+                      style={{
+                        backgroundImage: `url(${anime.coverImage.extraLarge})`, //aqui
+                        backgroundPosition: "top",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "100%",
                       }}
                     ></div>
                     <div
@@ -67,17 +76,17 @@ export const Slider = ({ animesPopular }: Props) => {
                     <div className="relative w-full h-full px-6 pt-9 pb-2  flex justify-center items-end">
                       <div className="flex justify-center items-end flex-col w-full ">
                         <div className="w-full h-full ">
-                          <p className="text-4xl font-extrabold text-center drop-shadow-2xl  line-clamp-1">
+                          <p className="font-extrabold text-center drop-shadow-2xl  line-clamp-2 sm:line-clamp-1 text-2xl sm:text-4xl">
                             {anime.title.userPreferred}
                           </p>
                         </div>
-                        <div className="flex  items-center  gap-x-1 py-1 w-full justify-center">
-                          {anime.genres.map((genre, index) => (
+                        <div className="flex  items-center  gap-x-1 py-1 w-full justify-center flex-wrap">
+                          {anime?.genres.map((genre, index) => (
                             <div
                               key={index}
                               className="flex justify-center items-center "
                             >
-                              <div className=" flex justify-center items-center gap-x-1">
+                              <div className=" flex justify-center items-center gap-x-1 ">
                                 <p>{genre}</p>
                                 <span className="block min-h-full ">
                                   {index < anime.genres.length - 1 && (
@@ -88,13 +97,27 @@ export const Slider = ({ animesPopular }: Props) => {
                             </div>
                           ))}
                         </div>
+
                         <div className="flex justify-center items-center flex-col w-[80%] m-auto">
                           <div
-                            className="line-clamp-4 w-full pt-2 text-center "
+                            className="line-clamp-2 w-full pt-2 text-center text-sm sm:text-base sm:line-clamp-4 hidden"
                             dangerouslySetInnerHTML={{
                               __html: anime.description,
                             }}
                           ></div>
+                          {/* buttons */}
+                          <div className="flex justify-cente  w-full items-center gap-x-2 py-2 sm:hidden">
+                            <div className="bg-[#ffffff] text-[#000]  flex justify-center items-center py-1  rounded-[4px] overflow-hidden w-[50%]">
+                              <span className="block font-semibold">Ver</span>
+                            </div>
+
+                            <button className="bg-[#ffffff30] w-[50%] rounded-[4px] flex justify-center items-center py-1">
+                              <span className="block">+</span>
+                              <span className="block font-semibold">
+                                Mi lista
+                              </span>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
