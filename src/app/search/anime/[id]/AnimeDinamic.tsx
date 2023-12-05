@@ -14,14 +14,18 @@ type Props = {
     season?: string;
     seasonyear?: string;
     format?: string;
-    sort: string;
+    sort?: string;
   };
   params: string;
 };
 export async function AnimeDinamic({ searchParams, params }: Props) {
   const { page } = searchParams;
   const { query } = queryAnimePopular;
-  const data: Pagination = await fetchAnime(query, validateV(params, page));
+  // @ts-ignore
+  const Page = page ? parseInt(page) : 1;
+  // @ts-ignore
+  const data: Pagination = await fetchAnime(query, validateV(params, Page));
+
   if (!data || data.data.Page.media.length === 0) {
     return (
       <div className="w-full h-[50vh] flex justify-center items-center flex-grow">
