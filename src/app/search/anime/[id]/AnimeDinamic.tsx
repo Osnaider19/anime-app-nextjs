@@ -8,7 +8,7 @@ import { Card } from "@/components/card/Card";
 type Props = {
   searchParams: {
     genres?: string;
-    page?: number;
+    page: number;
     search?: string;
     year?: string;
     season?: string;
@@ -21,11 +21,10 @@ type Props = {
 export async function AnimeDinamic({ searchParams, params }: Props) {
   const { page } = searchParams;
   const { query } = queryAnimePopular;
-  // @ts-ignore
-  const Page = page ? parseInt(page) : 1;
-  // @ts-ignore
-  const data: Pagination = await fetchAnime(query, validateV(params, Page));
 
+  const data: Pagination = await fetchAnime(query, validateV(params, page));
+  const a = validateV(params, page);
+  console.log(a);
   if (!data || data.data.Page.media.length === 0) {
     return (
       <div className="w-full h-[50vh] flex justify-center items-center flex-grow">

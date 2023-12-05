@@ -1,17 +1,14 @@
-type Variables = {
-  variables: {
-    page: number;
-    type?: string;
-    sort?: string;
-    search?: string;
-    year?: string;
-    season?: string;
-    seasonyear?: string;
-    format?: string;
-  };
-};
+interface Variables {
+  page: number;
+  type?: string;
+  sort?: string | string[];
+  search?: string;
+  year?: string;
+  season?: string;
+  seasonyear?: string;
+  format?: string;
+}
 export async function fetchAnime(query: string, variables: Variables) {
-  
   try {
     const response = await fetch("https://graphql.anilist.co", {
       cache: "force-cache",
