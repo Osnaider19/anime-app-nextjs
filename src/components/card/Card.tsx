@@ -28,7 +28,7 @@ export const Card = ({
 }: Props) => {
   return (
     <Link href={`/anime/${id}`}>
-      <div className="w-[130px] h-[190px] sm:w-[200px]  sm:h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group">
+      <div className="w-[150px] h-[220px] sm:w-[200px]  sm:h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group">
         {/* {hover && (
           <div className="absolute left-0 top-0 w-full h-full opacity-0 transition-opacity duration-300 pointer-events-none bg-black/95 z-10 group-hover:opacity-100 group-hover:pointer-events-auto px-2 py-3">
             <div className="w-full h-full flex  flex-col ">

@@ -17,7 +17,7 @@ type Props = {
 };
 export const SliderR = ({ animes, titleComponents, link }: Props) => {
   return (
-    <div className="w-full relative z-10 px-8 pb-5">
+    <div className="w-full relative z-10 px-2 sm:px-8 pb-5">
       <div className="text-xl  pt-3 flex  items-center justify-between ">
         <Link
           href={link ? `/${link}` : "#"}
@@ -38,14 +38,13 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
         <Swiper
           slidesPerView={6}
           spaceBetween={0}
-          // pagination={{
-          //   clickable: true,
-          // }}
+          
           navigation={true}
           breakpoints={{
             300: {
               slidesPerView: 2,
               spaceBetween: 5,
+              
             },
             350: {
               slidesPerView: 2.3,
@@ -58,26 +57,33 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
             500: {
               slidesPerView: 3,
               spaceBetween: 10,
+              navigation : false
             },
             550: {
-              slidesPerView: 4,
+              slidesPerView: 3.5,
               spaceBetween: 10,
             },
+            //aca la card son mas grandes y caben mesnos
             640: {
               slidesPerView: 3,
               spaceBetween: 10,
+              
             },
             768: {
               slidesPerView: 3.5,
               spaceBetween: 20,
+             
+
             },
             1024: {
               slidesPerView: 4.5,
               spaceBetween: 40,
+              
             },
             1150: {
               slidesPerView: 6,
               spaceBetween: 40,
+              
             },
           }}
           modules={[Pagination, Navigation]}

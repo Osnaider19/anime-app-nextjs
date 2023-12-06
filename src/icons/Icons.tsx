@@ -1,15 +1,21 @@
-export const IconsPoint = () => {
+export const IconsPoint = ({
+  fill,
+  size,
+}: {
+  fill?: string;
+  size?: string;
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="10"
-      height="10"
+      width={size ? size : "10"}
+      height={size ? size : "10"}
       viewBox="0 0 24 24"
     >
       <g fill="none">
         <path d="M0 0h24v24H0z" />
         <path
-          fill="currentColor"
+          fill={fill ? fill : "currentColor"}
           d="M12 7a5 5 0 1 1-4.995 5.217L7 12l.005-.217A5 5 0 0 1 12 7z"
         />
       </g>
@@ -128,12 +134,10 @@ export const IconsArrowBB = () => {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
-      
     >
       <path
         d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"
         stroke="currentColor"
-        
       ></path>
     </svg>
   );

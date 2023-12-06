@@ -10,31 +10,61 @@ import {
   DropdownTrigger,
   Dropdown,
   DropdownMenu,
+  NavbarMenuItem,
+  NavbarMenu,
+  NavbarMenuToggle,
 } from "@nextui-org/react";
-import { IconScale, IconsArrowBB } from "@/icons/Icons";
-import LinkN from "next/link";
+import { IconsArrowBB } from "@/icons/Icons";
+import { Browse } from "@/const/const";
 import { useRouter } from "next/navigation";
 import { genres } from "@/const/const";
+import LinkN from "next/link";
+import { useState } from "react";
 export function Header() {
   const { push } = useRouter();
-  const icons = {
-    chevron: <IconScale fill="currentColor" size={16} />,
-    scale: <IconScale fill="currentColor" size={16} />,
-    lock: <IconScale fill="currentColor" size={16} />,
-    activity: <IconScale fill="currentColor" size={16} />,
-    flash: <IconScale fill="currentColor" size={16} />,
-    server: <IconScale fill="currentColor" size={16} />,
-    user: <IconScale fill="currentColor" size={16} />,
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { NextSeason, ThisSeason, popular, topAnimes, treding } = Browse;
+  const menuItems = [
+    {
+      title: "Treding",
+      link: treding.slug,
+    },
+    {
+      title: "Popular",
+      link: popular.slug,
+    },
+    {
+      title: "Upcoming Next Season",
+      link: NextSeason.slug,
+    },
+    {
+      title: "Top 100 Anime",
+      link: topAnimes.slug,
+    },
+    {
+      title: "Popular This Season",
+      link: ThisSeason.slug,
+    },
+  ];
 
   return (
-    <Navbar className="bg-transparent absolute left-0 top-0 w-full h-[60px] hover:bg-black transition-background duration-500">
-      <NavbarBrand>
-        {/* <AcmeLogo /> */}
-        <LinkN href="/">
-          <p className="font-bold text-inherit ">NEXANIME</p>
-        </LinkN>
-      </NavbarBrand>
+    <Navbar
+      className="bg-transparent absolute left-0 top-0 w-full h-[60px] hover:bg-black transition-background duration-500"
+      onMenuOpenChange={setIsMenuOpen}
+      isMenuOpen={isMenuOpen}
+    >
+      <NavbarContent className="relative">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden "
+        />
+        <NavbarBrand>
+          {/* <AcmeLogo /> */}
+          <LinkN href={"/"}>
+            <p className="font-bold text-inherit">NEXANIME</p>
+          </LinkN>
+        </NavbarBrand>
+      </NavbarContent>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <Dropdown>
           <NavbarItem>
@@ -146,6 +176,37 @@ export function Header() {
           </Button>
         </NavbarItem>
       </NavbarContent>
+      <NavbarMenu className="-mt-1">
+        <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
+          <LinkN
+            href={`/`}
+            className="w-full hover:text-[#854DBE] transition-colors duration-250 block h-full py-1 "
+          >
+            Home
+          </LinkN>
+        </NavbarMenuItem>
+        <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
+          <LinkN
+            href={`/search/anime`}
+            className="w-full hover:text-[#854DBE] transition-colors duration-250 block h-full py-1 "
+          >
+            Search
+          </LinkN>
+        </NavbarMenuItem>
+        {menuItems.map(({ link, title }, index) => (
+          <NavbarMenuItem
+            key={`${title}-${index}`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <LinkN
+              href={`/search/anime/${link}`}
+              className="w-full hover:text-[#854DBE] transition-colors duration-250 block h-full py-1 "
+            >
+              {title}
+            </LinkN>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 }
