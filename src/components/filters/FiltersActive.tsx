@@ -41,7 +41,7 @@ export function FiltersActive() {
   return (
     <>
       {genres || year || formats || search || search || season ? (
-        <div className="py-4 w-full items-center flex">
+        <div className="px-3 py-4 w-full items-center flex md:px-0">
           <div className="flex gap-2 flex-wrap w-full ">
             {genres?.map((genre) => (
               <Chip

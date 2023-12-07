@@ -38,16 +38,14 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
         <Swiper
           slidesPerView={6}
           spaceBetween={0}
-          
-          navigation={true}
+          //navigation={true}
           breakpoints={{
             300: {
               slidesPerView: 2,
               spaceBetween: 5,
-              
             },
             350: {
-              slidesPerView: 2.3,
+              slidesPerView: 2.5,
               spaceBetween: 5,
             },
             423: {
@@ -57,7 +55,6 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
             500: {
               slidesPerView: 3,
               spaceBetween: 10,
-              navigation : false
             },
             550: {
               slidesPerView: 3.5,
@@ -65,25 +62,20 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
             },
             //aca la card son mas grandes y caben mesnos
             640: {
-              slidesPerView: 3,
+              slidesPerView: 4,
               spaceBetween: 10,
-              
             },
             768: {
-              slidesPerView: 3.5,
+              slidesPerView: 4,
               spaceBetween: 20,
-             
-
             },
             1024: {
               slidesPerView: 4.5,
               spaceBetween: 40,
-              
             },
             1150: {
               slidesPerView: 6,
               spaceBetween: 40,
-              
             },
           }}
           modules={[Pagination, Navigation]}

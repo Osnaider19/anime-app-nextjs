@@ -20,7 +20,7 @@ export const Search = () => {
   }, 700);
   const search = params.get("search")?.toString();
   return (
-    <div className="flex w-[200px]">
+    <div className="flex w-full sm:w-[200px]">
       <Input
         type="text"
         placeholder="search"

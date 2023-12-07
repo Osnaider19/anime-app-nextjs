@@ -159,9 +159,9 @@ export function Header() {
           </DropdownMenu>
         </Dropdown>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
+          <LinkN  href="/search/anime">
+            Search
+          </LinkN>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">

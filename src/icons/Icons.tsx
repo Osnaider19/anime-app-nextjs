@@ -1,9 +1,11 @@
 export const IconsPoint = ({
   fill,
   size,
+  className
 }: {
   fill?: string;
   size?: string;
+  className? : string
 }) => {
   return (
     <svg
@@ -11,6 +13,7 @@ export const IconsPoint = ({
       width={size ? size : "10"}
       height={size ? size : "10"}
       viewBox="0 0 24 24"
+      className={className}
     >
       <g fill="none">
         <path d="M0 0h24v24H0z" />

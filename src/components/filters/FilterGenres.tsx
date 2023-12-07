@@ -24,7 +24,7 @@ export const FilterGenres = () => {
   };
   const genresParams = params.get("genres")?.toString().split(",");
   return (
-    <div className="max-w-[200px] w-full min-w-[200px] h-full">
+    <div className="w-full min-w-[120px] md:min-w-[170px] md:max-w-[170px] h-full">
       <Select
         label="Genres"
         placeholder="Any"

@@ -15,13 +15,13 @@ type PageParams = {
     sort: string;
   };
 };
-export default async function PageSearch({ searchParams }: PageParams) {
+export default function PageSearch({ searchParams }: PageParams) {
   const { sort, format, genres, page, search, season, year } = searchParams;
   return (
     <div className="pt-[70px] relative w-full h-full">
-      <div className="w-[80%] m-auto h-full">
+      <div className="w-full px-2 md:w-[80%] m-auto h-full">
         <div className="w-full h-full py-5">
-          <h1 className="text-3xl font-semibold">Search</h1>
+          <h1 className="text-3xl font-semibold px-3">Search</h1>
         </div>
         <div>
           <Suspense fallback={<div>loader</div>}>

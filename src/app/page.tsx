@@ -4,7 +4,7 @@ import { Suspense } from "react";
 export default async function Home() {
   return (
     <main className="relative w-full h-full">
-      <Suspense fallback={<SkeletonHome/>}>
+      <Suspense fallback={<SkeletonHome />}>
         <FetchingHome />
       </Suspense>
     </main>

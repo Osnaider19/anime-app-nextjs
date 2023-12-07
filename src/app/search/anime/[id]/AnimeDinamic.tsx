@@ -21,10 +21,7 @@ type Props = {
 export async function AnimeDinamic({ searchParams, params }: Props) {
   const { page } = searchParams;
   const { query } = queryAnimePopular;
-
   const data: Pagination = await fetchAnime(query, validateV(params, page));
-  const a = validateV(params, page);
-  console.log(a);
   if (!data || data.data.Page.media.length === 0) {
     return (
       <div className="w-full h-[50vh] flex justify-center items-center flex-grow">
@@ -35,7 +32,7 @@ export async function AnimeDinamic({ searchParams, params }: Props) {
   return (
     <>
       <div className="h-full w-full ">
-        <div className="grid grid-cols-5 py-6 gap-4 justify-center items-center">
+        <div className="flex flex-wrap py-2  md:w-full justify-center gap-y-4 gap-x-2 md:py-6 md:gap-4 md:justify-center items-center mx-auto xl:grid xl:grid-cols-5">
           {data?.data.Page.media.map((anime) => (
             <Card
               key={anime.id}
