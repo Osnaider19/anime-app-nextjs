@@ -18,8 +18,7 @@ type PageParams = {
   };
 };
 export default function PopularPage({ searchParams }: PageParams) {
-  const { sort, format, genres, page, search, season, seasonyear, year } =
-    searchParams;
+  const { search, genres, page, sort, format, season, year } = searchParams;
   return (
     <div className="pt-[70px] relative w-full h-full">
       <div className="w-[80%] m-auto h-full">
@@ -32,8 +31,8 @@ export default function PopularPage({ searchParams }: PageParams) {
           </Suspense>
         </div>
         <Suspense
-          key={page + genres + search + sort + format + year + season}
           fallback={<SkeletonCards />}
+          key={search + page + year + format + genres + sort + season}
         >
           <Animes searchParams={searchParams} />
         </Suspense>
