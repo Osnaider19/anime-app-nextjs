@@ -1,5 +1,7 @@
+import { ModalWatch } from "@/components/modal/ModalWatch";
+import { IconPlay } from "@/icons/Icons";
 import { StreamingEpisode } from "@/types/types";
-import Link from "next/link";
+
 export const Watch = ({
   streamingEpisodes,
   id,
@@ -11,16 +13,22 @@ export const Watch = ({
     <>
       {streamingEpisodes.length > 0 && (
         <section className="w-full h-full pt-7">
-          <h2 className="py-2 font-semibold">
-            <Link href={{ query: "watch" }}>Watch</Link>
-          </h2>
-          <div className="flex justify-start gap-x-3 items-center w-full h-full flex-wrap ">
-            {streamingEpisodes.map((episode, index) => {
-              if (index > 5) return;
+          <div className="w-full flex justify-between items-center">
+            <h2 className="py-2 font-semibold">Watch</h2>
+            <ModalWatch streamingEpisodes={streamingEpisodes} />
+          </div>
+          <div className="w-full h-full grid grid-cols-4 gap-y-4 gap-x-4">
+            {streamingEpisodes.reverse().map((episode, index) => {
+              if (index > 7) return;
               return (
-                <a href={episode.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={episode.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={index}
+                >
                   <div
-                    className="w-[200px] h-[120px] relative rounded-md overflow-hidden shadow-xl shadow-[#ffffff10]"
+                    className="w-full h-full relative overflow-hidden rounded-sm hover:opacity-90 transition-opacity duration-300 group"
                     key={index}
                   >
                     <div
@@ -30,7 +38,12 @@ export const Watch = ({
                           "linear-gradient(transparent, transparent  ,  rgba(0, 0, 0 , .8))",
                       }}
                     >
-                      <p className="text-center line-clamp-1 pb-1">
+                      <div className="w-full h-full absolute left-0 top-0 flex justify-center items-center">
+                        <div className="relative w-[50px] h-[50px] flex justify-center items-center bg-[#00000030] rounded-full overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                          <IconPlay size="20" fill="#fff" />
+                        </div>
+                      </div>
+                      <p className="text-center line-clamp-2 pb-1 px-3">
                         {episode.title}
                       </p>
                     </div>

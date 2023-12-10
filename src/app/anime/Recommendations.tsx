@@ -24,21 +24,42 @@ export const Recommendation = ({
               spaceBetween={0}
               navigation={true}
               breakpoints={{
-                "@0.00": {
-                  slidesPerView: 1,
+                300: {
+                  slidesPerView: 2,
+                  spaceBetween: 5,
+                },
+                350: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 5,
+                },
+                423: {
+                  slidesPerView: 2.7,
+                  spaceBetween: 5,
+                },
+                500: {
+                  slidesPerView: 3,
                   spaceBetween: 10,
                 },
-                "@0.75": {
-                  slidesPerView: 2,
+                550: {
+                  slidesPerView: 3.5,
+                  spaceBetween: 10,
+                },
+                //aca la card son mas grandes y caben mesnos
+                640: {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 4,
                   spaceBetween: 20,
                 },
-                "@1.00": {
-                  slidesPerView: 3,
+                1024: {
+                  slidesPerView: 4.5,
                   spaceBetween: 40,
                 },
-                "@1.50": {
-                  slidesPerView: 6,
-                  spaceBetween: 50,
+                1150: {
+                  slidesPerView: 5.5,
+                  spaceBetween: 40,
                 },
               }}
               modules={[Pagination, Navigation]}
