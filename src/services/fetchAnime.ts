@@ -7,6 +7,8 @@ interface Variables {
   season?: string;
   seasonyear?: string;
   format?: string;
+  id?: string;
+  isAdult? : string
 }
 export async function fetchAnime(query: string, variables: Variables) {
   try {

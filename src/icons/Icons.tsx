@@ -1,11 +1,11 @@
 export const IconsPoint = ({
   fill,
   size,
-  className
+  className,
 }: {
   fill?: string;
   size?: string;
-  className? : string
+  className?: string;
 }) => {
   return (
     <svg
@@ -142,6 +142,23 @@ export const IconsArrowBB = () => {
         d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"
         stroke="currentColor"
       ></path>
+    </svg>
+  );
+};
+
+export const IconPlay = ({ fill, size }: { fill: string; size: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size ? size : "20"}
+      height={size ? size : "20"}
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill={fill}
+        
+        d="M20.409 9.353a2.998 2.998 0 0 1 0 5.294L7.597 21.614C5.534 22.736 3 21.276 3 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648l12.812 6.968Z"
+      />
     </svg>
   );
 };

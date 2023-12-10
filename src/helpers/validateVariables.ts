@@ -48,3 +48,46 @@ export function validateVariables({
 
   return variables;
 }
+
+export function variablesInfinitiScroll(
+  {
+    sort,
+    format,
+    genres,
+
+    search,
+    season,
+    seasonyear,
+    year,
+  }: SearchParams,
+  page: number
+): any {
+  // Se asegura de que 'genres' sea un array si es proporcionado como cadena
+  const genresArray = Array.isArray(genres) ? genres : genres?.split(",");
+  const formatArray = Array.isArray(format) ? format : format?.split(",");
+
+  let variables: any = {
+    page: page,
+    type: "ANIME",
+    sort: sort || "POPULARITY_DESC",
+  };
+
+  // Define un objeto con los parámetros opcionales y sus nombres correspondientes
+  const optionalParams = {
+    season,
+    seasonyear,
+    year: year ? `${year}%` : null,
+    format: formatArray,
+    genres: genresArray,
+    search,
+  };
+
+  // Agrega los valores de los parámetros opcionales a las variables si existen
+  Object.keys(optionalParams).forEach((param) => {
+    if (optionalParams[param] !== undefined && optionalParams[param] !== null) {
+      variables[param] = optionalParams[param];
+    }
+  });
+
+  return variables;
+}

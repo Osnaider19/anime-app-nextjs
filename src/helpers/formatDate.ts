@@ -1,10 +1,6 @@
-type Fecha = {
-  year: number;
-  month: number;
-  day: number;
-};
-export function formatDate(objetoFecha : Fecha) {
-  const meses = [
+export function formatearFecha(dia : number, mes : number, anio : number) {
+  const fecha = new Date(anio, mes - 1, dia);
+  const mesesAbreviados = [
     "ene",
     "feb",
     "mar",
@@ -19,10 +15,7 @@ export function formatDate(objetoFecha : Fecha) {
     "dic",
   ];
 
-  const { year, month, day } = objetoFecha;
-  const nombreMes = meses[month - 1];
-
-  const fechaFormateada = `${day} ${nombreMes} ${year}`;
+  const fechaFormateada = dia + " " + mesesAbreviados[mes - 1] + " " + anio;
 
   return fechaFormateada;
 }

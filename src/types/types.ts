@@ -118,7 +118,10 @@ export interface Media {
   recommendations: Recommendations;
   externalLinks: ExternalLink[];
   streamingEpisodes: StreamingEpisode[];
-  trailer: null;
+  trailer: {
+    id: string;
+    site: string;
+  };
   rankings: Ranking[];
   tags: Tag[];
   mediaListEntry: null;
@@ -146,7 +149,7 @@ export interface VoiceActorClass {
 
 export interface Image {
   large: string;
-  color : string
+  color: string;
 }
 
 export enum Language {
@@ -214,7 +217,6 @@ export interface RecommendationsNode {
   userRating: string;
   mediaRecommendation: MediaRecommendation;
   user: User;
- 
 }
 
 export interface MediaRecommendation {
@@ -225,7 +227,7 @@ export interface MediaRecommendation {
   status: Status;
   bannerImage: null | string;
   coverImage: Image;
-  genres : string[]
+  genres: string[];
 }
 
 export enum Status {
@@ -364,11 +366,7 @@ export interface Pagination {
   };
 }
 
-
-
 ///
-
-
 
 export interface Tag {
   name: string;
@@ -376,7 +374,6 @@ export interface Tag {
   category: string;
   isAdult: boolean;
 }
-
 
 //
 
