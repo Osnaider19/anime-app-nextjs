@@ -1,3 +1,6 @@
+import { validateVariables } from "@/helpers/validateVariables";
+import { queryAnimePopular } from "@/querys/query";
+
 interface variables {
   page?: number;
   type?: string;
@@ -8,9 +11,11 @@ interface variables {
   seasonyear?: string;
   format?: string;
   id?: string | number;
-  isAdult? : boolean
+  isAdult?: boolean;
 }
-export async function fetchAnime(query: string, variables: variables) {
+export async function getAnimeInfinity(variables: variables) {
+  const { query } = queryAnimePopular;
+  console.log(variables)
   try {
     const response = await fetch("https://graphql.anilist.co", {
       cache: "force-cache",

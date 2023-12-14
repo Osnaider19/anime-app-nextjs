@@ -59,6 +59,100 @@ export async function Animes({ searchParams }: Props) {
   );
 }
 
+//infinity querys con tanStack query
+// "use client";
+// import { Card } from "@/components/card/Card";
+// import { SkeletonCards } from "@/components/skeleton/SkeletonCards";
+// import { useInView } from "react-intersection-observer";
+// import { useEffect } from "react";
+// import { useFetchInfinity } from "@/hooks/useFetchInfinity";
+// import { useSearchParams } from "next/navigation";
+// type Props = {
+//   searchParams: {
+//     genres?: string;
+//     page?: number;
+//     search?: string;
+//     year?: string;
+//     season?: string;
+//     seasonyear?: string;
+//     format?: string;
+//     sort: string;
+//   };
+// };
+
+// export function Animes({ searchParams }: Props) {
+//   const { inView, ref } = useInView();
+
+//   const {
+//     animes,
+//     isError,
+//     fetchNextPage,
+//     hasNextPage,
+//     error,
+//     isFetchingNextPage,
+//     isLoading,
+//     refetch,
+//   } = useFetchInfinity(searchParams);
+//   const params = useSearchParams();
+
+//   useEffect(() => {
+//     if (inView) {
+//       fetchNextPage();
+//     }
+//   }, [inView]);
+//   useEffect(() => {
+//     if (params) {
+//       refetch();
+//       console.log("holaaaaaa");
+//     }
+//   }, [params]);
+//   if (!animes) {
+//     return (
+//       <div className="w-full h-[50vh] flex justify-center items-center flex-grow">
+//         <h2 className="text-3xl font-bold">If results check the filters</h2>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <>
+//       <div className="h-full w-full py-2 md:py-6">
+//         <div className="flex flex-wrap  md:w-full justify-center gap-y-4 gap-x-2  md:gap-4 md:justify-center items-center mx-auto xl:grid xl:grid-cols-5">
+//           {animes.map((anime) => (
+//             <Card
+//               key={anime.id}
+//               id={anime.id}
+//               color={anime.coverImage.color}
+//               genres={anime.genres}
+//               imagen={anime.coverImage.large}
+//               title={anime.title.userPreferred}
+//               description={anime.description}
+//               episodes={anime.episodes}
+//               averageScore={anime.averageScore}
+//               yearStart={anime.startDate.year}
+//               yearEnd={anime.endDate.year}
+//               hover={true}
+//             />
+//           ))}
+//         </div>
+//         {isFetchingNextPage && <SkeletonCards />}
+//         {hasNextPage && (
+//           <div>
+//             <button ref={ref}>MAS</button>
+//           </div>
+//         )}
+//       </div>
+//     </>
+//   );
+// }
+
+///
+
+
+
+
+
+
 // "use client";
 // import { Card } from "@/components/card/Card";
 // import { useFetch } from "@/hooks/useFetch";

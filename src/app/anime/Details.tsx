@@ -23,21 +23,18 @@ const meses = [
 ];
 export const Details = ({ anime }: Props) => {
   const [openDetails, setOpenDetails] = useState(false);
-  const ref : React.RefObject<HTMLElement> = useRef();
-  const {
-    endDate,
-    startDate,
-    episodes,
-  } = anime;
+  const ref: React.RefObject<HTMLElement> = useRef();
+  const { endDate, startDate, episodes } = anime;
 
   const handelOpenDetails = () => {
+    setOpenDetails(!openDetails);
     ref.current?.classList.toggle("h-[205px]");
   };
   return (
     <>
       <div className="w-full relative h-full">
         <div
-          className="w-full  h-[205px] relative pb-2 overflow-hidden transition-all duration-300"
+          className="w-full  h-[205px] relative pb-4 overflow-hidden transition-all duration-300"
           ref={ref}
         >
           <p className="text-3xl font-extrabold py-2">
@@ -56,7 +53,7 @@ export const Details = ({ anime }: Props) => {
               <div className="flex justify-start items-center gap-x-3">
                 {anime?.genres.map((genre, index) => (
                   <Link href={""} key={genre + index}>
-                    <Chip color="secondary" variant="bordered">
+                    <Chip color="secondary" variant="flat" className="hover:shadow-lg">
                       {genre}
                     </Chip>
                   </Link>
@@ -74,20 +71,26 @@ export const Details = ({ anime }: Props) => {
                 </div>
               </>
             )}
-            {startDate && (
-              <>
-                <Divider className="my-1" />
-                <div className="flex w-full relative justify-between items-center py-1">
-                  <h2>Start date</h2>
-                  <div className="flex justify-start items-center gap-x-3">
-                    {`${startDate.day} ${meses[startDate.month - 1]} ${
-                      startDate.year
-                    }`}
+            {startDate &&
+              startDate.day &&
+              startDate.month &&
+              startDate.year && (
+                <>
+                  <Divider className="my-1" />
+                  <div className="flex w-full relative justify-between items-center py-1">
+                    <h2>Start date</h2>
+                    <div className="flex justify-start items-center gap-x-3">
+                      {`${startDate.day} ${meses[startDate.month - 1]} ${
+                        startDate.year
+                      }`}
+                    </div>
                   </div>
-                </div>
-              </>
-            )}
-            {endDate && (
+                </>
+              )}
+            {endDate &&
+              endDate.day &&
+              endDate.month &&
+              endDate.year &&  (
               <>
                 <Divider className="my-1" />
                 <div className="flex w-full relative justify-between items-center py-1">

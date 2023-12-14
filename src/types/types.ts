@@ -136,15 +136,19 @@ export interface CharacterPreviewEdge {
   id: number;
   role: string;
   name: null;
-  voiceActors: VoiceActorClass[];
+  voiceActorRoles: VoiceActorRole[];
   node: VoiceActorClass;
 }
-
+export interface VoiceActorRole {
+  roleNotes: null;
+  dubGroup: null;
+  voiceActor: VoiceActorClass;
+}
 export interface VoiceActorClass {
   id: number;
   name: Name;
   image: Image;
-  language?: Language;
+  language: Language;
 }
 
 export interface Image {
@@ -154,6 +158,12 @@ export interface Image {
 
 export enum Language {
   Japanese = "Japanese",
+  Spanish = "Spanish",
+  English = "English",
+  Italian = "Italian",
+  Portuguese = "Portuguese",
+  French = "French",
+  German = "German",
 }
 
 export interface Name {

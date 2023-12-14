@@ -1,12 +1,12 @@
 interface SearchParams {
-  sort?: string;
+  sort?: string | string[];
   format?: string;
   genres?: string | string[];
-  page?: number;
   search?: string;
   season?: string;
   seasonyear?: string;
   year?: string;
+  page? : number
 }
 
 export function validateVariables({
@@ -24,7 +24,7 @@ export function validateVariables({
   const formatArray = Array.isArray(format) ? format : format?.split(",");
 
   let variables: any = {
-    page: Number(page) || 1,
+    page : page || 1,
     type: "ANIME",
     sort: sort || "POPULARITY_DESC",
   };

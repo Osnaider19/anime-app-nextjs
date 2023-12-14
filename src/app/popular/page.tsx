@@ -1,15 +1,13 @@
 import { FiltersAll } from "@/components/filters/FiltersAll";
-import { Search } from "@/components/search/Search";
 import { Suspense } from "react";
 import { Animes } from "./AnimePagination";
 import { SkeletonCards } from "@/components/skeleton/SkeletonCards";
-import { SkeletonFilters } from "@/components/skeleton/SkeletonFilters";
 
 type PageParams = {
   searchParams: {
     genres: string;
     page: number;
-    search?: string;
+    search: string;
     year?: string;
     season?: string;
     seasonyear?: string;
@@ -26,9 +24,7 @@ export default function PopularPage({ searchParams }: PageParams) {
           <h1 className="text-3xl font-semibold">All-Time Popular Anime</h1>
         </div>
         <div>
-          <Suspense fallback={<SkeletonFilters />}>
-            <FiltersAll />
-          </Suspense>
+          <FiltersAll />
         </div>
         <Suspense
           fallback={<SkeletonCards />}

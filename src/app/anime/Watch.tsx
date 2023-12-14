@@ -1,6 +1,6 @@
-import { ModalWatch } from "@/components/modal/ModalWatch";
 import { IconPlay } from "@/icons/Icons";
 import { StreamingEpisode } from "@/types/types";
+import Link from "next/link";
 
 export const Watch = ({
   streamingEpisodes,
@@ -12,10 +12,14 @@ export const Watch = ({
   return (
     <>
       {streamingEpisodes.length > 0 && (
-        <section className="w-full h-full pt-7">
+        <section className="w-full h-full ">
           <div className="w-full flex justify-between items-center">
             <h2 className="py-2 font-semibold">Watch</h2>
-            <ModalWatch streamingEpisodes={streamingEpisodes} />
+            {streamingEpisodes.length > 8 && (
+              <Link href={`${id}/watch`} className="hover:underline text-sm">
+                View all
+              </Link>
+            )}
           </div>
           <div className="w-full h-full grid grid-cols-4 gap-y-4 gap-x-4">
             {streamingEpisodes.reverse().map((episode, index) => {

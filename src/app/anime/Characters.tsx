@@ -1,15 +1,23 @@
 import { CharacterPreview } from "@/types/types";
+import Link from "next/link";
 
 export const Characters = ({
   characterPreview,
+  id,
 }: {
   characterPreview: CharacterPreview;
+  id: number;
 }) => {
   return (
     <>
       {characterPreview && (
         <section className="py-5">
-          <h2 className="py-2 font-semibold">Characters</h2>
+          <div className="w-full flex justify-between items-center">
+            <h2 className="py-2 font-semibold ">Characters</h2>
+            <Link href={`${id}/characters`} className="hover:underline text-sm">
+              View all
+            </Link>
+          </div>
           <div className="grid_characters">
             {characterPreview.edges?.map((character) => {
               if (!character) return;
@@ -19,7 +27,7 @@ export const Characters = ({
                   key={character.id}
                 >
                   <div className="flex justify-center items-center">
-                    <div className="w-[100px] max-w-[100px] min-w-[100px] h-[100px] ">
+                    <div className="w-[80px] max-w-[80px] min-w-[80px] h-[80px] ">
                       <img
                         src={character.node.image.large}
                         alt=""
@@ -34,7 +42,7 @@ export const Characters = ({
                         {character.voiceActors[0]?.name?.userPreferred}
                       </p>
                     </div>
-                    <div className="w-[100px] max-w-[100px] min-w-[100px] h-[100px] ">
+                    <div className="w-[80px] max-w-[80px] min-w-[80px] h-[80px] ">
                       <img
                         src={character.voiceActors[0]?.image?.large}
                         alt=""
