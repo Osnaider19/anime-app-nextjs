@@ -1,6 +1,6 @@
+"use client";
+import { useAnimeId } from "@/hooks/useAnimeId";
 import { IconPlay } from "@/icons/Icons";
-import { queryId } from "@/querys/query";
-import { fetchAnime } from "@/services/fetchAnime";
 import { StreamingEpisode } from "@/types/types";
 
 type Props = {
@@ -9,21 +9,12 @@ type Props = {
   };
 };
 
-type data = {
-  data: {
-    Media: {
-      streamingEpisodes: StreamingEpisode[];
-    };
-  };
-};
-export default async function PageWatch({ params }: Props) {
-  const { query } = queryId;
-  const variables = {
-    id: params.id,
-    type: "ANIME",
-    isAdult: false,
-  };
-  const data: data = await fetchAnime(query, variables);
+export default function PageWatch({ params }: Props) {
+  const { data } = useAnimeId(params.id);
+
+  if (!data) {
+    return;
+  }
   const { streamingEpisodes } = data.data.Media;
 
   return (

@@ -1,10 +1,12 @@
 "use client";
 import { useInView } from "react-intersection-observer";
 import { queryCharacters } from "@/querys/query";
-import { useInfinityQ } from "@/hooks/useInfitityQ";
+import { useInfinityCharacters } from "@/hooks/useInfitityCharacters";
 import { Characters } from "./Characters";
 import { useEffect } from "react";
 import { SkeletonCharacters } from "@/components/skeleton/SkeletonCharacters";
+import { SkeletonCardCharacters } from "@/components/skeleton/SkeletonCardCharacters";
+
 
 type Props = {
   params: {
@@ -24,7 +26,7 @@ export default function pageCharacters({ params }: Props) {
     hasNextPage,
     isFetchingNextPage,
     isLoading,
-  } = useInfinityQ(query, variables);
+  } = useInfinityCharacters(query, variables);
   const { ref, inView } = useInView();
 
   useEffect(() => {
@@ -33,6 +35,9 @@ export default function pageCharacters({ params }: Props) {
     }
   }, [inView]);
 
+  if (isLoading) {
+    return <SkeletonCharacters />;
+  }
   if (!characters || characters.length < 1) {
     return;
   }
@@ -40,12 +45,22 @@ export default function pageCharacters({ params }: Props) {
   return (
     <>
       <div>
-        {isLoading && <SkeletonCharacters />}
         <Characters characters={characters} />
         {hasNextPage && <button ref={ref}></button>}
-        {isFetchingNextPage && <SkeletonCharacters />}
+        {isFetchingNextPage && (
+          <div className="grid_characters">
+            <SkeletonCardCharacters />
+            <SkeletonCardCharacters />
+            <SkeletonCardCharacters />
+            <SkeletonCardCharacters />
+            <SkeletonCardCharacters />
+            <SkeletonCardCharacters />
+          </div>
+        )}
         {!characters && <div>sin result</div>}
-        {hasNextPage === false && <div className="w-full text-center">No hay mas resultados</div>}
+        {hasNextPage === false && (
+          <div className="w-full text-center">No hay mas resultados</div>
+        )}
       </div>
     </>
   );

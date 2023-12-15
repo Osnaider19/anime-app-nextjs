@@ -1,9 +1,10 @@
-import { queryId } from "@/querys/query";
-import { AnimeId } from "@/types/types";
+"use client";
 import { Watch } from "../Watch";
 import { Characters } from "../Characters";
 import { Recommendation } from "../Recommendations";
-import { fetchAnime } from "@/services/fetchAnime";
+import { RelationsC } from "./Relations";
+import { useAnimeId } from "@/hooks/useAnimeId";
+import Trailer from "../Trailer";
 
 type Params = {
   params: {
@@ -11,23 +12,21 @@ type Params = {
   };
 };
 
-export default async function PageAnimeId({ params }: Params) {
-  const { query } = queryId;
-  const variables = {
-    id: params.id,
-    type: "ANIME",
-    isAdult: false,
-  };
+export default function PageAnimeId({ params }: Params) {
+  const { data } = useAnimeId(params.id);
 
-  const data: { data: AnimeId } = await fetchAnime(query, variables);
   const anime = data?.data?.Media;
 
+  if (!anime) {
+    return;
+  }
   return (
     <>
-    
+      <RelationsC relations={anime?.relations} />
       <Watch streamingEpisodes={anime?.streamingEpisodes} id={anime.id} />
       <Characters characterPreview={anime?.characterPreview} id={anime.id} />
       <Recommendation recommendations={anime?.recommendations} />
+      <Trailer idVideo={anime?.trailer?.id} />
     </>
   );
 }

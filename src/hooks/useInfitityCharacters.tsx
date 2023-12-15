@@ -1,15 +1,22 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchAnime } from "@/services/fetchAnime";
 
-export function useInfinityQ(query: string, variables: {}) {
-  const { data, fetchNextPage , isLoading, isFetchingNextPage } =
+type variables = {
+  id: string;
+  type: string;
+};
+export function useInfinityCharacters(query: string, variables: variables) {
+  const { data, fetchNextPage, isLoading, isFetchingNextPage } =
     useInfiniteQuery({
-      queryKey: ["characters"],
+      queryKey: ["characters" , `${variables.id}`],
       queryFn: ({ pageParam = 1 }) =>
         fetchAnime(query, { ...variables, page: pageParam }),
       getNextPageParam: (lastPage) =>
-        lastPage.data.Media.characters.pageInfo.currentPage + 1,
+        lastPage.data?.Media?.characters.pageInfo.currentPage + 1,
       initialPageParam: 1,
+      refetchOnWindowFocus : false,
+      refetchOnMount : false,
+      refetchIntervalInBackground : false
     });
 
   return {

@@ -11,7 +11,7 @@ export const Characters = ({
   return (
     <>
       {characterPreview && (
-        <section className="py-5">
+        <section className="py-2">
           <div className="w-full flex justify-between items-center">
             <h2 className="py-2 font-semibold ">Characters</h2>
             <Link href={`${id}/characters`} className="hover:underline text-sm">
@@ -23,7 +23,7 @@ export const Characters = ({
               if (!character) return;
               return (
                 <div
-                  className="bg-[#ffffff10] rounded-md overflow-hidden  shadow-[#ffffff10]"
+                  className="bg-[#ffffff10] rounded-md overflow-hidden  shadow-[#1E112A80] shadow-md "
                   key={character.id}
                 >
                   <div className="flex justify-center items-center">

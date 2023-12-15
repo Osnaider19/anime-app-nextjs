@@ -13,9 +13,10 @@ export const Recommendation = ({
 }: {
   recommendations: Recommendations;
 }) => {
+  
   return (
     <>
-      {recommendations && (
+      {recommendations.nodes.length > 1 && (
         <div className="w-full h-full">
           <h2 className="font-semibold py-2">Recommendations</h2>
           <div className="flex justify-center w-full items-center">

@@ -1,23 +1,26 @@
 "use client";
 import { Skeleton } from "@nextui-org/react";
-import { SkeletonCharacters } from "./SkeletonCharacters";
 
 export const SkeletonLayout = () => {
   return (
     <div className="w-full h-full">
-      <Skeleton className="w-[200px] h-4 rounded-md my-2" />
-      <div className="w-full h-full grid grid-cols-4 gap-y-4 gap-x-4 relative">
-        <Skeleton className="w-full h-[200px] rounded-sm" />
-        <Skeleton className="w-full h-full rounded-sm" />
-        <Skeleton className="w-full h-full rounded-sm" />
-        <Skeleton className="w-full h-full rounded-sm" />
-        <Skeleton className="w-full h-[200px] rounded-sm" />
-        <Skeleton className="w-full h-full rounded-sm" />
-        <Skeleton className="w-full h-full rounded-sm" />
-        <Skeleton className="w-full h-full rounded-sm" />
+      {/* <Skeleton className="w-full h-[350px]" /> */}
+      <div className="w-full h-[350px]"></div>
+      <div className="w-[85%] mx-auto">
+        <div className="grid_decription">
+          <div className="relative w-full h-[280px]">
+            <Skeleton className="w-full h-[280px] rounded-md absolute left-0 -top-16" />
+          </div>
+          <div className="w-full h-full py-1 flex flex-col gap-y-2">
+            <Skeleton className="w-[300px] h-7 rounded-full" />
+            <Skeleton className="w-full h-3 rounded-full" />
+            <Skeleton className="w-full h-3 rounded-full" />
+            <Skeleton className="w-full h-3 rounded-full" />
+            <Skeleton className="w-full h-3 rounded-full" />
+            <Skeleton className="w-full h-3 rounded-full" />
+          </div>
+        </div>
       </div>
-      <Skeleton className="w-[250px] h-4 rounded-md my-3" />
-      <SkeletonCharacters />
     </div>
   );
 };

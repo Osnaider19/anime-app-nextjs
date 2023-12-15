@@ -2,14 +2,20 @@
 import YouTube from "react-youtube";
 export default function Trailer({ idVideo }: { idVideo: string }) {
   return (
-    <div className="w-full h-full flex justify-center items-center relative">
-      <YouTube
-        videoId={idVideo}
-        id={idVideo}
-       
-        iframeClassName="w-full  h-[300px]"
-        loading="lazy"
-      />
-    </div>
+    <>
+      {idVideo && (
+        <div className="w-full h-full pt-4">
+          <h3 className="font-semibold py-2">Trailers</h3>
+          <div className="w-full flex justify-start items-center">
+            <YouTube
+              videoId={idVideo}
+              id={idVideo}
+              iframeClassName="w-[500px]  h-[400px]"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

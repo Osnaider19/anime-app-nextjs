@@ -1,0 +1,54 @@
+import { Relations } from "@/types/types";
+import { Tooltip } from "@nextui-org/react";
+import Link from "next/link";
+
+export const RelationsC = ({ relations }: { relations: Relations }) => {
+  return (
+    <>
+      {relations.edges.length > 1 && (
+        <div className="">
+          <h2 className="py-2 font-semibold">Relations</h2>
+          <div className="flex justify-start items-center w-full h-full gap-x-2 flex-wrap gap-y-4">
+            {relations.edges.map((item) => (
+              <Tooltip
+                key={item.id}
+                content={item.node.title.userPreferred}
+                className="capitalize"
+              >
+                <div
+                  className="w-[118px] h-[160px] relative rounded-md overflow-hidden"
+                  key={item.id}
+                >
+                  <Link href={"#"}>
+                    <img
+                      src={item.node.coverImage.large}
+                      alt={`image de ${item.node.title.userPreferred}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                    <div
+                      className="absolute bottom-0 left-0 w-full h-full pointer-events-none "
+                      style={{
+                        background:
+                          "linear-gradient( transparent, transparent , rgba(0, 0, 0 , .9))",
+                      }}
+                    ></div>
+                    <div className="absolute bottom-0 left-0 w-full h-[25px] pointer-events-none ">
+                      <div className="relative w-full h-full ">
+                        {item.node.format && (
+                          <p className="text-sm text-center">
+                            {item.node.format}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </Tooltip>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};

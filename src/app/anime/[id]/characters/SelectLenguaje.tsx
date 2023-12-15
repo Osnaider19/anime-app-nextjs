@@ -30,7 +30,7 @@ export const SelectLenguaje = ({ characters, setLanguage }: Props) => {
   const handelVoiceActorChange = (language: string) => {
     setLanguage(language);
   };
-  console.log(allLanguages);
+
   return (
     <>
       {allLanguages && (
