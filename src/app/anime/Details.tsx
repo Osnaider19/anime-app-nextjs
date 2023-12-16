@@ -1,7 +1,8 @@
 "use client";
 import { averageScoreColor } from "@/helpers/averageScore";
+import { transmissionDate, transmittingIn } from "@/helpers/validateDate";
 import { Media } from "@/types/types";
-import { Chip, Divider } from "@nextui-org/react";
+import { Chip, Divider, Tooltip } from "@nextui-org/react";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 type Props = {
@@ -30,15 +31,17 @@ export const Details = ({ anime }: Props) => {
     setOpenDetails(!openDetails);
     ref.current?.classList.toggle("h-[205px]");
   };
-
+  if (!anime) {
+    return;
+  }
   return (
     <>
-      <div className="w-full relative h-full transition-all duration-300">
+      <div className="w-full relative h-full transition-all duration-300 ">
         <div
-          className="w-full  h-[205px] relative pb-4 overflow-hidden  duration-300 transition-height"
+          className="w-full   h-[205px] relative pb-4 overflow-hidden  duration-300 transition-height"
           ref={ref}
         >
-          <p className="text-3xl font-extrabold py-2 ">
+          <p className="text-2xl md:text-3xl font-extrabold py-2 ">
             {anime?.title.userPreferred}
           </p>
           <div
@@ -49,19 +52,15 @@ export const Details = ({ anime }: Props) => {
           ></div>
           <section className="relative w-full h-full py-3">
             <Divider className="my-1" />
-            <div className="flex w-full relative justify-between items-center py-1">
+            <div className="flex w-full relative justify-between sm:items-center py-1">
               <h2>Genres</h2>
-              <div className="flex justify-start items-center gap-x-3">
+              <div className="flex justify-end md:justify-start items-center gap-2 md:gap-x-3 flex-wrap">
                 {anime?.genres.map((genre, index) => (
                   <Link
                     href={`/search/anime?genres=${genre}`}
                     key={genre + index}
                   >
-                    <Chip
-                      color="secondary"
-                      variant="flat"
-                      className="hover:shadow-lg"
-                    >
+                    <Chip color="secondary" variant="flat">
                       {genre}
                     </Chip>
                   </Link>
@@ -69,7 +68,7 @@ export const Details = ({ anime }: Props) => {
               </div>
             </div>
 
-            <div className="w-full h-full grid grid-cols-2 gap-x-2">
+            <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-x-2">
               {episodes && (
                 <>
                   <div className="w-full h-full">
@@ -77,12 +76,57 @@ export const Details = ({ anime }: Props) => {
                     <div className="flex w-full relative justify-between items-center py-1">
                       <h2>Episodes</h2>
                       <div className="flex justify-start items-center">
-                        <p>{episodes}</p>
+                        <Chip
+                          color="secondary"
+                          variant="flat"
+                          className="hover:shadow-lg"
+                        >
+                          {episodes}
+                        </Chip>
                       </div>
                     </div>
                   </div>
                 </>
               )}
+
+              {anime?.nextAiringEpisode?.episode && (
+                <>
+                  <div className="w-full h-full">
+                    <Divider className="my-1" />
+                    <div className="flex w-full relative justify-between items-center py-1">
+                      <h2>Next episode</h2>
+                      <div className="flex justify-start items-center gap-x-2">
+                        <Chip
+                          color="success"
+                          variant="flat"
+                          className="hover:shadow-lg"
+                        >
+                          {anime.nextAiringEpisode.episode}
+                        </Chip>
+                        <div>
+                          <Tooltip
+                            content={transmissionDate(
+                              anime.nextAiringEpisode.airingAt
+                            )}
+                            color="success"
+                          >
+                            <Chip
+                              color="success"
+                              variant="flat"
+                              className="hover:shadow-lg"
+                            >
+                              {transmittingIn(
+                                anime.nextAiringEpisode.timeUntilAiring
+                              )}
+                            </Chip>
+                          </Tooltip>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
               {startDate &&
                 startDate.day &&
                 startDate.month &&
@@ -93,30 +137,41 @@ export const Details = ({ anime }: Props) => {
                       <div className="flex w-full relative justify-between items-center py-1">
                         <h2>Start date</h2>
                         <div className="flex justify-start items-center gap-x-3">
-                          {`${startDate.day} ${meses[startDate.month - 1]} ${
-                            startDate.year
-                          }`}
+                          <Chip
+                            color="secondary"
+                            variant="flat"
+                            className="hover:shadow-lg"
+                          >
+                            {`${startDate.day} ${meses[startDate.month - 1]} ${
+                              startDate.year
+                            }`}
+                          </Chip>
                         </div>
                       </div>
                     </div>
                   </>
                 )}
-              {(endDate.day && endDate.month !== undefined) ||
-                (endDate.month !== null && endDate.year && (
-                  <>
-                    <div className="w-full h-full">
-                      <Divider className="my-1" />
-                      <div className="flex w-full relative justify-between items-center py-1">
-                        <h2>End date</h2>
-                        <div className="flex justify-start items-center gap-x-3">
-                          {`${endDate.day} ${meses[endDate.month]} ${
+              {endDate.day && endDate.month && endDate.year && (
+                <>
+                  <div className="w-full h-full">
+                    <Divider className="my-1" />
+                    <div className="flex w-full relative justify-between items-center py-1">
+                      <h2>End date</h2>
+                      <div className="flex justify-start items-center gap-x-3">
+                        <Chip
+                          color="secondary"
+                          variant="flat"
+                          className="hover:shadow-lg"
+                        >
+                          {`${endDate.day} ${meses[endDate.month - 1]} ${
                             endDate.year
                           }`}
-                        </div>
+                        </Chip>
                       </div>
                     </div>
-                  </>
-                ))}
+                  </div>
+                </>
+              )}
 
               {anime.averageScore && (
                 <>
@@ -130,7 +185,13 @@ export const Details = ({ anime }: Props) => {
                           color: averageScoreColor(anime.averageScore),
                         }}
                       >
-                        <p className=" font-semibold">{anime.averageScore}%</p>
+                        <Chip
+                          color="secondary"
+                          variant="flat"
+                          className="hover:shadow-lg"
+                        >
+                          {anime.averageScore}%
+                        </Chip>
                       </div>
                     </div>
                   </div>
@@ -144,28 +205,38 @@ export const Details = ({ anime }: Props) => {
                     <div className="flex w-full relative justify-between items-center py-1">
                       <h2>Durantion</h2>
                       <div className="flex justify-start items-center gap-x-3">
-                        <p>{anime.duration}m</p>
+                        <Chip
+                          color="secondary"
+                          variant="flat"
+                          className="hover:shadow-lg"
+                        >
+                          {anime.duration}m
+                        </Chip>
                       </div>
                     </div>
                   </div>
                 </>
               )}
 
-              {anime.status ? (
+              {anime.status && (
                 <>
                   <div className="w-full h-full">
                     <Divider className="my-1" />
                     <div className="flex w-full relative justify-between items-center py-1">
                       <h2>Status</h2>
                       <div className="flex justify-start items-center gap-x-3">
-                        <p>{anime.status}</p>
+                        <Chip
+                          color="secondary"
+                          variant="flat"
+                          className="hover:shadow-lg"
+                        >
+                          {anime.status}
+                        </Chip>
                       </div>
                     </div>
                     <Divider className="my-1" />
                   </div>
                 </>
-              ) : (
-                <Divider className="my-1" />
               )}
             </div>
           </section>

@@ -1,4 +1,4 @@
-import { CharacterPreview } from "@/types/types";
+import { CharacterPreview, CharacterPreviewEdge } from "@/types/types";
 import Link from "next/link";
 
 export const Characters = ({
@@ -18,7 +18,7 @@ export const Characters = ({
               View all
             </Link>
           </div>
-          <div className="grid_characters">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
             {characterPreview.edges?.map((character) => {
               if (!character) return;
               return (
@@ -44,7 +44,11 @@ export const Characters = ({
                     </div>
                     <div className="w-[80px] max-w-[80px] min-w-[80px] h-[80px] ">
                       <img
-                        src={character.voiceActors[0]?.image?.large}
+                        src={
+                          character.voiceActors[0]?.image?.large
+                            ? character.voiceActors[0].image.large
+                            : "https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg"
+                        }
                         alt=""
                         className="w-full h-full object-cover"
                       />

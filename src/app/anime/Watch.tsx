@@ -21,7 +21,7 @@ export const Watch = ({
               </Link>
             )}
           </div>
-          <div className="w-full h-full grid grid-cols-4 gap-y-4 gap-x-4">
+          <div className="w-full h-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-4">
             {streamingEpisodes.reverse().map((episode, index) => {
               if (index > 7) return;
               return (

@@ -25,7 +25,7 @@ export const Characters = ({
   return (
     <div className="w-full relative h-full">
       <SelectLenguaje setLanguage={setLanguage} characters={characters} />
-      <div className="grid_characters">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
         {characters?.map((character, index) => {
           return (
             <div

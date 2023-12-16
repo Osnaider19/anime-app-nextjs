@@ -16,12 +16,12 @@ export const LayoutC = ({ id }: { id: number }) => {
   if (!anime) {
     return;
   }
-
+  
   return (
     <>
       <BannerImg img={anime?.bannerImage} name={anime.title.userPreferred} />
-      <div className="w-[85%] mx-auto  h-full relative  flex flex-col">
-        <div className="grid_decription">
+      <div className=" w-full px-3 lg:w-[85%] lg:px-0 mx-auto  h-full relative  flex flex-col">
+        <div className="flex flex-col  md:flex-row md:gap-x-4">
           <CardDetails
             img={anime?.coverImage.large}
             name={anime?.title.userPreferred}

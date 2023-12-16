@@ -26,10 +26,10 @@ export function NavegationDetails({
   ];
 
   return (
-    <div className="flex rounded-xl  gap-x-2 py-2">
-      <div className="h-full rounded-full overflow-hidden ">
+    <div className="flex  gap-x-2 w-full min-w-full py-2 overflow-auto sm:overflow-auto lg:overflow-hidden">
+      <div className="h-full rounded-full overflow-hidden">
         <Link
-          className={`hover:bg-[#ffffff20] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#7846aa] ${
+          className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#7846aa] ${
             pathname === `/anime/${params.id}` ? "bg-[#1E112A] " : ""
           }`}
           href={`/anime/${params.id}`}
@@ -40,7 +40,7 @@ export function NavegationDetails({
       {streamingEpisodes?.length > 8 && (
         <div className="h-full rounded-full overflow-hidden ">
           <Link
-            className={`hover:bg-[#ffffff20] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#7846aa] ${
+            className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#7846aa] ${
               pathname === `/anime/${params.id}/watch` ? "bg-[#1E112A] " : ""
             }`}
             href={`/anime/${params.id}/watch`}
@@ -52,7 +52,7 @@ export function NavegationDetails({
       {tabs.map((item) => (
         <div className="h-full rounded-full overflow-hidden " key={item.id}>
           <Link
-            className={`hover:bg-[#ffffff20] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#7846aa] ${
+            className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#7846aa] ${
               pathname === `/anime/${params.id}/${item.id}`
                 ? "bg-[#1E112A] "
                 : ""

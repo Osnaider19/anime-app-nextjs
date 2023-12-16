@@ -10,7 +10,7 @@ export default function Trailer({ idVideo }: { idVideo: string }) {
             <YouTube
               videoId={idVideo}
               id={idVideo}
-              iframeClassName="w-[500px]  h-[400px]"
+              iframeClassName="w-[300px] h-[200px] md:w-[500px]  md:h-[300px]"
               loading="lazy"
             />
           </div>

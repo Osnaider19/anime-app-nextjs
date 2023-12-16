@@ -48,7 +48,7 @@ export default function pageCharacters({ params }: Props) {
         <Characters characters={characters} />
         {hasNextPage && <button ref={ref}></button>}
         {isFetchingNextPage && (
-          <div className="grid_characters">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
             <SkeletonCardCharacters />
             <SkeletonCardCharacters />
             <SkeletonCardCharacters />

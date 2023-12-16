@@ -19,7 +19,7 @@ export default function PageWatch({ params }: Props) {
 
   return (
     <div className="w-full h-full  ">
-      <div className="w-full h-full grid grid-cols-4 gap-y-4 gap-x-4">
+      <div className="w-full h-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-4">
         {streamingEpisodes?.map((episode, index) => {
           return (
             <a
