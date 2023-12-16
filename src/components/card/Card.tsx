@@ -26,10 +26,11 @@ export const Card = ({
   yearStart,
   hover,
 }: Props) => {
-  const genresR = genres.slice(0, 3); //recortar el arry 
+  const genresR = genres.slice(0, 3); //recortar el arry
+  // w-[140px] h-[210px] md:w-[200px]  md:h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group
   return (
     <Link href={`/anime/${id}`}>
-      <div className="w-[140px] h-[210px] md:w-[200px]  md:h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group">
+      <div className="min-w-[140px]  max-w-[200px] min-h-[230px]  sm:min-h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group">
         {/* {hover && (
           <div className="absolute left-0 top-0 w-full h-full opacity-0 transition-opacity duration-300 pointer-events-none bg-black/95 z-10 group-hover:opacity-100 group-hover:pointer-events-auto px-2 py-3">
             <div className="w-full h-full flex  flex-col ">
@@ -68,7 +69,7 @@ export const Card = ({
             }, transparent , transparent , transparent  , rgba(0,0,0,.7)  , rgba(0,0,0,.7))`,
           }}
         ></div>
-        <div className="w-full min-h-full h-full relative px-2">
+        <div className="w-full min-h-full h-full absolute bottom-0 left-0 px-2 ">
           <div className="w-full flex min-h-full  items-end pb-1  ">
             <div className="w-full">
               <p className="text-center text-sm md:text-base  font-semibold  line-clamp-2">

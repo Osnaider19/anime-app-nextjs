@@ -1,14 +1,13 @@
 "use client";
 import { AnimeObject } from "@/types/types";
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
-import { Card } from "../card/Card";
 import Link from "next/link";
 import { IconsArrow } from "@/icons/Icons";
+import { CardSlider } from "../card/CardSlider";
 
 type Props = {
   titleComponents: string;
@@ -84,7 +83,7 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
           {animes?.map((anime) => (
             <SwiperSlide key={anime.id}>
               <div className="w-full h-full ">
-                <Card
+                <CardSlider
                   color={anime.coverImage.color}
                   genres={anime.genres}
                   id={anime.id}

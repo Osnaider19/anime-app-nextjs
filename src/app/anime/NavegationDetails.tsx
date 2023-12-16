@@ -26,8 +26,8 @@ export function NavegationDetails({
   ];
 
   return (
-    <div className="flex  gap-x-2 w-full min-w-full py-2 overflow-auto sm:overflow-auto lg:overflow-hidden">
-      <div className="h-full rounded-full overflow-hidden">
+    <div className="flex  gap-x-2 gap-y-2 w-full min-w-full py-2  flex-wrap">
+      <div className="h-full rounded-full overflow-hidden block">
         <Link
           className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#7846aa] ${
             pathname === `/anime/${params.id}` ? "bg-[#1E112A] " : ""

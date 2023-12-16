@@ -32,7 +32,7 @@ export async function AnimeDinamic({ searchParams, params }: Props) {
   return (
     <>
       <div className="h-full w-full ">
-        <div className="flex flex-wrap py-2  md:w-full justify-center gap-y-4 gap-x-2 md:py-6 md:gap-4 md:justify-center items-center mx-auto xl:grid xl:grid-cols-5">
+        <div className="grid_content_card">
           {data?.data.Page.media.map((anime) => (
             <Card
               key={anime.id}

@@ -11,7 +11,7 @@ export const SkeletonLayout = () => {
           <div className="relative w-[130px] h-[170px] lg:h-[280px] lg:min-w-[210px] lg:w-[210px]">
             <Skeleton className="w-full h-full rounded-md absolute left-0 -top-16" />
           </div>
-          <div className="w-full -mt-16 h-full py-1 flex flex-col gap-y-2 lg:-mt-0">
+          <div className="w-full -mt-[4.8rem] h-full py-1 flex flex-col gap-y-2 lg:-mt-0">
             <Skeleton className="w-[300px] h-7 rounded-full py-2" />
             <Skeleton className="w-full h-3 rounded-full" />
             <Skeleton className="w-full h-3 rounded-full" />

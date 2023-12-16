@@ -44,24 +44,28 @@ html {
     grid-template-columns: repeat(2, 1fr);
     margin: 0 auto;
     row-gap: 1rem;
+    justify-content: space-between;
+    
     column-gap: 0.7rem;
-    padding: 1.5rem 0;
+    padding: 1.5rem 1rem;
+    overflow: hidden;
   }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 580px) {
   .grid_content_card {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (min-width: 650px) {
+@media (min-width: 900px) {
   .grid_content_card {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   .grid_content_card {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 
+/* flex flex-wrap py-2  md:w-full justify-center gap-y-4 gap-x-2 md:py-6 md:gap-4 md:justify-center items-center mx-auto xl:grid xl:grid-cols-5 */

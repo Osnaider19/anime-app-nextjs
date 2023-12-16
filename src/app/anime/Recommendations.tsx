@@ -7,6 +7,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { CardSlider } from "@/components/card/CardSlider";
 
 export const Recommendation = ({
   recommendations,
@@ -68,7 +69,7 @@ export const Recommendation = ({
             >
               {recommendations.nodes.map((anime) => (
                 <SwiperSlide key={anime.id}>
-                  <Card
+                  <CardSlider
                     key={anime.mediaRecommendation.id}
                     id={anime.mediaRecommendation.id}
                     imagen={anime.mediaRecommendation.coverImage.large}

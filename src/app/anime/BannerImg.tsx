@@ -6,6 +6,7 @@ export default function BannerImg({ img , name }: { img: string , name : string 
           className="w-full  absolute left-0 top-0 h-full object-cover"
           alt={`imagen de ${name}`}
         />
+     
       </div>
     );
   }

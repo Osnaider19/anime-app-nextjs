@@ -8,7 +8,7 @@ export const RelationsC = ({ relations }: { relations: Relations }) => {
       {relations.edges.length > 1 && (
         <div className="">
           <h2 className="py-2 font-semibold">Relations</h2>
-          <div className="flex justify-start items-center w-full h-full gap-x-2 flex-wrap gap-y-4">
+          <div className="grid_relations">
             {relations.edges.map((item) => (
               <Tooltip
                 key={item.id}
@@ -16,7 +16,7 @@ export const RelationsC = ({ relations }: { relations: Relations }) => {
                 className="capitalize"
               >
                 <div
-                  className="w-[118px] h-[160px] relative rounded-md overflow-hidden"
+                  className="min-w-[118px] max-w-[150px] w-full h-[200px] relative rounded-md overflow-hidden"
                   key={item.id}
                 >
                   <Link href={"#"}>
