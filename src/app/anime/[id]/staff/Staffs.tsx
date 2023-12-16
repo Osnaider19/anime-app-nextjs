@@ -3,7 +3,7 @@ import { StaffPreviewEdge } from "@/types/types";
 export const Staffs = ({ staffs }: { staffs: StaffPreviewEdge[] }) => {
   return (
     <div className="w-full h-full relative">
-      <div className="grid_characters">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
         {staffs?.map((staff) => (
           <div
             className="bg-[#ffffff10] rounded-md overflow-hidden  shadow-[#ffffff10]"
