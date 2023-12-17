@@ -1,12 +1,9 @@
-import { Suspense } from "react";
-import { Animes } from "@/app/popular/AnimePagination";
-import { SkeletonCards } from "@/components/skeleton/SkeletonCards";
+import { Animes } from "@/components/anime/Animes";
 import { FiltersAll } from "@/components/filters/FiltersAll";
 
 type PageParams = {
   searchParams: {
-    genres: string;
-    page: number;
+    genres?: string;
     search?: string;
     year?: string;
     season?: string;
@@ -16,24 +13,18 @@ type PageParams = {
   };
 };
 export default function PageSearch({ searchParams }: PageParams) {
-  const { sort, format, genres, page, search, season, year } = searchParams;
   return (
     <div className="pt-[70px] relative w-full h-full">
       <div className="w-full px-2 md:w-[80%] m-auto h-full">
         <div className="w-full h-full py-5">
-          <h1 className="text-3xl font-semibold">Search</h1>
+          <h1 className="px-3 text-3xl font-semibold">Search</h1>
         </div>
         <div>
-          <Suspense fallback={<div>loader</div>}>
-            <FiltersAll />
-          </Suspense>
+          <FiltersAll />
         </div>
-        <Suspense
-          key={page + genres + search + sort + format + year + season}
-          fallback={<SkeletonCards />}
-        >
+        <div className="relative w-full h-full px-3 md:px-0">
           <Animes searchParams={searchParams} />
-        </Suspense>
+        </div>
       </div>
     </div>
   );

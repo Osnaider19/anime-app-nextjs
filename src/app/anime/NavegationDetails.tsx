@@ -3,6 +3,8 @@
 import { StreamingEpisode } from "@/types/types";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
+
+//note : validar si la lenth de los characters es mayor a 6 y renderizar el componente
 export function NavegationDetails({
   streamingEpisodes,
 }: {

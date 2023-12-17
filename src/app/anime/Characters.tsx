@@ -14,9 +14,14 @@ export const Characters = ({
         <section className="py-2">
           <div className="w-full flex justify-between items-center">
             <h2 className="py-2 font-semibold ">Characters</h2>
-            <Link href={`${id}/characters`} className="hover:underline text-sm">
-              View all
-            </Link>
+            {characterPreview.edges.length > 5 && (
+              <Link
+                href={`${id}/characters`}
+                className="hover:underline text-sm"
+              >
+                View all
+              </Link>
+            )}
           </div>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
             {characterPreview.edges?.map((character) => {

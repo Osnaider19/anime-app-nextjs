@@ -24,7 +24,6 @@ export const Recommendation = ({
             <Swiper
               slidesPerView={6}
               spaceBetween={0}
-              navigation={true}
               breakpoints={{
                 300: {
                   slidesPerView: 2,

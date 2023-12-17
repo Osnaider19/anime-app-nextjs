@@ -33,7 +33,7 @@ export const SelectLenguaje = ({ characters, setLanguage }: Props) => {
 
   return (
     <>
-      {allLanguages && (
+      {allLanguages.length > 1 && (
         <div className="py-3  w-full flex  justify-end items-center ">
           <div className="flex w-[200px] flex-wrap md:flex-nowrap gap-4">
             <Select

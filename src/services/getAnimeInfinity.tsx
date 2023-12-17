@@ -1,4 +1,3 @@
-import { validateVariables } from "@/helpers/validateVariables";
 import { queryAnimePopular } from "@/querys/query";
 
 interface variables {
@@ -15,7 +14,6 @@ interface variables {
 }
 export async function getAnimeInfinity(variables: variables) {
   const { query } = queryAnimePopular;
-  console.log(variables)
   try {
     const response = await fetch("https://graphql.anilist.co", {
       cache: "force-cache",

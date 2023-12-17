@@ -4,7 +4,7 @@ import { SkeletonCards } from "@/components/skeleton/SkeletonCards";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { useInfinityAnime } from "@/hooks/useInfinityAnime";
-
+import './anime.css'
 type Props = {
   searchParams: {
     genres?: string;
@@ -80,65 +80,3 @@ export function Animes({ searchParams }: Props) {
     </>
   );
 }
-
-//query con server side rendenrin
-//import { Card } from "@/components/card/Card";
-// import { queryAnimePopular } from "@/querys/query";
-// import { Pagination } from "@/types/types";
-// import { PaginationComponent } from "./PaginationComponent";
-// import { fetchAnime } from "@/services/fetchAnime";
-// import { validateVariables } from "@/helpers/validateVariables";
-
-// type Props = {
-//   searchParams: {
-//     genres?: string;
-//     page?: number;
-//     search?: string;
-//     year?: string;
-//     season?: string;
-//     seasonyear?: string;
-//     format?: string;
-//     sort: string;
-//   };
-// };
-// export async function Animes({ searchParams }: Props) {
-//   const { query } = queryAnimePopular;
-//   const data: Pagination = await fetchAnime(
-//     query,
-//     validateVariables(searchParams)
-//   );
-
-//   if (!data || data.data.Page.media.length === 0) {
-//     return (
-//       <div className="w-full h-[50vh] flex justify-center items-center flex-grow">
-//         <h2 className="text-3xl font-bold">If results check the filters</h2>
-//       </div>
-//     );
-//   }
-//   return (
-//     <>
-//       <div className="h-full w-full ">
-//         <div className="grid_content_card">
-//           {data?.data.Page.media.map((anime) => (
-//             <Card
-//               key={anime.id}
-//               id={anime.id}
-//               color={anime.coverImage.color}
-//               genres={anime.genres}
-//               imagen={anime.coverImage.large}
-//               title={anime.title.userPreferred}
-//               description={anime.description}
-//               episodes={anime.episodes}
-//               averageScore={anime.averageScore}
-//               yearStart={anime.startDate.year}
-//               yearEnd={anime.endDate.year}
-//               hover={true}
-//             />
-//           ))}
-//         </div>
-//       </div>
-
-//       <PaginationComponent pageInfo={data?.data?.Page?.pageInfo} />
-//     </>
-//   );
-// }

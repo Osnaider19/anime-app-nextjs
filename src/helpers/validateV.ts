@@ -1,47 +1,48 @@
 import { Browse } from "@/const/const";
-
-export function validateV(params: string, page: number) {
+import { validateVariables } from "./validateVariables";
+type searchParams = {
+  genres?: string;
+  page?: number;
+  search?: string;
+  year?: string;
+  season?: string;
+  seasonyear?: string;
+  format?: string;
+  sort: string;
+};
+export function validateV(params: string, searchParams: searchParams) {
   const { NextSeason, ThisSeason, popular, topAnimes, treding } = Browse;
   if (params === NextSeason.slug) {
     const variables = {
-      page: page || 1,
       ...NextSeason.value,
     };
     return variables;
   }
   if (params === ThisSeason.slug) {
     const variables = {
-      page: page || 1,
       ...ThisSeason.value,
     };
     return variables;
   }
   if (params === popular.slug) {
     const variables = {
-      page: page || 1,
       ...popular.value,
     };
     return variables;
   }
   if (params === topAnimes.slug) {
     const variables = {
-      page: page || 1,
       ...topAnimes.value,
     };
     return variables;
   }
   if (params === treding.slug) {
     const variables = {
-      page: page || 1,
       ...treding.value,
     };
     return variables;
   } else {
-    const variables = {
-      page: page || 1,
-      sort: "POPULARITY_DESC",
-      type: "ANIME",
-    };
+    const variables = validateVariables(searchParams);
     return variables;
   }
 }

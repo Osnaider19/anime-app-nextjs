@@ -48,7 +48,6 @@ export const genres = [
   "Drama",
   "Ecchi",
   "Fantasy",
-  "Hentai",
   "Horror",
   "Mahou Shoujo",
   "Mecha",

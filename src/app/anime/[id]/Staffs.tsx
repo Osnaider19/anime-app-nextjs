@@ -14,9 +14,11 @@ export const Staffs = ({
         <div className="w-full h-full relative py-3">
           <div className="w-full flex justify-between items-center">
             <h2 className="py-2 font-semibold ">Staffs</h2>
-            <Link href={`${id}/staff`} className="hover:underline text-sm">
-              View all
-            </Link>
+            {staffs.length > 5 && (
+              <Link href={`${id}/staff`} className="hover:underline text-sm">
+                View all
+              </Link>
+            )}
           </div>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
             {staffs?.map((staff, index) => {
