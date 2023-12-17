@@ -12,7 +12,11 @@ export default function Trailer({ idVideo }: { idVideo: string }) {
               id={idVideo}
               iframeClassName="w-[300px] h-[200px] md:w-[500px]  md:h-[300px]"
               loading="lazy"
-              
+              opts={{
+                playerVars: {
+                  origin: "https://nexanime.vercel.app",
+                },
+              }}
             />
           </div>
         </div>

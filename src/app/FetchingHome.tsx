@@ -9,11 +9,16 @@ export async function FetchingHome() {
       <Slider animesPopular={data?.data.trending.media} />
       <div className="relative w-full h-full -mt-28">
         <SliderR
-          animes={data?.data.popular.media}
-          titleComponents="All Time Popular"
-          link="search/anime/popular"
+          animes={data?.data.trending.media}
+          titleComponents="Trending"
+          link="search/anime/trending"
         />
       </div>
+      <SliderR
+        animes={data?.data.popular.media}
+        titleComponents="All Time Popular"
+        link="search/anime/popular"
+      />
       <SliderR
         animes={data?.data.nextSeason.media}
         titleComponents="Upcoming next season"

@@ -19,12 +19,6 @@ export const CardSlider = ({
   title,
   genres,
   color,
-  description,
-  episodes,
-  averageScore,
-  yearEnd,
-  yearStart,
-  hover,
 }: Props) => {
   const genresR = genres.slice(0, 3); //recortar el arry
   // w-[140px] h-[210px] md:w-[200px]  md:h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group

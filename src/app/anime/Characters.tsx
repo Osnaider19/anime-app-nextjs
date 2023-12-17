@@ -11,8 +11,8 @@ export const Characters = ({
   return (
     <>
       {characterPreview && (
-        <section className="py-2">
-          <div className="w-full flex justify-between items-center">
+        <section className="py-5">
+          <div className="w-full flex justify-between items-center ">
             <h2 className="py-2 font-semibold ">Characters</h2>
             {characterPreview.edges.length > 5 && (
               <Link

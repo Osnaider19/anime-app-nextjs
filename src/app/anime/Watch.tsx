@@ -12,7 +12,7 @@ export const Watch = ({
   return (
     <>
       {streamingEpisodes.length > 0 && (
-        <section className="w-full h-full ">
+        <section className="w-full h-full py-3">
           <div className="w-full flex justify-between items-center">
             <h2 className="py-2 font-semibold">Watch</h2>
             {streamingEpisodes.length > 8 && (

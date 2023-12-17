@@ -13,7 +13,7 @@ export const Staffs = ({
       {staffs.length > 1 && (
         <div className="w-full h-full relative py-3">
           <div className="w-full flex justify-between items-center">
-            <h2 className="py-2 font-semibold ">Staffs</h2>
+            <h2 className="py-2 font-semibold ">Staff</h2>
             {staffs.length > 5 && (
               <Link href={`${id}/staff`} className="hover:underline text-sm">
                 View all

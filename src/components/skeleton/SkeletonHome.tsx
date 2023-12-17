@@ -11,12 +11,12 @@ export default function SkeletonHome() {
           <div className="w-[200px] h-6 bg-default-300  "></div>
         </Skeleton>
         <div className="flex justify-start items-center w-full gap-x-4  overflow-hidden flex-nowrap">
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
         </div>
       </div>
 
@@ -25,12 +25,12 @@ export default function SkeletonHome() {
           <div className="w-[200px] h-6 bg-default-300  "></div>
         </Skeleton>
         <div className="flex justify-start items-center w-full gap-x-4  overflow-hidden flex-nowrap">
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
+          <SkeletonCard slider={true} />
         </div>
       </div>
     </div>
