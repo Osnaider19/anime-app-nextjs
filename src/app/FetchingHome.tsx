@@ -1,9 +1,34 @@
 import { Slider } from "@/components/Hero/Slider";
+import { ErrorFetch } from "@/components/errors/ErrorFetch";
 import { SliderR } from "@/components/slider/SliderR";
-import { getDataHome } from "@/services/getDataHome";
+import { queryHome } from "@/querys/query";
+import { fetchAnime } from "@/services/fetchAnime";
+import { AnimeObject } from "@/types/types";
+type Data = {
+  data: {
+    nextSeason: {
+      media: Array<AnimeObject>;
+    };
+    popular: {
+      media: Array<AnimeObject>;
+    };
+    season: {
+      media: Array<AnimeObject>;
+    };
+    top: {
+      media: Array<AnimeObject>;
+    };
+    trending: {
+      media: Array<AnimeObject>;
+    };
+  };
+};
 export async function FetchingHome() {
-  const data = await getDataHome();
-  if (!data) return;
+  const { query, variables } = queryHome;
+  const data: Data = await fetchAnime(query, variables);
+
+  if (!data) return <ErrorFetch />;
+
   return (
     <div className="w-full relative h-full">
       <Slider animesPopular={data?.data.trending.media} />

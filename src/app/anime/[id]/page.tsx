@@ -6,6 +6,9 @@ import { RelationsC } from "./Relations";
 import { useAnimeId } from "@/hooks/useAnimeId";
 import Trailer from "../Trailer";
 import { Staffs } from "./Staffs";
+import { Tags } from "@/components/tags/Tags";
+import { ScoreDistribution } from "./stats/ScoreDistribution";
+import { ExtraLink } from "@/components/extralink/ExtraLink";
 
 type Params = {
   params: {
@@ -21,7 +24,7 @@ export default function PageAnimeId({ params }: Params) {
   if (!anime) {
     return;
   }
-
+  console.log(anime);
   return (
     <>
       <RelationsC relations={anime?.relations} />
@@ -30,6 +33,11 @@ export default function PageAnimeId({ params }: Params) {
       <Staffs staffs={anime?.staffPreview.edges} id={anime.id} />
       <Recommendation recommendations={anime?.recommendations} />
       <Trailer idVideo={anime?.trailer?.id} />
+      <div className="w-full h-full grid grid-cols-1 md:grid-cols-2">
+        <ScoreDistribution distribution={anime.stats.scoreDistribution} />
+      </div>
+      <ExtraLink extraLink={anime.externalLinks} />
+      <Tags tags={anime.tags} />
     </>
   );
 }

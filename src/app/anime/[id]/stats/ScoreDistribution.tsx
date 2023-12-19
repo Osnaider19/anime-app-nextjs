@@ -10,7 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { Distribution } from "@/types/stats";
+import { Distribution, Score } from "@/types/stats";
 
 ChartJS.register(
   CategoryScale,
@@ -37,15 +37,15 @@ export const options = {
 export function ScoreDistribution({
   distribution,
 }: {
-  distribution: Distribution;
+  distribution: Score[];
 }) {
-  const scores = distribution?.score.flatMap((sc) => sc.score);
-  const amount = distribution?.score.flatMap((sc) => sc.amount);
-
+  const scores = distribution?.flatMap((sc) => sc.score);
+  const amount = distribution?.flatMap((sc) => sc.amount);
+  
   return (
     <>
       {scores.length > 1 && (
-        <div className="w-full h-full">
+        <div className="w-full py-5 md:py-0 md:h-full">
           <p className="font-semibold py-1">Score Distribution</p>
           <Bar
             options={options}

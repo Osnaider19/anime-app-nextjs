@@ -1,5 +1,6 @@
 import { validateV } from "@/helpers/validateV";
-import { getAnimeInfinity } from "@/services/getAnimeInfinity";
+import { queryAnimePopular } from "@/querys/query";
+import { fetchAnime } from "@/services/fetchAnime";
 import { Pagination } from "@/types/types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
@@ -17,7 +18,7 @@ type searchParams = {
 
 export function useInfinityAnime(searchParams: searchParams) {
   const params = useParams();
-
+  const { query } = queryAnimePopular; //query de los animes
   const keys = params?.id?.toString(); //key si es otra page como next season o popular etc..
 
   const variables = validateV(keys, searchParams); // validar las variables dependiendo de los searchParams
@@ -42,9 +43,9 @@ export function useInfinityAnime(searchParams: searchParams) {
   } = useInfiniteQuery({
     queryKey: queryKey,
     queryFn: ({ pageParam = 1 }) =>
-      getAnimeInfinity({ ...variables, page: pageParam }),
+      fetchAnime(query, { ...variables, page: pageParam }),
     getNextPageParam: (lastPage: Pagination) =>
-      lastPage.data.Page.pageInfo.currentPage + 1, //la siguiente pagína
+      lastPage?.data?.Page.pageInfo.currentPage + 1, //la siguiente pagína
     initialPageParam: 1,
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,

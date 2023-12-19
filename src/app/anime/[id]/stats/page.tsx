@@ -33,7 +33,7 @@ export default async function pageStats({ params }: Props) {
       <Rankings rankings={rankings} />
       <div className="py-3 w-full h-full">
         <div className="h-full md:h-[350px] grid grid-cols-1 md:grid-cols-2 w-full place-items-center">
-          <ScoreDistribution distribution={distribution} />
+          <ScoreDistribution distribution={distribution.score} />
           <StatusDistribution distribution={distribution} />
         </div>
       </div>

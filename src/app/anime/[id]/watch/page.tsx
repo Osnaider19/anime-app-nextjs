@@ -1,7 +1,6 @@
 "use client";
 import { useAnimeId } from "@/hooks/useAnimeId";
 import { IconPlay } from "@/icons/Icons";
-import { StreamingEpisode } from "@/types/types";
 
 type Props = {
   params: {
@@ -19,7 +18,7 @@ export default function PageWatch({ params }: Props) {
 
   return (
     <div className="w-full h-full  ">
-      <div className="w-full h-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-4">
+      <div className="w-full h-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-2">
         {streamingEpisodes?.map((episode, index) => {
           return (
             <a
@@ -29,7 +28,7 @@ export default function PageWatch({ params }: Props) {
               key={index}
             >
               <div
-                className="w-full h-full relative overflow-hidden rounded-sm hover:opacity-90 transition-opacity duration-300 group"
+                className="w-full min-h-[130px]  sm:h-full sm:min-h-0 relative overflow-hidden rounded-sm hover:opacity-90 transition-opacity duration-300 group"
                 key={index}
               >
                 <div
@@ -44,14 +43,14 @@ export default function PageWatch({ params }: Props) {
                       <IconPlay size="20" fill="#fff" />
                     </div>
                   </div>
-                  <p className="text-center line-clamp-2 pb-1 px-3">
+                  <p className="text-center text-sm sm:text-base line-clamp-2 pb-1 px-3">
                     {episode.title}
                   </p>
                 </div>
                 <img
                   src={episode.thumbnail}
                   alt={`image from the episode ${episode.title} `}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover min-h-[130px] sm:min-h-0 "
                   loading="lazy"
                 />
               </div>

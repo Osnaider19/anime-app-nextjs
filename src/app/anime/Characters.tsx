@@ -28,7 +28,7 @@ export const Characters = ({
               if (!character) return;
               return (
                 <div
-                  className="bg-[#ffffff10] rounded-md overflow-hidden  shadow-[#1E112A80] shadow-md "
+                  className="bg-[#ffffff10] rounded-md overflow-hidden "
                   key={character.id}
                 >
                   <div className="flex justify-center items-center">

@@ -8,7 +8,7 @@ interface variables {
   seasonyear?: string;
   format?: string;
   id?: string | number;
-  isAdult? : boolean
+  isAdult?: boolean;
 }
 export async function fetchAnime(query: string, variables: variables) {
   try {
@@ -23,10 +23,11 @@ export async function fetchAnime(query: string, variables: variables) {
         variables,
       }),
     });
-    if (response.ok) {
-      const data = await response.json();
-      return data;
+    if (!response.ok) {
+      throw new Error("error  al obtener  los datos");
     }
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log("error al obtener los datos" + error);
   }
