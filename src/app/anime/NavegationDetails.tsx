@@ -18,10 +18,6 @@ export function NavegationDetails({
       label: "Characters",
     },
     {
-      id: "social",
-      label: "Social",
-    },
-    {
       id: "staff",
       label: "Staff",
     },

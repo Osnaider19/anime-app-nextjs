@@ -37,7 +37,11 @@ export default function staffPage({ params }: Props) {
     <div className="w-full h-full relative">
       <Staffs staffs={staffs} />
       {isFetchingNextPage && <SkeletonStaffs />}
-      {hasNextPage && <div className="w-full" ref={ref}></div>}
+      {hasNextPage ? (
+        <div className="w-full" ref={ref}></div>
+      ) : (
+        <div className="w-full text-center py-3">No hay mas resultados</div>
+      )}
     </div>
   );
 }

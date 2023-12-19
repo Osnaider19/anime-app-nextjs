@@ -24,7 +24,7 @@ export default function PageAnimeId({ params }: Params) {
   if (!anime) {
     return;
   }
-  console.log(anime);
+
   return (
     <>
       <RelationsC relations={anime?.relations} />

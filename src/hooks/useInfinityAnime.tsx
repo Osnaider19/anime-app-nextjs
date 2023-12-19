@@ -54,7 +54,7 @@ export function useInfinityAnime(searchParams: searchParams) {
   });
 
   return {
-    animes: data?.pages.flatMap((page) => page.data.Page.media) ?? [],
+    animes: data?.pages.flatMap((page) => page?.data?.Page.media) ?? [],
     fetchNextPage,
     error,
     isFetchingNextPage,

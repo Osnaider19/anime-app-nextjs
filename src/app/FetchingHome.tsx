@@ -3,6 +3,7 @@ import { ErrorFetch } from "@/components/errors/ErrorFetch";
 import { SliderR } from "@/components/slider/SliderR";
 import { queryHome } from "@/querys/query";
 import { fetchAnime } from "@/services/fetchAnime";
+import { getDataHome } from "@/services/getDataHome";
 import { AnimeObject } from "@/types/types";
 type Data = {
   data: {
@@ -24,10 +25,9 @@ type Data = {
   };
 };
 export async function FetchingHome() {
-  const { query, variables } = queryHome;
-  const data: Data = await fetchAnime(query, variables);
+  const data = await getDataHome();
 
-  if (!data) return <ErrorFetch />;
+  if (!data) return;
 
   return (
     <div className="w-full relative h-full">

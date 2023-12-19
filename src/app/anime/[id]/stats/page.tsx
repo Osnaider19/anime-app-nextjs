@@ -1,6 +1,5 @@
 import { queryStats } from "@/querys/query";
 import { fetchAnime } from "@/services/fetchAnime";
-import { Stats } from "./Stats";
 import { ScoreDistribution } from "./ScoreDistribution";
 import { StatsClass } from "@/types/stats";
 import { StatusDistribution } from "./StatusDistribution";
@@ -29,7 +28,6 @@ export default async function pageStats({ params }: Props) {
   const { distribution, airingTrends, id, rankings, trends } = data?.data.Media;
   return (
     <div className="py-1">
-      <Stats data={data} />
       <Rankings rankings={rankings} />
       <div className="py-3 w-full h-full">
         <div className="h-full md:h-[350px] grid grid-cols-1 md:grid-cols-2 w-full place-items-center">

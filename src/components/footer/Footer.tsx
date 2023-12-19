@@ -43,7 +43,7 @@ export const Footer = () => {
               </div>
             </ItemLink>
 
-            <ItemLink link="#">
+            <ItemLink link="https://www.instagram.com/osnaider_m19/">
               <div className="flex items-center gap-x-2">
                 <span className="block">
                   <IconInstagram fill="#fff" size="20" />

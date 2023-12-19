@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children?: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={lato.className}>
+      <body className={lato.className} suppressHydrationWarning={true}>
         <Providers>
           <div className="relative top-0 left-0 w-full h-full">
             <Header />
