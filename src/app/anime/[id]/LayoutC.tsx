@@ -5,18 +5,15 @@ import { Details } from "../Details";
 import { NavegationDetails } from "../NavegationDetails";
 import { useAnimeId } from "@/hooks/useAnimeId";
 import { SkeletonLayout } from "@/components/skeleton/SkeletonLayout";
+import { ErrorFetch } from "@/components/errors/ErrorFetch";
 
 export const LayoutC = ({ id }: { id: number }) => {
-  const { data, isError, isLoading } = useAnimeId(id);
+  const { data, isError, isLoading, error } = useAnimeId(id);
   const anime = data?.data?.Media;
+  if (isError) return <ErrorFetch />;
+  if (isLoading) return <SkeletonLayout />;
+  if (!anime) return;
 
-  if (isLoading) {
-    return <SkeletonLayout />;
-  }
-  if (!anime) {
-    return;
-  }
-  
   return (
     <>
       <BannerImg img={anime?.bannerImage} name={anime.title.userPreferred} />

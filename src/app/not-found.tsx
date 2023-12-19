@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div className="h-screen w-full flex justify-center items-center flex-col pt-[60px]">
-      <div className="w-[50%] h-[90%] relative">
+      <div className="w-[50%] h-[80%] relative">
         <img
-          src="../../404-2.webp"
+          src="../../img.webp"
           alt=""
-          className="absolute left-0 top-0 w-full h-full object-cover"
+          className="absolute left-0 top-0 w-full h-full object-cover object-top"
           loading="lazy"
         />
       </div>

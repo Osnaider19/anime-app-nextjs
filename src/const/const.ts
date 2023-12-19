@@ -5,7 +5,7 @@ export const animeIdParams = {
   stats: "stats",
   social: "social",
 };
-export const yearsArray = Array.from({ length: 74 }, (_, index) => ({
+export const yearsArray = Array.from({ length: 75 }, (_, index) => ({
   id: index + 1,
   year: 1950 + index,
 })).reverse();

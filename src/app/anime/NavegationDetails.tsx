@@ -65,6 +65,16 @@ export function NavegationDetails({
           </Link>
         </div>
       ))}
+      <div className="h-full rounded-full overflow-hidden block">
+        <Link
+          className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#7846aa] ${
+            pathname === `/anime/${params.id}/stats` ? "bg-[#1E112A] " : ""
+          }`}
+          href={`/anime/${params.id}/stats`}
+        >
+          Stats
+        </Link>
+      </div>
     </div>
   );
 }

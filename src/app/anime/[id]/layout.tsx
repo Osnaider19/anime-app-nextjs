@@ -6,8 +6,8 @@ type Params = {
   };
   children: React.ReactNode;
 };
+
 export default function Layout({ children, params }: Params) {
-  
   return (
     <>
       <section className="relative w-full h-full">

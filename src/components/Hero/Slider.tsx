@@ -29,7 +29,7 @@ export const Slider = ({ animesPopular }: Props) => {
           if (!anime.bannerImage) return;
           return (
             <SwiperSlide key={anime.id}>
-              <div className=" w-full h-[490px] relative pt-[70px] sm:px-8 pb-5 bg-gradient-to-b flex flex-col justify-center items-center">
+              <div className=" w-full h-[490px] relative pt-[70px] sm:px-8 pb-2 bg-gradient-to-b flex flex-col justify-center items-center">
                 <div
                   className="w-full h-[570px] absolute top-0 left-0 opacity-90"
                   style={{

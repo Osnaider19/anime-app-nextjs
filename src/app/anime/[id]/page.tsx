@@ -21,12 +21,13 @@ export default function PageAnimeId({ params }: Params) {
   if (!anime) {
     return;
   }
+
   return (
     <>
       <RelationsC relations={anime?.relations} />
       <Watch streamingEpisodes={anime?.streamingEpisodes} id={anime.id} />
       <Characters characterPreview={anime?.characterPreview} id={anime.id} />
-      <Staffs staffs={anime?.staffPreview.edges} id={anime.id}/>
+      <Staffs staffs={anime?.staffPreview.edges} id={anime.id} />
       <Recommendation recommendations={anime?.recommendations} />
       <Trailer idVideo={anime?.trailer?.id} />
     </>
