@@ -13,6 +13,7 @@ export const RelationsC = ({ relations }: { relations: Relations }) => {
               <Tooltip
                 key={item.id}
                 content={item.node.title.userPreferred}
+                color="danger"
                 className="capitalize"
               >
                 <div

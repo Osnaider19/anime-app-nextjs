@@ -44,7 +44,7 @@ export function ScoreDistribution({
   
   return (
     <>
-      {scores.length > 1 && (
+      {scores?.length > 1 && (
         <div className="w-full py-5 md:py-0 md:h-full">
           <p className="font-semibold py-1">Score Distribution</p>
           <Bar

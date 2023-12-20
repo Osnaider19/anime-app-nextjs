@@ -26,15 +26,18 @@ export default async function pageStats({ params }: Props) {
   const data: data = await fetchAnime(query, variables);
   if (!data) return;
   const { distribution, airingTrends, id, rankings, trends } = data?.data.Media;
+
   return (
     <div className="py-1">
       <Rankings rankings={rankings} />
-      <div className="py-3 w-full h-full">
-        <div className="h-full md:h-[350px] grid grid-cols-1 md:grid-cols-2 w-full place-items-center">
-          <ScoreDistribution distribution={distribution.score} />
-          <StatusDistribution distribution={distribution} />
+      {distribution && (
+        <div className="py-3 w-full h-full">
+          <div className="h-full md:h-[350px] grid grid-cols-1 md:grid-cols-2 w-full place-items-center">
+            <ScoreDistribution distribution={distribution.score} />
+            <StatusDistribution distribution={distribution} />
+          </div>
         </div>
-      </div>
+      )}
       <AiringTrends airingTrends={airingTrends.nodes} />
       <AiringWatchers airingTrends={airingTrends.nodes} />
       <ActivityPerDay trends={trends.nodes} />

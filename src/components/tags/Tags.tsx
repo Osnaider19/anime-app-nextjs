@@ -23,7 +23,7 @@ export const Tags = ({ tags }: { tags: Tag[] }) => {
 
               //   </Link>
               <Tooltip content={description} key={id} color="secondary">
-                <Chip variant="flat" color="secondary" key={id}>
+                <Chip variant="solid" color="danger" key={id}>
                   {name}
                 </Chip>
               </Tooltip>

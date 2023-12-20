@@ -27,8 +27,8 @@ export function NavegationDetails({
     <div className="flex  gap-x-2 gap-y-2 w-full min-w-full py-2  flex-wrap">
       <div className="h-full rounded-full overflow-hidden block">
         <Link
-          className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#7846aa] ${
-            pathname === `/anime/${params.id}` ? "bg-[#1E112A] " : ""
+          className={`hover:bg-[#F31260] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#fff] ${
+            pathname === `/anime/${params.id}` ? "bg-[#F31260] " : ""
           }`}
           href={`/anime/${params.id}`}
         >
@@ -38,8 +38,8 @@ export function NavegationDetails({
       {streamingEpisodes?.length > 8 && (
         <div className="h-full rounded-full overflow-hidden ">
           <Link
-            className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#7846aa] ${
-              pathname === `/anime/${params.id}/watch` ? "bg-[#1E112A] " : ""
+            className={`hover:bg-[#F31260] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#fff] ${
+              pathname === `/anime/${params.id}/watch` ? "bg-[#F31260] " : ""
             }`}
             href={`/anime/${params.id}/watch`}
           >
@@ -50,9 +50,9 @@ export function NavegationDetails({
       {tabs.map((item) => (
         <div className="h-full rounded-full overflow-hidden " key={item.id}>
           <Link
-            className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#7846aa] ${
+            className={`hover:bg-[#F31260] block w-full h-full transition-colors duration-300 py-1 px-3  text-[#fff] ${
               pathname === `/anime/${params.id}/${item.id}`
-                ? "bg-[#1E112A] "
+                ? "bg-[#F31260] "
                 : ""
             }`}
             href={`/anime/${params.id}/${item.id}`}
@@ -63,8 +63,8 @@ export function NavegationDetails({
       ))}
       <div className="h-full rounded-full overflow-hidden block">
         <Link
-          className={`hover:bg-[#1E112A] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#7846aa] ${
-            pathname === `/anime/${params.id}/stats` ? "bg-[#1E112A] " : ""
+          className={`hover:bg-[#F31260] block w-full h-full transition-colors duration-300 py-1 px-3 text-[#fff] ${
+            pathname === `/anime/${params.id}/stats` ? "bg-[#F31260] " : ""
           }`}
           href={`/anime/${params.id}/stats`}
         >

@@ -10,12 +10,10 @@ const config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-    
-    },
+    extend: {},
   },
-  darkMode: "",
-  plugins: [nextui({defaultTheme : "dark"})],
+  plugins: [nextui({ defaultTheme: "dark" } )],
+  
 };
 
 export default config;

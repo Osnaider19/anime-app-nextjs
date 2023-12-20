@@ -16,14 +16,16 @@ export default function RootLayout(props: { children?: React.ReactNode }) {
     <html lang="en">
       <body className={lato.className} suppressHydrationWarning={true}>
         <Providers>
-          <div className="relative top-0 left-0 w-full h-full">
-            <Header />
-            <ReactQueryDevtools />
-            <div className="w-full h-full relative">
-              <NextTopLoader color="#854DBE" />
-              {props.children}
+          <div className="w-full h-full relative">
+            <div className="relative top-0 left-0 w-full h-full dark dark:bg-[#000] dark:text-white   max-w-[1355px] mx-auto">
+              <Header />
+              <ReactQueryDevtools />
+              <div className="w-full h-full relative">
+                <NextTopLoader color="#F31260" />
+                {props.children}
+              </div>
             </div>
-            <Footer/>
+            <Footer />
           </div>
         </Providers>
       </body>

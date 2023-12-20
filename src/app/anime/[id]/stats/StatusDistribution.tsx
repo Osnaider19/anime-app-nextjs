@@ -54,7 +54,7 @@
 //     </>
 //   );
 // }
-"use client"
+"use client";
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
@@ -67,11 +67,13 @@ export function StatusDistribution({
 }: {
   distribution: Distribution;
 }) {
-  const status = distribution.status.flatMap((stat) => stat.status);
-  const amount = distribution.status.flatMap((stat) => stat.amount);
-
+  const status = distribution?.status?.flatMap((stat) => stat.status);
+  const amount = distribution?.status?.flatMap((stat) => stat.amount);
+  if (status === undefined || amount === undefined) return;
   // Obtener el índice del elemento con la puntuación más alta
-  const sortedAmountIndices = amount.map((_, index) => index).sort((a, b) => amount[b] - amount[a]);
+  const sortedAmountIndices = amount
+    .map((_, index) => index)
+    .sort((a, b) => amount[b] - amount[a]);
 
   // Colores personalizados para cada puntuación
   const colors = amount.map((_, index) => {
@@ -84,7 +86,7 @@ export function StatusDistribution({
 
   return (
     <>
-      {amount.length > 1 && (
+      {amount?.length > 1 && (
         <div className="w-full h-[350px] md:h-full ">
           <p className="font-semibold py-2">Status Distribution</p>
           <div className="w-full h-full relative">

@@ -75,7 +75,7 @@ export const Details = ({ anime }: Props) => {
                     href={`/search/anime?genres=${genre}`}
                     key={genre + index}
                   >
-                    <Chip color="secondary" variant="flat">
+                    <Chip color="danger" variant="solid">
                       {genre}
                     </Chip>
                   </Link>
@@ -92,9 +92,8 @@ export const Details = ({ anime }: Props) => {
                       <h2>Episodes</h2>
                       <div className="flex justify-start items-center">
                         <Chip
-                          color="secondary"
-                          variant="flat"
-                          className="hover:shadow-lg"
+                          color="danger" variant="solid"
+                         
                         >
                           {episodes}
                         </Chip>
@@ -112,9 +111,9 @@ export const Details = ({ anime }: Props) => {
                       <h2>Next episode</h2>
                       <div className="flex justify-start items-center gap-x-2">
                         <Chip
-                          color="success"
-                          variant="flat"
-                          className="hover:shadow-lg"
+                          color="danger"
+                          variant="solid"
+                          
                         >
                           {anime.nextAiringEpisode.episode}
                         </Chip>
@@ -123,12 +122,12 @@ export const Details = ({ anime }: Props) => {
                             content={transmissionDate(
                               anime.nextAiringEpisode.airingAt
                             )}
-                            color="success"
+                            color="danger"
                           >
                             <Chip
-                              color="success"
-                              variant="flat"
-                              className="hover:shadow-lg"
+                              color="danger"
+                              variant="solid"
+                              
                             >
                               {transmittingIn(
                                 anime.nextAiringEpisode.timeUntilAiring
@@ -153,8 +152,7 @@ export const Details = ({ anime }: Props) => {
                         <h2>Start date</h2>
                         <div className="flex justify-start items-center gap-x-3">
                           <Chip
-                            color="secondary"
-                            variant="flat"
+                            color="danger" variant="solid"
                             className="hover:shadow-lg"
                           >
                             {`${startDate.day} ${meses[startDate.month - 1]} ${
@@ -174,8 +172,7 @@ export const Details = ({ anime }: Props) => {
                       <h2>End date</h2>
                       <div className="flex justify-start items-center gap-x-3">
                         <Chip
-                          color="secondary"
-                          variant="flat"
+                         color="danger" variant="solid"
                           className="hover:shadow-lg"
                         >
                           {`${endDate.day} ${meses[endDate.month - 1]} ${
@@ -196,8 +193,8 @@ export const Details = ({ anime }: Props) => {
                       <h2>Average Score</h2>
                       <div className="flex justify-start items-center gap-x-3">
                         <Chip
-                          color={averageScoreColor(anime.averageScore)}
-                          variant="flat"
+                          color="danger"
+                          variant="solid"
                           className="hover:shadow-lg"
                         >
                           {anime.averageScore}%
@@ -216,8 +213,7 @@ export const Details = ({ anime }: Props) => {
                       <h2>Durantion</h2>
                       <div className="flex justify-start items-center gap-x-3">
                         <Chip
-                          color="secondary"
-                          variant="flat"
+                          color="danger" variant="solid"
                           className="hover:shadow-lg"
                         >
                           {anime.duration}m
@@ -236,8 +232,7 @@ export const Details = ({ anime }: Props) => {
                       <h2>Status</h2>
                       <div className="flex justify-start items-center gap-x-3">
                         <Chip
-                          color="secondary"
-                          variant="flat"
+                          color="danger" variant="solid"
                           className="hover:shadow-lg"
                         >
                           {anime.status}

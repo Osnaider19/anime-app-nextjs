@@ -24,8 +24,8 @@ export const Rankings = ({ rankings }: { rankings: Ranking[] }) => {
                 key={rang.id}
               >
                 <Chip
-                  color="secondary"
-                  variant="flat"
+                  color="danger"
+                  variant="solid"
                   className="text-sm md:text-base"
                 >
                   {` #${rang.rank} ${rang.context} ${rang.type} ${
