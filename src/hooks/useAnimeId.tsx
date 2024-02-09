@@ -12,7 +12,7 @@ type UseAnimeIdResult = {
   isLoading: boolean;
   isPending: boolean;
 };
-export function useAnimeId(id: string | number): UseAnimeIdResult {
+export function useAnimeId(id:  number): UseAnimeIdResult {
   const { query } = queryId;
   const variables = {
     id: id,

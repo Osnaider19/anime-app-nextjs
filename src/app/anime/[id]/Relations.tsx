@@ -3,6 +3,7 @@ import { Tooltip } from "@nextui-org/react";
 import Link from "next/link";
 
 export const RelationsC = ({ relations }: { relations: Relations }) => {
+  console.log(relations);
   return (
     <>
       {relations.edges.length > 1 && (
@@ -20,7 +21,13 @@ export const RelationsC = ({ relations }: { relations: Relations }) => {
                   className="min-w-[118px] max-w-[150px] w-full h-[200px] relative rounded-md overflow-hidden"
                   key={item.id}
                 >
-                  <Link href={"#"}>
+                  <Link
+                    href={
+                      item.node.type === "ANIME"
+                        ? `/anime/${item.node.id}`
+                        : "#"
+                    }
+                  >
                     <img
                       src={item.node.coverImage.large}
                       alt={`image de ${item.node.title.userPreferred}`}

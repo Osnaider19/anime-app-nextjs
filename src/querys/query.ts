@@ -590,3 +590,27 @@ export const queryStats = {
     id: 162803,
   },
 };
+
+
+export const queryIdMetadata = {
+ query : ` query media($id: Int, $type: MediaType, $isAdult: Boolean) {
+  Media(id: $id, type: $type, isAdult: $isAdult) {
+    id
+    title {
+      userPreferred
+      romaji
+      english
+      native
+    }
+    coverImage {
+      extraLarge
+      large
+      color
+    }
+    bannerImage 
+    description
+  }
+}
+    `
+  
+ }

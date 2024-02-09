@@ -22,8 +22,10 @@ type Data = {
 export async function getDataHome() {
   const { query, variables } = queryHome;
   try {
-    const response = await fetch("https://graphql.anilist.co", { cache : "force-cache",
+    const response = await fetch("https://graphql.anilist.co", {
+      cache: "no-store",
       method: "POST",
+
       headers: {
         "Content-Type": "application/json",
       },
@@ -35,7 +37,7 @@ export async function getDataHome() {
     if (!response.ok) {
       throw new Error("error  al obtener  los datos");
     }
-    const data : Data = await response.json();
+    const data: Data = await response.json();
     return data;
   } catch (error) {
     console.log(error);

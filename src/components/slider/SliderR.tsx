@@ -22,7 +22,7 @@ export const SliderR = ({ animes, titleComponents, link }: Props) => {
           href={link ? `/${link}` : "#"}
           className="flex  gap-x-2  items-center group"
         >
-          <h2 className="uppercase text-sm md:text-lg">{titleComponents}</h2>
+          <h2 className="uppercase text-sm md:text-lg font-semibold">{titleComponents}</h2>
           <span className="group-hover:opacity-100 group-hover:-translate-x-0 opacity-0 -translate-x-2 transition-all duration-300 pt-[1px] ">
             <IconsArrow />
           </span>

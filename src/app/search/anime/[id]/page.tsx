@@ -19,13 +19,25 @@ type PageParams = {
   };
 };
 
+export async function generateMetadata({ params }: PageParams) {
+  const title = `${validateTitle(params.id)} | NexAnime `,
+    description = `Search tens of thousands of anime on NexAnime,
+    The most complete anime database.
+    Find the exact anime you are looking for.`;
+
+  return {
+    title,
+    description,
+  };
+}
+
 export default function PageDinamic({ searchParams, params }: PageParams) {
   return (
     <>
       <Redirect />
       <div className="pt-[70px] relative w-full h-full">
         <div className="w-full px-2 md:w-[80%] m-auto h-full">
-          <div className="px-3 w-full h-full py-5">
+          <div className="px-3 md:px-0 w-full h-full py-5">
             <h1 className="text-2xl md:text-3xl font-semibold ">
               {validateTitle(params.id)}
             </h1>

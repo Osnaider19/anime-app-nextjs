@@ -1,14 +1,7 @@
-"use client";
-import { Watch } from "../Watch";
-import { Characters } from "../Characters";
-import { Recommendation } from "../Recommendations";
-import { RelationsC } from "./Relations";
-import { useAnimeId } from "@/hooks/useAnimeId";
-import Trailer from "../Trailer";
-import { Staffs } from "./Staffs";
-import { Tags } from "@/components/tags/Tags";
-import { ScoreDistribution } from "./stats/ScoreDistribution";
-import { ExtraLink } from "@/components/extralink/ExtraLink";
+import { AnimePage } from "./AnimePage";
+import type { Metadata } from "next";
+import { fetchAnime } from "@/services/fetchAnime";
+import { queryIdMetadata } from "@/querys/query";
 
 type Params = {
   params: {
@@ -16,28 +9,35 @@ type Params = {
   };
 };
 
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+
+  const { query } = queryIdMetadata; //query especial para los metadatos
+
+  const data = await fetchAnime(query, { id, type: "ANIME" }); //fetch de los metadatos
+  const anime = data.data.Media;
+  const title = anime.title.userPreferred;
+  const previousImages = anime.coverImage.large;
+  const description = anime.description;
+
+  return {
+    title,
+    openGraph: {
+      images: [
+        {
+          url: previousImages,
+          alt: `picture of ${title}`,
+        },
+      ],
+    },
+    description,
+  };
+}
 export default function PageAnimeId({ params }: Params) {
-  const { data } = useAnimeId(params.id);
-
-  const anime = data?.data?.Media;
-
-  if (!anime) {
-    return;
-  }
-
   return (
     <>
-      <RelationsC relations={anime?.relations} />
-      <Watch streamingEpisodes={anime?.streamingEpisodes} id={anime.id} />
-      <Characters characterPreview={anime?.characterPreview} id={anime.id} />
-      <Staffs staffs={anime?.staffPreview.edges} id={anime.id} />
-      <Recommendation recommendations={anime?.recommendations} />
-      <Trailer idVideo={anime?.trailer?.id} />
-      <div className="w-full h-full grid grid-cols-1 md:grid-cols-2">
-        <ScoreDistribution distribution={anime.stats.scoreDistribution} />
-      </div>
-      <ExtraLink extraLink={anime.externalLinks} />
-      <Tags tags={anime.tags} />
+      <AnimePage id={params.id} />
     </>
   );
 }

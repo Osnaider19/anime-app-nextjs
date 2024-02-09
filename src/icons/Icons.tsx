@@ -71,7 +71,7 @@ export const IconSearch = () => {
   );
 };
 
-export const SearchIcon2 = (props) => (
+export const SearchIcon2 = (props : any) => (
   <svg
     aria-hidden="true"
     fill="none"
