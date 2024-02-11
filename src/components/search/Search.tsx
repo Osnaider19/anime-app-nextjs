@@ -9,6 +9,7 @@ export const Search = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
+
   const handelChange = useDebouncedCallback((query: string) => {
     if (query) {
       params.set("search", query);
@@ -19,6 +20,7 @@ export const Search = () => {
     router.replace(`${pathname}?${params}`);
   }, 700);
   const search = params.get("search")?.toString();
+
   return (
     <div className="flex w-full sm:w-[200px]">
       <Input
@@ -27,10 +29,10 @@ export const Search = () => {
         size="sm"
         onChange={(e) => handelChange(e.target.value)}
         defaultValue={search ? search : ""}
-        //value={search ? search : ""}
         variant="flat"
         radius="full"
         color="secondary"
+        autoFocus={pathname === "/search/anime"} //poner en focus solo cuando valla hacer una busqueda para la accesibilidad de el user
       />
     </div>
   );
