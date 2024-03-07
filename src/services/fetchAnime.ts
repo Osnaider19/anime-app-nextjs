@@ -13,12 +13,11 @@ interface variables {
 export async function fetchAnime(query: string, variables: variables) {
   try {
     const response = await fetch("https://graphql.anilist.co", {
-      cache : "force-cache",
+      cache: "force-cache",
       method: "POST",
       headers: {
-        "Accept": "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
-       
       },
       body: JSON.stringify({
         query,

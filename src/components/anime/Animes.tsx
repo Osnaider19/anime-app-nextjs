@@ -21,7 +21,9 @@ type Props = {
 };
 
 export function Animes({ searchParams }: Props) {
-  const { inView, ref } = useInView();
+  const { inView, ref } = useInView({
+    rootMargin: "10px 20px 600px 40px",
+  });
 
   const {
     animes,
@@ -40,7 +42,7 @@ export function Animes({ searchParams }: Props) {
 
   if (isLoading) return <SkeletonCards />;
   if (isError) return <ErrorFetch />;
-  if (animes.length < 1 ) return <ErrorDataNull />;
+  if (animes.length < 1) return <ErrorDataNull />;
 
   return (
     <>
