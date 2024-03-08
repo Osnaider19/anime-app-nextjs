@@ -124,18 +124,18 @@ export const Browse = {
   NextSeason: {
     title: "Anime Next Season - Airing Winter 2024",
     value: {
-      season: "WINTER",
+      season: "SPRING",
       seasonYear: 2024,
       type: "ANIME",
     },
     slug: "next-season",
   },
   ThisSeason: {
-    title: "Fall 2023 Anime",
+    title: "Winter 2024 Anime",
     value: {
-      season: "FALL",
-      seasonYear: 2023,
       type: "ANIME",
+      seasonYear: 2024,
+      season: "WINTER",
     },
     slug: "this-season",
   },

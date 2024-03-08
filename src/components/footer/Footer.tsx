@@ -16,11 +16,11 @@ export const Footer = () => {
           <div>
             <h4 className="py-1 font-semibold">Browse</h4>
             <div className="w-full h-full flex flex-col ">
-              <ItemLink link="#">Trending</ItemLink>
-              <ItemLink link="#">popular</ItemLink>
-              <ItemLink link="#">upcoming next season</ItemLink>
-              <ItemLink link="#">top 100 anime</ItemLink>
-              <ItemLink link="#">popupar this season</ItemLink>
+              <ItemLink link="/search/anime/trending">Trending</ItemLink>
+              <ItemLink link="/search/anime/popular">popular</ItemLink>
+              <ItemLink link="/search/anime/next-season">upcoming next season</ItemLink>
+              <ItemLink link="/search/anime/top-100">top 100 anime</ItemLink>
+              <ItemLink link="/search/anime/this-season">popupar this season</ItemLink>
             </div>
           </div>
 

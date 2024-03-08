@@ -1,29 +1,7 @@
 import { Slider } from "@/components/Hero/Slider";
-import { ErrorFetch } from "@/components/errors/ErrorFetch";
 import { SliderR } from "@/components/slider/SliderR";
-import { queryHome } from "@/querys/query";
-import { fetchAnime } from "@/services/fetchAnime";
 import { getDataHome } from "@/services/getDataHome";
-import { AnimeObject } from "@/types/types";
-type Data = {
-  data: {
-    nextSeason: {
-      media: Array<AnimeObject>;
-    };
-    popular: {
-      media: Array<AnimeObject>;
-    };
-    season: {
-      media: Array<AnimeObject>;
-    };
-    top: {
-      media: Array<AnimeObject>;
-    };
-    trending: {
-      media: Array<AnimeObject>;
-    };
-  };
-};
+
 export async function FetchingHome() {
   const data = await getDataHome();
 
@@ -39,10 +17,11 @@ export async function FetchingHome() {
           link="search/anime/trending"
         />
       </div>
+
       <SliderR
-        animes={data?.data.popular.media}
-        titleComponents="All Time Popular"
-        link="search/anime/popular"
+        animes={data?.data.season.media}
+        titleComponents="Popular this season"
+        link="search/anime/this-season"
       />
       <SliderR
         animes={data?.data.nextSeason.media}
@@ -50,14 +29,14 @@ export async function FetchingHome() {
         link="search/anime/next-season"
       />
       <SliderR
+        animes={data?.data.popular.media}
+        titleComponents="All Time Popular"
+        link="search/anime/popular"
+      />
+      <SliderR
         animes={data?.data.top.media}
         titleComponents="Top 100 anime"
         link="search/anime/top-100"
-      />
-      <SliderR
-        animes={data?.data.season.media}
-        titleComponents="Popular this season"
-        link="search/anime/this-season"
       />
     </div>
   );

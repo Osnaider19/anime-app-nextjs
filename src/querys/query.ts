@@ -102,9 +102,9 @@ fragment media on Media {
     `,
   variables: {
     type: "ANIME",
-    season: "FALL",
-    seasonYear: 2023,
-    nextSeason: "WINTER",
+    season: "WINTER",
+    seasonYear: 2024,
+    nextSeason: "SPRING",
     nextYear: 2024,
   },
 };
