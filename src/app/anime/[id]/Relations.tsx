@@ -3,7 +3,6 @@ import { Tooltip } from "@nextui-org/react";
 import Link from "next/link";
 
 export const RelationsC = ({ relations }: { relations: Relations }) => {
-  console.log(relations);
   return (
     <>
       {relations.edges.length > 1 && (
