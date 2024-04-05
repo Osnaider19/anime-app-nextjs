@@ -42,11 +42,13 @@ export const Slider = ({ animesPopular }: Props) => {
                     <img
                       className="hidden md:block w-full h-full absolute top-0 left-0  object-cover object-top"
                       src={anime.bannerImage}
+                      loading="lazy"
+                      alt={`image the ${anime.title.userPreferred}`}
                     />
 
                     <img
                       src={anime.coverImage.extraLarge}
-                      alt={`image de ${anime.title.userPreferred}`}
+                      alt={`image the ${anime.title.userPreferred}`}
                       className="md:hidden w-full h-full absolute top-0 left-0  object-cover"
                       loading="lazy"
                     />
