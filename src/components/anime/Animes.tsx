@@ -7,6 +7,7 @@ import { useInfinityAnime } from "@/hooks/useInfinityAnime";
 import "./anime.css";
 import { ErrorFetch } from "../errors/ErrorFetch";
 import { ErrorDataNull } from "../errors/ErrorDataNull";
+import { Tooltip } from "@nextui-org/react";
 type Props = {
   searchParams: {
     genres?: string;
@@ -31,6 +32,8 @@ export function Animes({ searchParams }: Props) {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
+    error,
+    status,
     isLoading,
   } = useInfinityAnime(searchParams);
 
@@ -40,6 +43,8 @@ export function Animes({ searchParams }: Props) {
     }
   }, [inView]);
 
+  console.log(isError, error, status, animes);
+  if (status === "pending") return <SkeletonCards />;
   if (isLoading) return <SkeletonCards />;
   if (isError) return <ErrorFetch />;
   if (animes.length < 1) return <ErrorDataNull />;

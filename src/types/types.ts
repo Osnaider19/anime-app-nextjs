@@ -24,7 +24,7 @@ export type AnimeObject = {
   description: string;
   type: string;
   format: string;
-  status: string;
+  status: "RELEASING" | "FINISHED" | "CANCELLED" | "NOT_YET_RELEASED";
   episodes: number;
   duration: number;
   chapters: null;

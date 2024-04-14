@@ -13,15 +13,8 @@ type Props = {
   yearEnd?: number;
   hover?: boolean;
 };
-export const CardSlider = ({
-  id,
-  imagen,
-  title,
-  genres,
-  color,
-}: Props) => {
-  const genresR = genres.slice(0, 3); //recortar el arry
-  // w-[140px] h-[210px] md:w-[200px]  md:h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group
+export const CardSlider = ({ id, imagen, title, genres, color }: Props) => {
+  const genresR = genres.slice(0, 3);
   return (
     <Link href={`/anime/${id}`}>
       <div className="w-[140px] h-[210px] md:w-[200px]  md:h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group">

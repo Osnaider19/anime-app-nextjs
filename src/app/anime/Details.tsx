@@ -56,9 +56,9 @@ export const Details = ({ anime }: Props) => {
           }}
           ref={ref}
         >
-          <p className="text-2xl md:text-3xl font-extrabold py-2 ">
+          <h1 className="text-2xl md:text-3xl font-extrabold py-2 ">
             {anime?.title.userPreferred}
-          </p>
+          </h1>
           <div
             className="overflow-hidden"
             dangerouslySetInnerHTML={{
@@ -91,10 +91,7 @@ export const Details = ({ anime }: Props) => {
                     <div className="flex w-full relative justify-between items-center py-1">
                       <h2>Episodes</h2>
                       <div className="flex justify-start items-center">
-                        <Chip
-                          color="danger" variant="solid"
-                         
-                        >
+                        <Chip color="danger" variant="solid">
                           {episodes}
                         </Chip>
                       </div>
@@ -110,11 +107,7 @@ export const Details = ({ anime }: Props) => {
                     <div className="flex w-full relative justify-between items-center py-1">
                       <h2>Next episode</h2>
                       <div className="flex justify-start items-center gap-x-2">
-                        <Chip
-                          color="danger"
-                          variant="solid"
-                          
-                        >
+                        <Chip color="danger" variant="solid">
                           {anime.nextAiringEpisode.episode}
                         </Chip>
                         <div>
@@ -124,11 +117,7 @@ export const Details = ({ anime }: Props) => {
                             )}
                             color="danger"
                           >
-                            <Chip
-                              color="danger"
-                              variant="solid"
-                              
-                            >
+                            <Chip color="danger" variant="solid">
                               {transmittingIn(
                                 anime.nextAiringEpisode.timeUntilAiring
                               )}
@@ -152,7 +141,8 @@ export const Details = ({ anime }: Props) => {
                         <h2>Start date</h2>
                         <div className="flex justify-start items-center gap-x-3">
                           <Chip
-                            color="danger" variant="solid"
+                            color="danger"
+                            variant="solid"
                             className="hover:shadow-lg"
                           >
                             {`${startDate.day} ${meses[startDate.month - 1]} ${
@@ -172,7 +162,8 @@ export const Details = ({ anime }: Props) => {
                       <h2>End date</h2>
                       <div className="flex justify-start items-center gap-x-3">
                         <Chip
-                         color="danger" variant="solid"
+                          color="danger"
+                          variant="solid"
                           className="hover:shadow-lg"
                         >
                           {`${endDate.day} ${meses[endDate.month - 1]} ${
@@ -213,7 +204,8 @@ export const Details = ({ anime }: Props) => {
                       <h2>Durantion</h2>
                       <div className="flex justify-start items-center gap-x-3">
                         <Chip
-                          color="danger" variant="solid"
+                          color="danger"
+                          variant="solid"
                           className="hover:shadow-lg"
                         >
                           {anime.duration}m
@@ -232,7 +224,8 @@ export const Details = ({ anime }: Props) => {
                       <h2>Status</h2>
                       <div className="flex justify-start items-center gap-x-3">
                         <Chip
-                          color="danger" variant="solid"
+                          color="danger"
+                          variant="solid"
                           className="hover:shadow-lg"
                         >
                           {anime.status}

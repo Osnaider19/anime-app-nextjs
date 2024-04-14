@@ -1,4 +1,6 @@
+"use client";
 import { IconsPoint } from "@/icons/Icons";
+import { Tooltip } from "@nextui-org/react";
 import Link from "next/link";
 type Props = {
   id: number;
@@ -13,12 +15,22 @@ export const Card = ({ id, imagen, title, genres, color }: Props) => {
   return (
     <Link href={`/anime/${id}`}>
       <div className="min-w-[140px]  max-w-[200px] min-h-[230px]  sm:min-h-[270px] relative border border-[#ffffff20] overflow-hidden rounded-lg shadow-2xl shadow-[#ffffff10] group">
-        <img
-          src={imagen}
-          alt={`imagen de ${title}`}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          loading="lazy"
-        />
+        <Tooltip
+          content={
+            <div className="px-1 py-2">
+              <div className="text-small font-bold">Custom Content</div>
+              <div className="text-tiny">This is a custom tooltip content</div>
+            </div>
+          }
+          color="primary"
+        >
+          <img
+            src={imagen}
+            alt={`imagen de ${title}`}
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+        </Tooltip>
         <div
           className="w-full h-full  absolute top-0 left-0"
           style={{

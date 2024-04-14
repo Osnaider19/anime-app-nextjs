@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   const data = await fetchAnime(query, { id, type: "ANIME" }); //fetch de los metadatos
   const anime = data.data.Media;
-  const title =  `${anime.title.userPreferred} | Nexanime`;
+  const title = `${anime.title.userPreferred} | Nexanime`;
   const previousImages = anime.coverImage.large;
   const description = anime.description;
 
@@ -35,9 +35,5 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 export default function PageAnimeId({ params }: Params) {
-  return (
-    <>
-      <AnimePage id={params.id} />
-    </>
-  );
+  return <AnimePage id={params.id} />;
 }

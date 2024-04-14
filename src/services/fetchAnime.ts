@@ -1,4 +1,4 @@
-interface variables {
+interface Variables {
   page?: number;
   type?: string;
   sort?: string | string[];
@@ -10,7 +10,7 @@ interface variables {
   id?: string | number;
   isAdult?: boolean;
 }
-export async function fetchAnime(query: string, variables: variables) {
+export async function fetchAnime(query: string, variables: Variables) {
   try {
     const response = await fetch("https://graphql.anilist.co", {
       cache: "force-cache",
@@ -24,6 +24,7 @@ export async function fetchAnime(query: string, variables: variables) {
         variables,
       }),
     });
+    console.log(response.status);
     if (!response.ok) {
       throw new Error("error  al obtener  los datos");
     }

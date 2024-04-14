@@ -1,7 +1,5 @@
 "use client";
-import { Card } from "@/components/card/Card";
 import { Recommendations } from "@/types/types";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -14,7 +12,6 @@ export const Recommendation = ({
 }: {
   recommendations: Recommendations;
 }) => {
-  
   return (
     <>
       {recommendations.nodes.length > 1 && (
@@ -69,12 +66,11 @@ export const Recommendation = ({
               {recommendations.nodes.map((anime) => (
                 <SwiperSlide key={anime.id}>
                   <CardSlider
-                    key={anime.mediaRecommendation.id}
-                    id={anime.mediaRecommendation.id}
+                    color={anime.mediaRecommendation.coverImage.color}
+                    genres={anime.mediaRecommendation.genres}
+                    id={anime.id}
                     imagen={anime.mediaRecommendation.coverImage.large}
                     title={anime.mediaRecommendation.title.userPreferred}
-                    genres={anime.mediaRecommendation.genres}
-                    color={anime.mediaRecommendation.coverImage.color}
                   />
                 </SwiperSlide>
               ))}

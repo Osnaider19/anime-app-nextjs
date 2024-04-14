@@ -5,7 +5,7 @@ import { getDataHome } from "@/services/getDataHome";
 export async function FetchingHome() {
   const data = await getDataHome();
 
-  if (!data) return;
+  if (!data?.data) return;
 
   return (
     <div className="w-full relative h-full">
