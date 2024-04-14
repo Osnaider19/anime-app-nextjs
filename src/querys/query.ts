@@ -102,9 +102,9 @@ fragment media on Media {
     `,
   variables: {
     type: "ANIME",
-    season: "WINTER",
+    season: "SPRING",
     seasonYear: 2024,
-    nextSeason: "SPRING",
+    nextSeason: "SUMMER",
     nextYear: 2024,
   },
 };
@@ -591,9 +591,8 @@ export const queryStats = {
   },
 };
 
-
 export const queryIdMetadata = {
- query : ` query media($id: Int, $type: MediaType, $isAdult: Boolean) {
+  query: ` query media($id: Int, $type: MediaType, $isAdult: Boolean) {
   Media(id: $id, type: $type, isAdult: $isAdult) {
     id
     title {
@@ -611,6 +610,5 @@ export const queryIdMetadata = {
     description
   }
 }
-    `
-  
- }
+    `,
+};
