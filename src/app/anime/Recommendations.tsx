@@ -64,11 +64,11 @@ export const Recommendation = ({
               className="w-full h-full"
             >
               {recommendations.nodes.map((anime) => (
-                <SwiperSlide key={anime.id}>
+                <SwiperSlide key={anime.mediaRecommendation.id}>
                   <CardSlider
                     color={anime.mediaRecommendation.coverImage.color}
                     genres={anime.mediaRecommendation.genres}
-                    id={anime.id}
+                    id={anime.mediaRecommendation.id}
                     imagen={anime.mediaRecommendation.coverImage.large}
                     title={anime.mediaRecommendation.title.userPreferred}
                   />
