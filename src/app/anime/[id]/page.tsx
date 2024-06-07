@@ -16,10 +16,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { query } = queryIdMetadata; //query especial para los metadatos
 
   const data = await fetchAnime(query, { id, type: "ANIME" }); //fetch de los metadatos
-  const anime = data.data.Media;
+
+  if (data === undefined)
+    return {
+      title: "Nexanime",
+    };
+
+  const anime = data?.data?.Media;
   const title = `${anime.title.userPreferred} | Nexanime`;
   const previousImages = anime.coverImage.large;
-  const description = anime.description;
+  const description = anime.description as string;
 
   return {
     title,
@@ -31,7 +37,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         },
       ],
     },
-    description,
+    description: description.trim(),
   };
 }
 export default function PageAnimeId({ params }: Params) {
