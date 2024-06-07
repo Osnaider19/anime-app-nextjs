@@ -40,7 +40,7 @@ export function useInfinityAnime(searchParams: searchParams) {
     isFetchingNextPage,
     refetch,
     isSuccess,
-    status
+    status,
   } = useInfiniteQuery({
     queryKey: queryKey,
     queryFn: ({ pageParam = 1 }) =>
@@ -52,8 +52,14 @@ export function useInfinityAnime(searchParams: searchParams) {
     refetchOnWindowFocus: false,
     refetchOnMount: true,
     gcTime: 1000 * 60 * 5, //tiempo en que se elimina la cache
+    retry: 5,
   });
-  console.log(data)
+
+  // si la siguiente pagina es true
+  const hasNextPage =
+    data?.pages?.[data.pages.length - 1]?.data?.Page?.pageInfo?.hasNextPage ??
+    false;
+
   return {
     animes: data?.pages.flatMap((page) => page?.data?.Page.media) ?? [],
     fetchNextPage,
@@ -61,10 +67,9 @@ export function useInfinityAnime(searchParams: searchParams) {
     isFetchingNextPage,
     isLoading,
     isError,
-    hasNextPage:
-      data?.pages[data?.pages?.length - 1]?.data?.Page?.pageInfo?.hasNextPage, // si la siguiente pagina es true
+    hasNextPage,
     refetch,
     isSuccess,
-    status
+    status,
   };
 }
