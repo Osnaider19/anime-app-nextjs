@@ -10,6 +10,9 @@ type Props = {
   color: string;
 };
 export const Card = ({ id, imagen, title, genres, color }: Props) => {
+
+  if (!id || !imagen || !title || !genres || !color) return;
+  //
   const genresR = genres.slice(0, 3); //recortar el arry
 
   return (
