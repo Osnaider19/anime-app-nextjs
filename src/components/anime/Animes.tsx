@@ -53,17 +53,17 @@ export function Animes({ searchParams }: Props) {
         <div className="grid_content_card">
           {animes?.map((anime) => (
             <Card
-              key={anime.id}
-              id={anime.id}
-              color={anime.coverImage.color}
-              genres={anime.genres}
-              imagen={anime.coverImage.large}
-              title={anime.title.userPreferred}
+              key={anime?.id}
+              id={anime?.id}
+              color={anime?.coverImage.color}
+              genres={anime?.genres}
+              imagen={anime?.coverImage.large}
+              title={anime?.title.userPreferred}
             />
           ))}
         </div>
         {isFetchingNextPage && <SkeletonCards />}
-        {hasNextPage ? (
+        {hasNextPage  ? (
           <div ref={ref} role="observer-fetch-next-page"></div>
         ) : (
           <div className="py-3 w-full">
