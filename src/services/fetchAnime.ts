@@ -24,7 +24,6 @@ export async function fetchAnime(query: string, variables: Variables) {
         variables,
       }),
     });
-    console.log(response.status);
     if (!response.ok) {
       throw new Error("error  al obtener  los datos");
     }
