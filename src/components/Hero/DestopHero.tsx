@@ -60,7 +60,7 @@ export const DestopHero = ({ animes }: { animes: AnimeObject[] }) => {
                   <div className="relative w-full h-full px-8 pt-9 pb-2 ">
                     <div className="flex flex-col w-full ">
                       <div className="w-full h-full ">
-                        <p className="font-extrabold py-2  drop-shadow-2xl  line-clamp-2 sm:line-clamp-1 text-2xl sm:text-4xl">
+                        <p className="font-extrabold py-2  drop-shadow-2xl  line-clamp-2  text-2xl sm:text-4xl">
                           {anime.title.userPreferred}
                         </p>
                       </div>
@@ -105,7 +105,7 @@ export const DestopHero = ({ animes }: { animes: AnimeObject[] }) => {
                           <Tooltip content="Season Year" delay={200}>
                             <Button className="rounded-full overflow-hidden border p-0  flex justify-center items-center font-semibold underline-offset-1 bg-transparent border-danger-500">
                               <Link
-                                href={`/search/anime?season=${anime.season}`}
+                                href={`/search/anime?year=${anime.seasonYear}`}
                               >
                                 {anime.seasonYear}
                               </Link>
@@ -114,9 +114,11 @@ export const DestopHero = ({ animes }: { animes: AnimeObject[] }) => {
                         )}
 
                         {anime.season && (
-                          <Tooltip content="Season Year" delay={200}>
+                          <Tooltip content="Seasion" delay={200}>
                             <Button className="rounded-full overflow-hidden border p-0  flex justify-center items-center font-semibold underline-offset-1 bg-transparent border-danger-500">
-                              {anime.season}
+                              <Link href={`/search/anime?seasion=${anime.season}`}>
+                                {anime.season}
+                              </Link>
                             </Button>
                           </Tooltip>
                         )}
