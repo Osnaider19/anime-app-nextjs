@@ -10,7 +10,7 @@ export async function FetchingHome() {
   return (
     <div className="w-full relative h-full">
       <Slider animesPopular={data?.data.trending.media} />
-      <div className="relative w-full h-full -mt-28">
+      <div className="relative w-full h-full -mt-20">
         <SliderR
           animes={data?.data.trending.media}
           titleComponents="Trending Now"
