@@ -4,6 +4,8 @@ import { useResize } from "@/hooks/useRezise";
 import { MobileHero } from "./MobileHero";
 import { DestopHero } from "./DestopHero";
 import "./slider.css";
+import { SkeletonCard } from "../skeleton/SkeletonCard";
+import SkeletonHome from "../skeleton/SkeletonHome";
 
 type Props = {
   animesPopular: AnimeObject[];
@@ -11,10 +13,11 @@ type Props = {
 export const Slider = ({ animesPopular }: Props) => {
   //
   const isMobile = useResize(750);
-
-  if (!animesPopular || !animesPopular.length) {
-    return <div>No hay animes disponibles</div>;
-  }
+  //
+  if (!isMobile) return <SkeletonHome />;
+  //
+  if (!animesPopular || !animesPopular.length) return;
+  //
   return (
     <>
       {isMobile ? (
