@@ -71,7 +71,7 @@ export const IconSearch = () => {
   );
 };
 
-export const SearchIcon2 = (props : any) => (
+export const SearchIcon2 = (props: any) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -142,6 +142,56 @@ export const IconsArrowBB = () => {
         d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"
         stroke="currentColor"
       ></path>
+    </svg>
+  );
+};
+
+export const IconFavorite = ({
+  size,
+  fill,
+}: {
+  size: number;
+  fill: string;
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      data-t="watchlist-svg"
+      aria-labelledby="watchlist-svg"
+      aria-hidden="false"
+      role="img"
+      width={size}
+      height={size}
+      fill={fill}
+    >
+      <title id="watchlist-svg">Favoritos</title>
+      <path d="M17 18.113l-3.256-2.326A2.989 2.989 0 0 0 12 15.228c-.629 0-1.232.194-1.744.559L7 18.113V4h10v14.113zM18 2H6a1 1 0 0 0-1 1v17.056c0 .209.065.412.187.581a.994.994 0 0 0 1.394.233l4.838-3.455a1 1 0 0 1 1.162 0l4.838 3.455A1 1 0 0 0 19 20.056V3a1 1 0 0 0-1-1z"></path>
+    </svg>
+  );
+};
+
+export const IconPlayHome = ({
+  size,
+  fill,
+}: {
+  size: number;
+  fill: string;
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      data-t="play-svg"
+      aria-labelledby="play-svg"
+      aria-hidden="true"
+      role="img"
+      width={size ?? "20"}
+      height={size ?? "20"}
+      fill={fill}
+    >
+      <title id="play-svg">Reproducir</title>
+      <path d="M5.944 3C5.385 3 5 3.445 5 4.22v16.018c0 .771.384 1.22.945 1.22.234 0 .499-.078.779-.243l13.553-7.972c.949-.558.952-1.468 0-2.028L6.724 3.243C6.444 3.078 6.178 3 5.944 3m1.057 2.726l11.054 6.503L7 18.732l.001-13.006"></path>
     </svg>
   );
 };
