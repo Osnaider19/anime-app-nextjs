@@ -16,7 +16,7 @@ type Props = {
 };
 export const SliderR = ({ animes, titleComponents, link }: Props) => {
   return (
-    <div className="w-full relative z-10 px-3 sm:pl-10 pb-5">
+    <div className="w-full relative z-10 px-4 sm:pl-10 pb-5">
       <div className="text-xl  pt-3 flex  items-center justify-between ">
         <Link
           href={link ? `/${link}` : "#"}
