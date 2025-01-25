@@ -6,18 +6,33 @@ import { DestopHero } from "./DestopHero";
 import "./slider.css";
 import { SkeletonCard } from "../skeleton/SkeletonCard";
 import SkeletonHome from "../skeleton/SkeletonHome";
+import { SliderSkeleton } from "../skeleton/SliderSkeleton";
+import { useEffect, useState } from "react";
 
 type Props = {
   animesPopular: AnimeObject[];
 };
 export const Slider = ({ animesPopular }: Props) => {
-  //
+  const [isResolutionLoaded, setIsResolutionLoaded] = useState(false);
   const isMobile = useResize(750);
-  //
-  if (!isMobile) return <SkeletonHome />;
+
+  useEffect(() => {
+    if (typeof isMobile === "boolean") {
+      setIsResolutionLoaded(true);
+    }
+  }, [isMobile]);
+
+  // Mostrar el Skeleton mientras se carga la resolución
+  if (!isResolutionLoaded)
+    return (
+      <div className="w-full h-[600px] flex justify-center items-center">
+        <SliderSkeleton />
+      </div>
+    );
   //
   if (!animesPopular || !animesPopular.length) return;
   //
+
   return (
     <>
       {isMobile ? (
