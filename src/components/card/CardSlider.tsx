@@ -27,9 +27,7 @@ export const CardSlider = ({ id, imagen, title, genres, color }: Props) => {
         <div
           className="w-full h-full  absolute top-0 left-0"
           style={{
-            background: `linear-gradient(${
-              color ? color + `90` : "transparent"
-            }, transparent , transparent , transparent  , rgba(0,0,0,.7)  , rgba(0,0,0,.7))`,
+            background: `linear-gradient(transparent, transparent , transparent , transparent  , rgba(0,0,0,.7)  , rgba(0,0,0,.7))`,
           }}
         ></div>
         <div className="w-full min-h-full h-full absolute bottom-0 left-0 px-2 ">
